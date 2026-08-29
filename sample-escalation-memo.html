@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — Medical Necessity Escalation Memo — Clinovian</title>
+<meta name="description" content="Specimen Medical Necessity Escalation Memo: SNF admission denial after acute hospitalization. Clinovian's 12-section clinical escalation deliverable.">
+<meta property="og:title" content="Specimen — Medical Necessity Escalation Memo — Clinovian">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinovian.com/sample-escalation-memo.html">
+<meta property="og:description" content="Specimen Medical Necessity Escalation Memo: SNF admission denial after acute hospitalization. Clinovian's 12-section clinical escalation deliverable.">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://clinovian.com/sample-escalation-memo.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--amber-text:#8F6512;--goldl:rgba(154,123,63,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+
+/* Document container */
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+
+/* Top bar */
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+
+/* Document header */
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px;margin-bottom:0}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(26px,4vw,38px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* Specimen banner */
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+
+/* Document body */
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+
+/* Section numbering */
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+
+/* Verdict box */
+.verdict-box{border:2px solid var(--forest);padding:24px 28px;margin-bottom:20px;background:var(--forestl)}
+.verdict-level{font-family:'Spectral',serif;font-size:32px;font-weight:600;color:var(--forest);line-height:1;margin-bottom:10px}
+.verdict-explain{font-size:17px;color:var(--ink2);line-height:1.8}
+
+/* Case snapshot table */
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+
+/* Prose */
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+
+/* Bullet list */
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+
+/* Numbered list */
+.doc-num-list{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:12px;margin:16px 0}
+.doc-num-list li{display:flex;gap:14px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7;counter-increment:step}
+.doc-num-list li::before{content:counter(step)".";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:14px;margin-top:2px;flex-shrink:0;font-weight:600;min-width:22px}
+
+/* Criteria mapping table */
+.criteria-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.criteria-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.criteria-table td{padding:14px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.65}
+.criteria-table td:first-child{font-weight:600;color:var(--ink);width:180px}
+.criteria-table tr:last-child td{border-bottom:none}
+
+/* Weakness block */
+.weakness{margin-bottom:24px}
+.weakness:last-child{margin-bottom:0}
+.weakness-title{font-family:'Spectral',serif;font-size:18px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.weakness-num{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);margin-bottom:6px}
+
+/* Gap item */
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0}
+.gap-item{background:var(--paper);padding:16px 18px}
+.gap-item.has-gap{background:var(--redl)}
+.gap-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.gap-label.present{color:var(--forest)}
+.gap-label.missing{color:var(--red)}
+.gap-item p{font-size:15.5px;color:var(--ink2);line-height:1.6}
+
+/* Quote block / appeal fragment */
+.appeal-fragment{background:var(--forestl);border-left:3px solid var(--forest);padding:18px 22px;margin:18px 0;font-family:'Spectral',serif;font-size:16px;font-style:italic;color:var(--ink2);line-height:1.75}
+
+/* Risk table */
+.risk-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.risk-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.risk-table td{padding:13px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.6}
+.risk-table tr:last-child td{border-bottom:none}
+.risk-high{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:600;color:var(--red);letter-spacing:.06em}
+.risk-med{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:600;color:var(--amber-text);letter-spacing:.06em}
+.risk-low{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:600;color:var(--forest);letter-spacing:.06em}
+
+/* Recommendation box */
+.rec-box{border:2px solid var(--forest);padding:24px 28px;background:var(--forestl)}
+.rec-box p{font-size:16px;line-height:1.8;color:var(--ink)}
+
+/* Pattern tags */
+.tag-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--bg2);border:1px solid var(--rule);padding:5px 12px;color:var(--muted)}
+
+/* Footer / CTA */
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+/* Print */
+@media print{.top-bar,.doc-footer{display:none}.doc-wrap{padding:0}.doc-header{break-inside:avoid}}
+
+/* Mobile */
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.gap-grid{grid-template-columns:1fr}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+.criteria-table{font-size:14.5px}
+.criteria-table td:first-child{width:120px}
+}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+html,body{overflow-x:clip}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-escalation-memo.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+
+<div class="doc-wrap">
+
+<!-- Top bar -->
+<div class="top-bar">
+<a href="/" class="top-bar-brand">Clinovian</a>
+<a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
+</div>
+
+<!-- Document header -->
+<div class="doc-header">
+<div class="doc-header-eyebrow">Medical Necessity Escalation Memo · Specimen</div>
+<h1>SNF Admission Denial After Acute Hospitalization</h1>
+<div class="doc-header-sub">Demonstration of Clinovian's standard 12-section clinical escalation deliverable for denial and appeal teams. This is what your appeal writer receives.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-escalation-memo.pdf">Download this specimen as a PDF →</a></p>
+
+<!-- Specimen disclaimer -->
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:8px 16px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Get Started</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:8px 16px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a Case</a>
+</div>
+</div>
+<div class="specimen-banner">
+<strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. This memo demonstrates Clinovian's clinical escalation format for denial teams. It is not legal advice, not a treating-physician opinion, and not a binding U.S. medical determination. Proprietary criteria content has been generalized; actual deliverables reference the applicable licensed criteria framework as documented in the case record. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.
+</div>
+
+<!-- Document body --><div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:12px">Executive Snapshot</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+<div><div style="font-size:13px;color:var(--muted);margin-bottom:4px">Case type</div><div style="font-size:16.5px;font-weight:600">SNF admission denial (MA)</div></div>
+<div><div style="font-size:13px;color:var(--muted);margin-bottom:4px">Appealability</div><div style="font-size:16.5px;font-weight:600;color:var(--forest)">Moderate-to-Strong</div></div>
+<div><div style="font-size:13px;color:var(--muted);margin-bottom:4px">Main denial flaw</div><div style="font-size:16.5px;font-weight:600">Acute stability misapplied to post-acute skilled need</div></div>
+<div><div style="font-size:13px;color:var(--muted);margin-bottom:4px">Main documentation gap</div><div style="font-size:16.5px;font-weight:600">Therapy quantification &amp; discharge safety specificity</div></div>
+<div><div style="font-size:13px;color:var(--muted);margin-bottom:4px">Recommended action</div><div style="font-size:16.5px;font-weight:600">Appeal if missing documentation can be attached</div></div>
+</div>
+</div>
+
+<div class="doc-body">
+
+<!-- SECTION 1: Case Snapshot -->
+<div class="doc-section">
+<span class="sec-label">Section 01</span>
+<div class="sec-title">Case Snapshot</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
+<tr><td>Denied service</td><td>Skilled Nursing Facility admission — post-acute rehabilitation and skilled nursing</td></tr>
+<tr><td>Plan type</td><td>Medicare Advantage (HMO)</td></tr>
+<tr><td>Acute admission</td><td>6-day hospitalization for community-acquired pneumonia with sepsis</td></tr>
+<tr><td>Denial basis</td><td>"Patient is medically stable for discharge. Does not meet skilled-nursing-level need. Therapy services can be provided at a lower level of care."</td></tr>
+<tr><td>Current level</td><td>Post-discharge prior-authorization appeal (Level 1)</td></tr>
+<tr><td>Appeal deadline</td><td>[Fictional — 28 days from denial]</td></tr>
+<tr><td>Memo turnaround</td><td>48–72 hours from case receipt</td></tr>
+<tr><td>Clinovian verdict</td><td><strong style="color:var(--forest)">Moderate-to-Strong Appealability</strong></td></tr>
+</table></div>
+</div>
+
+<!-- SECTION 2: Appealability Verdict -->
+<div class="doc-section">
+<span class="sec-label">Section 02</span>
+<div class="sec-title">Appealability Verdict</div>
+<div class="verdict-box">
+<div class="verdict-level">Moderate-to-Strong</div>
+<div class="verdict-explain">The denial appears appealable. The payer's rationale treats the patient as requiring only custodial support, while the record documents skilled nursing needs (IV antibiotic completion, insulin titration, wound monitoring), rehabilitation needs (physical and occupational therapy requiring supervised setting), and safety risks (documented falls, orthostatic hypotension, inability to safely transfer independently) that collectively exceed what home-based or outpatient care can safely deliver. The primary weakness is documentation inconsistency: therapy evaluations note functional deficits but do not consistently quantify the assistance level required, and the discharge summary does not explicitly address why a lower level of care is insufficient. With those gaps addressed in the appeal packet, the case strengthens to <strong>strong</strong>.</div>
+</div>
+<p>This is not a case where the denial is obviously wrong. It is a case where the denial focuses on the wrong question — acute medical stability — while the actual skilled-care requirement is well-supported in the record but not surfaced in the way payer review logic expects to see it.</p>
+</div>
+
+<!-- SECTION 3: Payer Denial Rationale Summary -->
+<div class="doc-section">
+<span class="sec-label">Section 03</span>
+<div class="sec-title">Payer Denial Rationale Summary</div>
+<p>The plan denied SNF admission on three stated grounds:</p>
+<ul class="doc-num-list">
+<li><strong>Medical stability:</strong> The patient's pneumonia and sepsis have resolved. Vital signs are stable. The patient no longer requires acute inpatient monitoring or intervention.</li>
+<li><strong>No skilled-nursing-level need:</strong> The patient's remaining care needs (medication management, wound care, therapy) can be addressed without 24-hour skilled nursing supervision.</li>
+<li><strong>Lower-level-of-care availability:</strong> Home health services with outpatient physical therapy are adequate and represent a less restrictive care setting.</li>
+</ul>
+<p>The denial rationale is internally consistent but rests on a specific analytical error: it equates resolution of the <em>acute</em> condition with absence of <em>post-acute skilled-care need</em>. These are distinct clinical questions, and the payer's criteria framework evaluates them separately. The denial collapses them into one.</p>
+</div>
+
+<!-- SECTION 4: Clinical Facts That Matter -->
+<div class="doc-section">
+<span class="sec-label">Section 04</span>
+<div class="sec-title">Clinical Facts That Matter</div>
+<p>The following facts are drawn from the hospital record and are directly relevant to the SNF-level skilled-care determination. This is not a full clinical chronology — it includes only the evidence that affects the criteria pathway.</p>
+<ul class="doc-list">
+<li><strong>Ongoing IV antibiotic course:</strong> Patient is on Day 4 of a 14-day IV ertapenem course for complicated pneumonia. Completion requires daily IV access, monitoring for adverse reactions, and clinical reassessment. This is a skilled nursing function that cannot be self-administered at home.</li>
+<li><strong>Insulin titration:</strong> Blood glucose was poorly controlled during hospitalization (range 54–328 mg/dL documented over 6 days). Endocrinology recommended insulin regimen adjustment with daily fingerstick monitoring and dose titration. Patient has documented hypoglycemic episodes requiring intervention.</li>
+<li><strong>Functional decline from baseline:</strong> Pre-admission, patient was independently ambulatory with a cane and performed ADLs without assistance. At discharge, PT evaluation documents the patient requires moderate assistance for bed-to-chair transfers, contact-guard assistance for ambulation with a rolling walker (limited to 30 feet), and maximum assistance for bathing and lower-body dressing.</li>
+<li><strong>Fall risk:</strong> Two witnessed falls during hospitalization (Day 2 and Day 5). Nursing fall-risk assessment score elevated. Orthostatic hypotension documented on Day 5 (supine 118/72 → standing 88/54 with dizziness). Unresolved at discharge.</li>
+<li><strong>Wound requiring skilled monitoring:</strong> Stage II pressure injury (sacral) developed during hospitalization, requiring daily assessment, dressing changes, and repositioning protocol. Not fully epithelialized at discharge.</li>
+<li><strong>Comorbidity burden:</strong> Type 2 diabetes mellitus (insulin-dependent, poorly controlled), congestive heart failure (EF 35%, last echo 3 months prior), chronic kidney disease Stage IIIB (eGFR 38), osteoarthritis bilateral knees, depression (on SSRI), and documented malnutrition (albumin 2.6 g/dL).</li>
+<li><strong>Therapy evaluation:</strong> PT and OT evaluations both recommend inpatient rehabilitation setting. PT notes: "Patient demonstrates significant deconditioning and functional decline. Rehabilitation potential is fair to good with daily supervised therapy in a structured setting. Home environment is not currently safe for independent function." OT notes: "Unable to perform safe toilet transfer or meal preparation independently at current functional level."</li>
+<li><strong>Discharge planning:</strong> Social worker documents that the patient lives alone in a second-floor walkup apartment with no elevator. Nearest family (adult daughter) works full-time and cannot provide daytime supervision. Home health was evaluated but the discharge planner noted concern about safety given fall history, orthostatic episodes, and inability to safely navigate stairs.</li>
+</ul>
+</div>
+
+<!-- SECTION 5: Criteria-Style Reasoning -->
+<div class="doc-section">
+<span class="sec-label">Section 05</span>
+<div class="sec-title">Criteria-Style Reasoning</div>
+<p>The case should be evaluated under a skilled post-acute care framework that considers: (1) whether the patient requires daily skilled nursing or skilled rehabilitation services, (2) whether the patient has rehabilitation potential, (3) whether the care can be safely delivered at a lower level, and (4) whether the patient's medical complexity and functional status require the structured supervision of a skilled nursing facility.</p>
+<p>Mapped against these domains:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="criteria-table">
+<thead><tr><th>Requirement Area</th><th>Record Evidence</th><th>Appeal Use</th></tr></thead>
+<tbody>
+<tr>
+<td>Daily skilled nursing need</td>
+<td>IV ertapenem administration and monitoring (10 remaining days). Insulin titration with documented hypoglycemic episodes. Stage II sacral wound requiring daily skilled assessment and dressing. Orthostatic vitals monitoring.</td>
+<td>Establishes that the patient requires nursing interventions that are skilled in nature and must be performed or supervised by licensed nursing personnel on a daily basis. This is not custodial care.</td>
+</tr>
+<tr>
+<td>Rehabilitation potential</td>
+<td>PT assessment: "fair to good" rehabilitation potential with daily supervised therapy. Pre-admission functional baseline was independent ambulation and ADL performance. Current status represents acute decline, not chronic baseline.</td>
+<td>Demonstrates that therapy is expected to produce measurable functional improvement — the patient is not at a maintenance plateau. The decline is acute and reversible with structured rehabilitation.</td>
+</tr>
+<tr>
+<td>Safety risk at lower level</td>
+<td>Two inpatient falls. Orthostatic hypotension. Lives alone, second-floor walkup, no elevator, no daytime caregiver. Discharge planner documents safety concern for home discharge.</td>
+<td>Directly rebuts the payer's assertion that home health is adequate. The question is not whether home health <em>exists</em> but whether it can be delivered <em>safely</em> in this patient's specific circumstances.</td>
+</tr>
+<tr>
+<td>Medical complexity</td>
+<td>Six active comorbidities including insulin-dependent diabetes with lability, CHF with reduced EF, CKD Stage IIIB, malnutrition. Medication list includes 14 active medications with recent changes.</td>
+<td>Supports the need for a medically supervised post-acute setting where medication interactions, fluid status, renal function, and nutritional recovery can be monitored alongside rehabilitation.</td>
+</tr>
+<tr>
+<td>Lower-level insufficiency</td>
+<td>Discharge planner evaluated home health and documented that daily skilled oversight, fall-prevention protocols, and supervised therapy in a structured environment exceed what intermittent home visits can provide.</td>
+<td>The burden is on the appeal to show not just that SNF is appropriate, but that the payer's suggested alternative — home health with outpatient therapy — is specifically inadequate for this patient.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+<!-- SECTION 6: Where the Denial Logic Is Weak -->
+<div class="doc-section">
+<span class="sec-label">Section 06</span>
+<div class="sec-title">Where the Denial Logic Is Weak</div>
+
+<div class="weakness">
+<div class="weakness-num">Weakness 01</div>
+<div class="weakness-title">Medical stability is not the relevant standard for SNF necessity.</div>
+<p>The denial's lead rationale — "patient is medically stable for discharge" — answers the wrong question. The question for SNF placement is not whether the patient still requires acute inpatient hospitalization. It is whether the patient requires daily skilled post-acute care that cannot safely be delivered at a lower level. A patient can be stable enough to leave the hospital and still require skilled nursing. The payer's criteria framework evaluates these as separate determinations; the denial collapses them into one. This is the central analytical error and the strongest line of appeal.</p>
+</div>
+
+<div class="weakness">
+<div class="weakness-num">Weakness 02</div>
+<div class="weakness-title">Functional status and safety risk are not addressed in the denial.</div>
+<p>The denial does not reference the patient's transfer assistance needs, documented falls, orthostatic hypotension, or living situation. A complete denial rationale under the applicable criteria framework would need to explain how these factors are consistent with safe care at a lower level. The absence of this analysis suggests the reviewer may have focused primarily on the acute medical picture without fully evaluating the post-acute functional and safety dimensions.</p>
+</div>
+
+<div class="weakness">
+<div class="weakness-num">Weakness 03</div>
+<div class="weakness-title">The "lower level of care" assertion is conclusory.</div>
+<p>The denial states that home health and outpatient therapy are adequate but does not explain how daily IV antibiotic administration, insulin titration, wound management, fall prevention, and supervised rehabilitation would be achieved through intermittent home visits for a patient living alone in a second-floor walkup with no daytime caregiver and documented orthostatic episodes. The assertion that a lower level of care is sufficient must be supported by analysis of the specific patient's circumstances — not by the general existence of home health as a service category.</p>
+</div>
+
+<div class="weakness">
+<div class="weakness-num">Weakness 04</div>
+<div class="weakness-title">Skilled nursing interventions are individually sufficient; collectively, they are overwhelming.</div>
+<p>Even if the payer were to argue that any single skilled need (IV antibiotic, insulin titration, wound care) could be managed at home in isolation, the simultaneous presence of all three — plus the functional deficits, fall risk, and comorbidity burden — creates a cumulative skilled-care requirement that exceeds what intermittent home visits can safely coordinate. The appeal should frame the skilled-care argument cumulatively, not as a list of individual services.</p>
+</div>
+</div>
+
+<!-- SECTION 7: Documentation Gaps -->
+<div class="doc-section">
+<span class="sec-label">Section 07</span>
+<div class="sec-title">Documentation Gaps</div>
+<p>This case is clinically strong but has documentation weaknesses that the payer could exploit on appeal. Addressing these before submission materially improves the probability of overturn.</p>
+
+<div class="gap-grid">
+<div class="gap-item"><div class="gap-label present">Present in record</div><p><strong>IV antibiotic orders and administration records.</strong> Clearly documented. Strong evidence of daily skilled nursing need.</p></div>
+<div class="gap-item"><div class="gap-label present">Present in record</div><p><strong>Fall documentation.</strong> Two witnessed falls with incident reports. Nursing fall-risk score elevated. Orthostatic vitals documented.</p></div>
+<div class="gap-item has-gap"><div class="gap-label missing">Gap — needs strengthening</div><p><strong>Therapy evaluations lack quantified assistance levels.</strong> PT/OT notes describe deficits qualitatively ("requires moderate assistance") but do not consistently use a standardized functional scale or specify minutes of assistance per ADL. The payer may argue the deficits are subjective.</p></div>
+<div class="gap-item has-gap"><div class="gap-label missing">Gap — needs strengthening</div><p><strong>Discharge summary does not explicitly address lower-level insufficiency.</strong> The social worker's note addresses it, but the physician discharge summary does not state <em>why</em> home health is inadequate for this patient. A one-paragraph addendum from the discharging physician would close this gap.</p></div>
+<div class="gap-item has-gap"><div class="gap-label missing">Gap — needs strengthening</div><p><strong>Physician order for SNF does not specify skilled-care rationale.</strong> The order says "discharge to SNF for rehab" but does not enumerate the skilled needs (IV antibiotics, insulin management, wound care, supervised rehab). A clarified order strengthens the argument that SNF placement was a deliberate clinical decision, not a disposition default.</p></div>
+<div class="gap-item"><div class="gap-label present">Present in record</div><p><strong>Comorbidity and medication documentation.</strong> Problem list, medication reconciliation, and lab trends are well-documented. Supports medical complexity argument without modification.</p></div>
+</div>
+
+<p style="margin-top:20px"><strong>Key distinction:</strong> This is not a case where the care was unnecessary. It is a case where the necessity is well-supported by the clinical facts but incompletely surfaced in the documentation the payer reviewer would prioritize. The appeal must close the documentation gaps <em>and</em> attack the denial's analytical errors — both, not either alone.</p>
+</div>
+
+<!-- SECTION 8: Appeal-Writer Instructions -->
+<div class="doc-section">
+<span class="sec-label">Section 08</span>
+<div class="sec-title">Appeal-Writer Instructions</div>
+<p>These are handoff instructions for the team drafting and submitting the appeal. The clinical reasoning is above; below is how to operationalize it.</p>
+
+<p><strong>Recommended appeal structure:</strong></p>
+<ol class="doc-num-list">
+<li><strong>Open by framing the correct question.</strong> The appeal concerns whether the patient requires SNF-level skilled post-acute care — not whether the patient still requires acute hospitalization. Clarify this distinction in the first paragraph. The payer's denial answers the wrong question; the appeal should name that explicitly.</li>
+<li><strong>Rebut "medically stable" directly.</strong> Do not concede that stability means no skilled need. State clearly: medical stability for hospital discharge does not eliminate skilled post-acute care requirements. This is the central rebuttal and it should appear early.</li>
+<li><strong>Organize the argument around five domains:</strong> (a) daily skilled nursing need, (b) rehabilitation potential and functional deficit, (c) safety risk at a lower level, (d) medical complexity, (e) specific insufficiency of home health for this patient. Map each domain to record evidence. Do not list clinical facts without connecting them to the criteria domain they support.</li>
+<li><strong>Address the lower-level-of-care assertion specifically.</strong> Do not simply assert that SNF is needed. Explain concretely why the payer's suggested alternative — home health with outpatient therapy — is inadequate given this patient's documented fall risk, living situation, orthostatic episodes, and cumulative skilled-care needs. The payer asserted an alternative; the appeal must dismantle it.</li>
+<li><strong>Attach the following records in this order:</strong> (a) PT and OT evaluations, (b) nursing fall-risk assessment and fall incident reports, (c) orthostatic vital signs, (d) IV antibiotic orders and administration log, (e) insulin titration records and glucose log, (f) wound-care documentation, (g) discharge-planning/social-work note, (h) medication reconciliation list, (i) physician clarification/addendum if obtained.</li>
+<li><strong>Avoid the following:</strong> Generic language such as "patient was very sick" or "patient clearly needs SNF." Do not restate the entire hospital course; focus on facts relevant to the post-acute skilled-care determination. Do not make legal arguments about plan obligations or ERISA — Clinovian provides clinical reasoning; procedural and plan-document issues should be reviewed by the client's counsel or designated legal representative.</li>
+</ol>
+</div>
+
+<!-- SECTION 9: Suggested Appeal Language Fragments -->
+<div class="doc-section">
+<span class="sec-label">Section 09</span>
+<div class="sec-title">Suggested Appeal Language Fragments</div>
+<p>These are reusable clinical-argument fragments the appeal writer may adapt. They are not the complete appeal — they are the physician-reasoning core that the submission should build around.</p>
+
+<div class="appeal-fragment">
+"The plan's denial focuses on acute medical stability rather than the distinct skilled-care standard applicable to post-acute SNF placement. The patient no longer required acute inpatient care, but the record supports the need for daily skilled nursing — including IV antibiotic administration, insulin dose titration with documented hypoglycemic events, and wound assessment — and supervised rehabilitation services that could not safely be provided at a lower level of care."
+</div>
+
+<div class="appeal-fragment">
+"Home health was not an adequate substitute because the documented transfer-assistance requirements, fall history with orthostatic hypotension, medication complexity, and need for daily supervised therapy in a structured setting exceed what intermittent home health visits can safely coordinate — particularly for a patient living alone in a second-floor walkup with no elevator and no daytime caregiver available."
+</div>
+
+<div class="appeal-fragment">
+"The cumulative burden of skilled needs — IV antibiotic completion, insulin management, wound care, fall prevention, and daily rehabilitation — creates a post-acute care requirement that is individually justified and collectively compelling. The question is not whether any single need, in isolation, could theoretically be managed at home, but whether the simultaneous management of all of them can be safely achieved outside a skilled nursing setting for this specific patient."
+</div>
+</div>
+
+<!-- SECTION 10: Risk-of-Failure Assessment -->
+<div class="doc-section">
+<span class="sec-label">Section 10</span>
+<div class="sec-title">Risk-of-Failure Assessment</div>
+<p>Honest assessment of what could weaken the appeal and how to mitigate each risk.</p>
+
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="risk-table">
+<thead><tr><th>Risk</th><th>Severity</th><th>How to Reduce</th></tr></thead>
+<tbody>
+<tr>
+<td>Payer argues therapy deficits are subjective / not quantified</td>
+<td><span class="risk-high">HIGH</span></td>
+<td>Obtain a PT/OT addendum with standardized functional scores (e.g., Section GG functional items, Barthel) and specific assistance levels per ADL. Without this, the payer can characterize the functional argument as opinion rather than measurement.</td>
+</tr>
+<tr>
+<td>Payer reasserts "medically stable = no skilled need"</td>
+<td><span class="risk-high">HIGH</span></td>
+<td>Pre-empt by framing the correct standard in the opening paragraph of the appeal. If the reviewer re-applies the same logic, the appeal record clearly shows the distinction was raised and the denial did not address it — which strengthens a Level 2 or external-review submission.</td>
+</tr>
+<tr>
+<td>Discharge summary does not address home-health insufficiency</td>
+<td><span class="risk-med">MEDIUM</span></td>
+<td>Request a brief physician addendum (2–3 sentences) stating why the discharging physician determined that SNF-level care was required and why home health was clinically insufficient. This is the single highest-value documentation fix available.</td>
+</tr>
+<tr>
+<td>Payer argues custodial care for wound / medication management</td>
+<td><span class="risk-med">MEDIUM</span></td>
+<td>Emphasize that IV antibiotic administration requires a licensed nurse, insulin titration with documented hypoglycemia requires skilled monitoring, and wound assessment involves clinical judgment — none of these are custodial. Cite the specific interventions, not just the diagnoses.</td>
+</tr>
+<tr>
+<td>Payer argues short expected therapy duration</td>
+<td><span class="risk-low">LOW</span></td>
+<td>PT evaluation estimates 14–21 day rehabilitation course. This is within standard SNF stay durations. Ensure therapy goals and expected timeframe are documented in the attachment.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+<!-- SECTION 11: Final Recommendation -->
+<div class="doc-section">
+<span class="sec-label">Section 11</span>
+<div class="sec-title">Final Recommendation</div>
+<div class="rec-box">
+<p><strong>Appeal recommended</strong> — conditional on addressing the documentation gaps identified in Section 07.</p>
+<p>Without the therapy-evaluation addendum and physician clarification, the case remains <strong>moderate</strong> — the clinical facts support necessity, but the documentation gaps give the payer room to sustain the denial on a technicality. With those two items attached, the case moves to <strong>moderate-to-strong</strong>.</p>
+<p>If the appeal is denied at Level 1, the case is suitable for external review (Level 2 / IRE), where the analytical errors in the denial rationale — particularly the stability-versus-skilled-need conflation — are likely to receive independent scrutiny. Build the Level 1 submission with external review in mind: establish every argument clearly so the external reviewer can see what the plan's denial failed to address.</p>
+</div>
+</div>
+
+<!-- PREVENTION NOTE -->
+<div class="doc-section">
+<span class="sec-label">Operational Note</span>
+<div class="sec-title">Prevention Note</div>
+<div style="background:var(--forestl);border-left:3px solid var(--forest);padding:20px 24px">
+<p><strong>For future similar cases:</strong> This denial was triggered primarily by documentation that described the patient's post-acute needs in general clinical terms rather than mapping them to criteria-specific skilled-care thresholds. If the discharging physician had documented (1) the specific skilled services required and why they cannot be safely delivered at home or in an outpatient setting, and (2) a quantified functional-status baseline from therapy evaluations at the time of the SNF referral, this case would likely have been approved on initial review or been immediately reversible at Level 1 without physician escalation.</p>
+<p style="margin-top:10px;font-size:15.5px;color:var(--muted)">This note is included as a forward-looking operational insight for the client's physician and CDI teams — not as criticism of the treating clinician's care, which is not in question.</p>
+</div>
+</div>
+
+<!-- SECTION 12: Prevention Note & Pattern Tags -->
+<div class="doc-section">
+<span class="sec-label">Section 12</span>
+<div class="sec-title">Prevention Note &amp; Pattern Tags</div>
+<p style="font-style:italic;color:var(--muted);margin-bottom:14px"><strong>Prevention note (client-facing).</strong> For future admissions of this type, have the discharging attending record a brief SNF-level-of-care rationale at discharge — naming the skilled nursing tasks, therapy intensity, and safety risks — and summarize daily therapy minutes in the discharge document the payer reviewer will actually read. Both gaps in this case were curable at documentation time.</p><p style="margin-top:10px">Internal trend tags shown for specimen purposes. In production, these are retained by Clinovian for pattern analysis and are not included in the client-facing memo.</p>
+<div class="tag-strip">
+<span class="tag">SNF denial</span>
+<span class="tag">Post-acute skilled need</span>
+<span class="tag">Medicare Advantage</span>
+<span class="tag">Stability ≠ no skilled need</span>
+<span class="tag">Lower-level assertion unsupported</span>
+<span class="tag">Functional risk not addressed by payer</span>
+<span class="tag">Doc gap: therapy quantification</span>
+<span class="tag">Doc gap: physician SNF rationale</span>
+<span class="tag">Appealability: moderate-to-strong</span>
+<span class="tag">Cumulative skilled-need argument</span>
+</div>
+</div>
+
+</div><!-- end .doc-body -->
+
+<!-- Footer / CTA -->
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
+<p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:12px 24px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Start a 3-Case Evaluation</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a De-identified Case</a>
+<a href="/case-suitability.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Case Suitability</a>
+</div>
+</div>
+<div class="doc-footer">
+<div class="doc-footer-brand">Clinovian</div>
+<p>This specimen demonstrates the standard Medical Necessity Escalation Memo format — the deliverable your denial team receives for every escalated case. The memo provides the clinical argument; your team handles the appeal submission.</p>
+<p><strong>Start with a 3-case evaluation.</strong> Send three denial cases. Receive a full physician deliverable for each, plus a pattern summary. <a href="/engagements.html">View engagements →</a></p>
+<p>Or send a de-identified denial rationale for an initial fit assessment — fit response in 24–48 hours. <a href="/contact.html">Contact →</a></p>
+<p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. Not a binding U.S. medical determination. © 2026 Clinovian · <a href="mailto:contact@clinovian.com" style="color:rgba(255,255,255,.78)">contact@clinovian.com</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
+</div>
+
+</div><!-- end .doc-wrap -->
+
+</main>
+</body>
+</html>

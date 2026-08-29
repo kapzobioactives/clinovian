@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — DRG Downgrade Challenge Memo — Clinovian</title>
+<meta name="description" content="Specimen DRG Downgrade Challenge: Sepsis DRG 871 vs 872. Demonstrates Clinovian's clinical-coding crossover reasoning for paid-but-downgraded claims.">
+<link rel="canonical" href="https://clinovian.com/sample-drg-downgrade.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--amber-text:#8F6512;--gold-text:#7A5F2B;--goldl:rgba(154,123,63,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(24px,4vw,36px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+.verdict-box{border:2px solid var(--forest);padding:24px 28px;margin-bottom:20px;background:var(--forestl)}
+.verdict-level{font-family:'Spectral',serif;font-size:28px;font-weight:600;color:var(--forest);line-height:1;margin-bottom:10px}
+.verdict-explain{font-size:17px;color:var(--ink2);line-height:1.8}
+
+/* DRG comparison */
+.drg-compare{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;border:1px solid var(--rule);margin:20px 0;align-items:stretch}
+.drg-box{padding:24px;background:var(--paper)}
+.drg-box.target{background:var(--forestl)}
+.drg-box-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.drg-box-label.paid{color:var(--red)}
+.drg-box-label.target{color:var(--forest)}
+.drg-box-num{font-family:'Spectral',serif;font-size:42px;font-weight:600;line-height:1;margin-bottom:6px}
+.drg-box.target .drg-box-num{color:var(--forest)}
+.drg-box-name{font-size:15.5px;color:var(--ink2);margin-bottom:8px}
+.drg-box-weight{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted)}
+.drg-arrow{display:flex;align-items:center;justify-content:center;background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--forest);border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
+.drg-delta{background:var(--forest);color:#fff;padding:16px 24px;margin:20px 0;display:flex;align-items:center;gap:20px}
+.drg-delta-amount{font-family:'Spectral',serif;font-size:36px;font-weight:600}
+.drg-delta-text{font-size:15.5px;color:rgba(255,255,255,.8)}
+
+/* Evidence table */
+.evidence-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.evidence-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.evidence-table td{padding:14px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.65}
+.evidence-table td:first-child{font-weight:600;color:var(--ink);width:200px}
+.evidence-table tr:last-child td{border-bottom:none}
+
+/* Rebuttal block */
+.rebuttal{margin:20px 0;border:1px solid var(--rule);overflow:hidden}
+.rebuttal-payer{padding:18px 22px;background:var(--redl);border-bottom:1px solid var(--rule)}
+.rebuttal-response{padding:18px 22px;background:var(--forestl)}
+.rebuttal-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+.rebuttal-label.payer{color:var(--red)}
+.rebuttal-label.response{color:var(--forest)}
+.rebuttal p{font-size:16px;color:var(--ink2);line-height:1.75}
+
+.rec-box{border:2px solid var(--forest);padding:24px 28px;background:var(--forestl)}
+.rec-box p{font-size:16px;line-height:1.8;color:var(--ink)}
+
+.tag-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--bg2);border:1px solid var(--rule);padding:5px 12px;color:var(--muted)}
+
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.drg-compare{grid-template-columns:1fr}
+.drg-arrow{padding:8px;border-left:none;border-right:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media print{.top-bar,.doc-pdf-link{display:none!important}}
+html,body{overflow-x:clip}
+</style>
+<meta property="og:title" content="Specimen — DRG Downgrade Challenge Memo — Clinovian">
+<meta property="og:description" content="Sepsis DRG 872 to 871 recovery memo. Clinical severity evidence, auditor rebuttal, CDI handoff for paid-but-downgraded claims.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinovian.com/sample-drg-downgrade.html">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-drg-downgrade.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+
+<div class="doc-wrap">
+
+<div class="top-bar">
+<a href="/" class="top-bar-brand">Clinovian</a>
+<a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
+</div>
+
+<div class="doc-header">
+<div class="doc-header-eyebrow">DRG Downgrade Challenge Memo · Specimen</div>
+<h1>Sepsis DRG 872 → 871: Paid-but-Downgraded Recovery</h1>
+<div class="doc-header-sub">Clinical-coding crossover reasoning for a DRG downgrade dispute. Designed to complement CDI workflows, not replace them.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-drg-downgrade.pdf">Download this specimen as a PDF →</a></p>
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:8px 16px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Get Started</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:8px 16px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a Case</a>
+</div>
+</div>
+<div class="specimen-banner">
+<strong>Specimen only.</strong> Fictional case. No PHI. Demonstrates the DRG Downgrade Challenge Memo format — the deliverable a denial or CDI team receives for paid-but-downgraded claim disputes. Clinical consulting only; coding decisions remain with the client's certified coding professionals.
+</div>
+
+<div class="doc-body">
+
+<!-- Case Snapshot -->
+<div class="doc-section">
+<span class="sec-label">Case Snapshot</span>
+<div class="sec-title">Claim Summary</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
+<tr><td>Billed DRG</td><td>871 — Septicemia or Severe Sepsis without MV >96 hours, with MCC</td></tr>
+<tr><td>Paid DRG</td><td>872 — Septicemia or Severe Sepsis without MV >96 hours, without MCC</td></tr>
+<tr><td>Plan type</td><td>Commercial PPO</td></tr>
+<tr><td>Payer action</td><td>Paid at DRG 872; MCC designation removed on post-payment audit (AKI reclassified as not meeting MCC criteria)</td></tr>
+<tr><td>Disputed delta</td><td>Illustrative: $12,000–$18,000 depending on facility rate</td></tr>
+</table></div>
+
+<div class="drg-compare">
+<div class="drg-box">
+<div class="drg-box-label paid">Paid At</div>
+<div class="drg-box-num">872</div>
+<div class="drg-box-name">Septicemia/Severe Sepsis w/o MV >96h, <strong>without MCC</strong></div>
+<div class="drg-box-weight">Lower relative weight</div>
+</div>
+<div class="drg-arrow">→</div>
+<div class="drg-box target">
+<div class="drg-box-label target">Should Be</div>
+<div class="drg-box-num">871</div>
+<div class="drg-box-name">Septicemia/Severe Sepsis w/o MV >96h, <strong>with MCC</strong></div>
+<div class="drg-box-weight">Higher relative weight</div>
+</div>
+</div>
+
+<div class="drg-delta">
+<div class="drg-delta-amount">$12K–$18K</div>
+<div class="drg-delta-text">Illustrative payment delta between DRG 872 and DRG 871. These claims never appear in denial dashboards because they were paid — just at the wrong rate.</div>
+</div>
+</div>
+
+<!-- Appealability -->
+<div class="doc-section">
+<span class="sec-label">Appealability</span>
+<div class="sec-title">Recovery Verdict</div>
+<div class="verdict-box">
+<div class="verdict-level">Strong Appealability</div>
+<div class="verdict-explain">The removal of the MCC designation appears clinically unsupported based on the documented record. The record documents acute kidney injury (AKI) with creatinine rise from baseline 1.1 to peak 3.4 mg/dL during hospitalization, supporting the clinical significance of AKI for CDI/coding review by the client's certified coding professionals. The payer auditor's rationale — that the creatinine elevation was "transient and resolved" — applies a clinical recovery standard rather than the coding standard, which captures the condition as present and treated during the encounter regardless of resolution at discharge.</div>
+</div>
+</div>
+
+<!-- Payer Auditor Rationale -->
+<div class="doc-section">
+<span class="sec-label">Payer Position</span>
+<div class="sec-title">Auditor's Downgrade Rationale</div>
+<p>The payer's post-payment audit downgraded DRG 871 to 872 on the following basis:</p>
+<ul class="doc-list">
+<li>The acute kidney injury was "transient" — creatinine peaked at 3.4 mg/dL on Day 3 but returned to 1.6 mg/dL by discharge.</li>
+<li>No dialysis was required, and the patient was not transferred to a higher level of care for renal management.</li>
+<li>The auditor concluded the AKI did not represent a "major" complication because it resolved with conservative management (IV fluids and medication adjustment).</li>
+</ul>
+<p>The auditor's rationale conflates clinical resolution with coding classification. These are distinct standards.</p>
+</div>
+
+<!-- Clinical Severity Evidence -->
+<div class="doc-section">
+<span class="sec-label">Clinical Evidence</span>
+<div class="sec-title">Severity Markers Supporting MCC</div>
+<p>The following documented clinical findings support the coding of AKI as a major complication/comorbidity during this encounter:</p>
+
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table">
+<thead><tr><th>Severity Marker</th><th>Record Evidence</th><th>Relevance to MCC</th></tr></thead>
+<tbody>
+<tr>
+<td>Creatinine trajectory</td>
+<td>Baseline 1.1 mg/dL (prior labs, 3 months). Admission 1.8. Day 2: 2.6. Day 3: 3.4 (peak). Day 5: 2.1. Discharge: 1.6.</td>
+<td>Greater than 2x baseline rise meets KDIGO Stage 2 AKI criteria. The magnitude of rise, not the resolution, determines whether AKI was present during the encounter.</td>
+</tr>
+<tr>
+<td>Clinical intervention</td>
+<td>IV fluid resuscitation adjusted specifically for renal protection. Nephrotoxic medications held (NSAID, ACE inhibitor). Fluid balance monitored. Urine output tracked hourly on Days 2–4.</td>
+<td>These are active clinical interventions specifically targeting the AKI — not passive observation. The resource utilization pattern supports the MCC classification.</td>
+</tr>
+<tr>
+<td>Physician documentation</td>
+<td>Attending progress note Day 3: "AKI — likely ATN in setting of sepsis. Holding nephrotoxins. Renal dosing antibiotics. Will trend Cr and urine output. Nephrology consult if no improvement in 24 hours."</td>
+<td>The physician identified, assessed, monitored, and actively managed the AKI as a distinct clinical problem. This meets the standard for a condition that was present and required clinical evaluation and management during the encounter.</td>
+</tr>
+<tr>
+<td>Medication adjustments</td>
+<td>Vancomycin renal-dosed (trough-guided). Metformin held. Lisinopril held. Ibuprofen discontinued. Gentamicin considered and rejected due to renal status.</td>
+<td>Multiple medication decisions were made specifically because of the AKI. This represents clinical resource utilization and decision complexity attributable to the complication.</td>
+</tr>
+<tr>
+<td>Discharge status</td>
+<td>Creatinine 1.6 at discharge (above baseline of 1.1). Discharge instructions include nephrology follow-up in 2 weeks and repeat renal panel. Medications remain adjusted.</td>
+<td>The AKI had not fully resolved at discharge — creatinine remained elevated above baseline. The ongoing management plan further supports the condition's clinical significance during the encounter.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+<!-- Point-by-point rebuttal -->
+<div class="doc-section">
+<span class="sec-label">Rebuttal</span>
+<div class="sec-title">Point-by-Point Response to Auditor</div>
+
+<div class="rebuttal">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"The AKI was transient and resolved with conservative management."</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>The coding standard for assigning a complication/comorbidity does not require that the condition persist through discharge or require a specific intervention threshold such as dialysis. The standard requires that the condition was <strong>clinically present</strong> during the encounter and <strong>required clinical evaluation, monitoring, or management</strong>. AKI with creatinine rise to 3.4 (KDIGO Stage 2), active intervention (fluid management, nephrotoxin hold, renal dosing, hourly urine monitoring), and physician-documented assessment and treatment plan satisfies this standard. Resolution with conservative management does not retroactively eliminate the condition from the encounter record.</p></div>
+</div>
+
+<div class="rebuttal" style="margin-top:16px">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"No dialysis was required."</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>Dialysis is not a prerequisite for AKI to qualify as an MCC. The MCC classification reflects the clinical severity and resource impact of the condition during the hospitalization — not whether a specific procedural intervention was performed. Many conditions classified as MCCs (e.g., respiratory failure managed with supplemental oxygen rather than mechanical ventilation, coagulopathy managed with factor replacement rather than surgical intervention) qualify on the basis of clinical significance, monitoring, and management rather than a procedural threshold.</p></div>
+</div>
+
+<div class="rebuttal" style="margin-top:16px">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"The complication did not rise to the level of 'major.'"</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>The distinction between MCC and CC is a coding classification defined by CMS, not a clinical severity judgment made by the auditor. AKI is classified as an MCC in the MS-DRG system when properly documented and coded. The auditor's rationale applies a clinical-impression standard ("not major enough") rather than the coding standard ("was the condition present, documented, and did it affect management"). The record satisfies the coding standard.</p></div>
+</div>
+</div>
+
+<!-- CDI handoff -->
+<div class="doc-section">
+<span class="sec-label">CDI / Coding Handoff</span>
+<div class="sec-title">Notes for the CDI and Coding Team</div>
+<p>This memo provides the clinical reasoning that supports the MCC classification. The following operational notes are for the CDI specialist and coding professional completing the appeal:</p>
+<ul class="doc-list">
+<li><strong>Verify the principal diagnosis code assignment.</strong> Confirm the sepsis sequencing follows current guidelines — sepsis as principal diagnosis, AKI as secondary diagnosis with appropriate code reflecting the stage/severity.</li>
+<li><strong>Confirm physician query if needed.</strong> If the attending's documentation of AKI is present but does not explicitly link it to sepsis as a complication, a compliant physician query may strengthen the record. The progress note on Day 3 already documents the clinical link ("AKI — likely ATN in setting of sepsis"), which is strong.</li>
+<li><strong>Attach the full creatinine trend.</strong> The trajectory from baseline through peak to discharge is the single most persuasive piece of evidence. Present it as a table or timeline, not buried in lab reports.</li>
+<li><strong>Reference coding guidance.</strong> The appeal should cite applicable coding conventions regarding the assignment of conditions that are clinically present and managed during the encounter, regardless of resolution at discharge. Clinovian provides the clinical severity argument; coding-convention citations are the CDI/coding team's domain.</li>
+</ul>
+<p><strong>This memo complements your CDI workflow — it does not replace it.</strong> The clinical severity argument (why the AKI is real, significant, and actively managed) is Clinovian's contribution. The coding-rule argument (why the MCC assignment is correct under current guidelines) is yours. The strongest appeals combine both.</p>
+</div>
+
+<!-- Risk assessment -->
+<div class="doc-section">
+<span class="sec-label">Risk Assessment</span>
+<div class="sec-title">Recovery Risk Factors</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table">
+<thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+<tbody>
+<tr><td>Auditor re-applies "resolved = not major" logic</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Pre-empt by citing the coding standard (condition present and managed) vs. clinical outcome standard in the first paragraph of the appeal. Make the distinction unavoidable.</td></tr>
+<tr><td>Physician documentation lacks explicit "AKI" diagnosis label</td><td><strong style="color:var(--forest)">Low in this case</strong></td><td>The Day 3 note explicitly names "AKI — likely ATN." If this were absent, a compliant physician query would be needed. Not required here.</td></tr>
+<tr><td>Payer argues creatinine rise was pre-existing CKD progression</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Baseline creatinine of 1.1 from 3 months prior establishes a clear pre-illness baseline. The acute rise to 3.4 is distinct from any chronic trajectory. Include the baseline lab in the appeal packet.</td></tr>
+<tr><td>Second-level review upholds downgrade</td><td><strong style="color:var(--forest)">Low</strong></td><td>If Level 1 fails, this case is well-suited for external review — the clinical evidence is strong and the auditor's logic has a clearly identifiable error. Build the Level 1 appeal with external review in mind.</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<!-- Recommendation -->
+<div class="doc-section">
+<span class="sec-label">Recommendation</span>
+<div class="sec-title">Final Recommendation</div>
+<div class="rec-box">
+<p><strong>Pursue recovery.</strong> The clinical evidence strongly supports AKI as an MCC during this encounter. The payer auditor's downgrade applies the wrong standard — clinical resolution rather than coding classification. The creatinine trajectory, active interventions, medication adjustments, and physician documentation collectively establish that the condition was present, managed, and clinically significant. Combined with the CDI/coding team's guideline citations, this case has strong appealability based on the documented clinical record, subject to final coding validation and payer review.</p>
+<p><strong>Illustrative disputed value:</strong> $12,000–$18,000 depending on facility-specific DRG rate differential. Not a recovery guarantee. This is one case. The pattern — payer auditors applying clinical-resolution logic to downgrade MCCs — is systematic and likely affects other sepsis, respiratory failure, and AKI-complicated cases in the same audit batch.</p>
+</div>
+</div>
+
+<!-- Pattern tags -->
+<div class="doc-section">
+<span class="sec-label">Operational Note</span>
+<div class="sec-title">Prevention Note</div>
+<div style="background:var(--forestl);border-left:3px solid var(--forest);padding:20px 24px">
+<p><strong>For future similar cases:</strong> DRG downgrades in sepsis cases are frequently driven by documentation that describes the treatment provided without connecting clinical severity markers to the higher-weighted DRG. If the treating physician had documented the specific clinical indicators of organ dysfunction severity — hemodynamic instability, vasopressor requirements, mechanical ventilation parameters — in the discharge summary (not just the progress notes), the coding team would have had the documentation needed to support the higher DRG at initial billing, before payer audit.</p>
+<p style="margin-top:10px;font-size:15.5px;color:var(--muted)">Forward-looking operational insight for the client's physician and CDI teams.</p>
+</div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Internal Pattern Tags</span>
+<div class="sec-title">Trend Tags</div>
+<p style="font-style:italic;color:var(--muted);margin-bottom:14px">Internal trend tags shown for specimen purposes.</p>
+<div class="tag-strip">
+<span class="tag">DRG downgrade</span>
+<span class="tag">871 → 872</span>
+<span class="tag">AKI as MCC</span>
+<span class="tag">Auditor: resolution ≠ coding standard</span>
+<span class="tag">Sepsis complication</span>
+<span class="tag">Clinical-coding crossover</span>
+<span class="tag">CDI complement</span>
+<span class="tag">Recovery: strong</span>
+</div>
+</div>
+
+</div><!-- end .doc-body -->
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
+<p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:12px 24px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Start a 3-Case Evaluation</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a De-identified Case</a>
+<a href="/case-suitability.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Case Suitability</a>
+</div>
+</div>
+<div class="doc-footer">
+<div class="doc-footer-brand">Clinovian</div>
+<p>This specimen demonstrates the DRG Downgrade Challenge Memo — the physician-level clinical severity argument that complements your CDI team's coding-rule citations. Paid-but-downgraded claims never appear in denial dashboards. They require someone looking for them.</p>
+<p><a href="/engagements.html">Start a 3-case evaluation →</a> · <a href="/contact.html">Send a de-identified case →</a></p>
+<p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. Coding decisions remain with the client's certified coding professionals. © 2026 Clinovian · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
+</div>
+
+</div>
+</main>
+</body>
+</html>

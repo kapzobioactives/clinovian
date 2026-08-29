@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — NSA/IDR Clinical Value Dossier — Clinovian</title>
+<meta name="description" content="Specimen physician-authored NSA/IDR clinical value dossier for a single emergency critical-care item with the five additional circumstances.">
+<meta property="og:title" content="Specimen — NSA/IDR Clinical Value Dossier — Clinovian"><meta property="og:description" content="Fictional physician-authored Federal IDR clinical evidence specimen for a single emergency critical-care item."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:url" content="https://clinovian.com/sample-nsa-idr-dossier.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--goldl:rgba(154,123,63,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(24px,4vw,36px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+.verdict-box{border:2px solid var(--forest);padding:24px 28px;margin-bottom:20px;background:var(--forestl)}
+.verdict-level{font-family:'Spectral',serif;font-size:28px;font-weight:600;color:var(--forest);line-height:1;margin-bottom:10px}
+.verdict-explain{font-size:17px;color:var(--ink2);line-height:1.8}
+
+/* DRG comparison */
+.drg-compare{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;border:1px solid var(--rule);margin:20px 0;align-items:stretch}
+.drg-box{padding:24px;background:var(--paper)}
+.drg-box.target{background:var(--forestl)}
+.drg-box-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.drg-box-label.paid{color:var(--red)}
+.drg-box-label.target{color:var(--forest)}
+.drg-box-num{font-family:'Spectral',serif;font-size:42px;font-weight:600;line-height:1;margin-bottom:6px}
+.drg-box.target .drg-box-num{color:var(--forest)}
+.drg-box-name{font-size:15.5px;color:var(--ink2);margin-bottom:8px}
+.drg-box-weight{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted)}
+.drg-arrow{display:flex;align-items:center;justify-content:center;background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--forest);border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
+.drg-delta{background:var(--forest);color:#fff;padding:16px 24px;margin:20px 0;display:flex;align-items:center;gap:20px}
+.drg-delta-amount{font-family:'Spectral',serif;font-size:36px;font-weight:600}
+.drg-delta-text{font-size:15.5px;color:rgba(255,255,255,.8)}
+
+/* Evidence table */
+.evidence-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.evidence-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.evidence-table td{padding:14px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.65}
+.evidence-table td:first-child{font-weight:600;color:var(--ink);width:200px}
+.evidence-table tr:last-child td{border-bottom:none}
+
+/* Rebuttal block */
+.rebuttal{margin:20px 0;border:1px solid var(--rule);overflow:hidden}
+.rebuttal-payer{padding:18px 22px;background:var(--redl);border-bottom:1px solid var(--rule)}
+.rebuttal-response{padding:18px 22px;background:var(--forestl)}
+.rebuttal-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+.rebuttal-label.payer{color:var(--red)}
+.rebuttal-label.response{color:var(--forest)}
+.rebuttal p{font-size:16px;color:var(--ink2);line-height:1.75}
+
+.rec-box{border:2px solid var(--forest);padding:24px 28px;background:var(--forestl)}
+.rec-box p{font-size:16px;line-height:1.8;color:var(--ink)}
+
+.tag-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--bg2);border:1px solid var(--rule);padding:5px 12px;color:var(--muted)}
+
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.drg-compare{grid-template-columns:1fr}
+.drg-arrow{padding:8px;border-left:none;border-right:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media print{.top-bar,.doc-pdf-link{display:none!important}}
+html,body{overflow-x:clip}
+</style>
+<link rel="canonical" href="https://clinovian.com/sample-nsa-idr-dossier.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-nsa-idr-dossier.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+<div class="doc-wrap">
+<div class="top-bar"><a href="/" class="top-bar-brand">Clinovian</a><a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a></div>
+<div class="doc-header">
+<div class="doc-header-eyebrow">Specimen · NSA/IDR Clinical Value Dossier</div>
+<h1>Clinical Evidence Dossier</h1>
+<div class="doc-header-sub">Single-item Federal IDR dispute · Emergency physician critical care (CPT 99291) · Fictional severe septic-shock encounter.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-nsa-idr-dossier.pdf">Download this specimen as a PDF →</a></p>
+<div class="specimen-banner"><strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, payer, claim, or offer. Clinovian’s scope is clinical analysis and dossier language only; eligibility, coding, offer selection, filing, portal access, fees, deadlines, legal strategy, and certification remain with the client and its designated advisers.</div>
+<div class="doc-body">
+
+<div class="doc-section">
+<span class="sec-label">Section 01</span><div class="sec-title">Dispute Snapshot</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 2"><table class="snapshot-table">
+<tr><td>Qualified item</td><td>Emergency physician critical care, first 30–74 minutes (CPT 99291)</td></tr>
+<tr><td>Dispute structure</td><td>Single-item Federal IDR dispute</td></tr>
+<tr><td>Clinical presentation</td><td>Septic shock with acute hypoxemic respiratory failure, vasopressor initiation, and emergent source-control coordination</td></tr>
+<tr><td>Initial payment</td><td>$690 · fictional client-supplied field</td></tr>
+<tr><td>Qualifying Payment Amount</td><td>$720 · fictional client-supplied disclosure</td></tr>
+<tr><td>Initiating party offer</td><td>$2,100 · selected and approved by client</td></tr>
+<tr><td>Non-initiating party offer</td><td>$720 · shown separately even where numerically identical to QPA</td></tr>
+<tr><td>Clinovian scope</td><td>Clinical evidence synthesis, record mapping, and narrative QA only</td></tr>
+</table></div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 02</span><div class="sec-title">Clinical Evidence Map</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="evidence-table">
+<thead><tr><th>Clinical fact</th><th>Record support</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>Shock at presentation</td><td>BP 78/46 after initial fluid bolus; lactate 5.2 mmol/L; mottled extremities</td><td>Establishes immediate life-threatening instability and high-risk medical decision-making.</td></tr>
+<tr><td>Vasopressor management</td><td>Norepinephrine initiated and titrated through central access with continuous reassessment</td><td>Supports active critical-care management rather than routine emergency evaluation.</td></tr>
+<tr><td>Respiratory failure</td><td>SpO₂ 84% on room air; escalating oxygen support; arterial blood gas and airway-readiness documentation</td><td>Demonstrates concurrent organ dysfunction and resource intensity.</td></tr>
+<tr><td>Source-control coordination</td><td>Urgent surgical consultation, broad-spectrum antibiotics, serial reassessment, transfer to operating room</td><td>Shows time-sensitive multidisciplinary management with high risk of deterioration.</td></tr>
+<tr><td>Critical-care time</td><td>58 minutes of non-duplicative physician critical-care time documented</td><td>Supports the clinical intensity of the disputed service, subject to client coding validation.</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 03</span><div class="sec-title">Five Enumerated Additional Circumstances</div>
+<p><strong>1 — Training, experience, quality and outcomes.</strong> The treating physician’s emergency-medicine certification, critical-care experience, and client-supplied quality data may be relevant if verified and connected to the disputed service. Generic credential statements are excluded.</p>
+<p><strong>2 — Market share of the parties.</strong> Market-share evidence is outside the medical record. Clinovian flags it for client or counsel validation and does not infer it from the clinical file.</p>
+<p><strong>3 — Patient acuity or complexity of furnishing the service.</strong> Strongly supported. Shock, respiratory failure, vasopressor titration, serial reassessment, and emergent source-control coordination materially distinguish the encounter from a routine high-acuity ED visit.</p>
+<p><strong>4 — Teaching status, case mix and scope of services.</strong> Potentially relevant if the client verifies the facility’s status and explains how its capabilities were material to this encounter. The dossier does not assume that facility status alone changes value.</p>
+<p><strong>5 — Good-faith contracting efforts and prior contracted rates.</strong> Client-supplied contracting evidence may be included where applicable. Clinovian does not convert contracting history into a clinical conclusion.</p>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 04</span><div class="sec-title">QPA and Offer Separation</div>
+<div class="rebuttal">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">What the dossier does not say</div><p>The QPA is not labeled as the payer’s offer, and the initial payment is not treated as interchangeable with either figure. The dossier does not claim that the QPA is invalid or incapable of reflecting any complexity.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">What the clinical record supports</div><p>The case-specific severity, risk, and resource intensity documented here may not be fully captured by the QPA or initial payment. The client may use this evidence, together with other credible permissible information, when supporting its independently selected offer.</p></div>
+</div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 05</span><div class="sec-title">Missing-Evidence and Duplication Check</div>
+<ul class="doc-list">
+<li>Confirm that the critical-care time is non-duplicative and supports the submitted code.</li>
+<li>Obtain the plan’s complete QPA disclosure and keep the QPA distinct from both party offers.</li>
+<li>Validate any market-share, facility, quality-outcome, and contracting evidence outside the medical record.</li>
+<li>Remove clinical facts already incorporated into the QPA or repeated across multiple circumstances without additional relevance.</li>
+<li>Exclude billed-charge, usual-and-customary, and public-payer-rate arguments from the clinical dossier.</li>
+</ul>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 06</span><div class="sec-title">Physician Clinical Synthesis</div>
+<div class="rec-box"><p><strong>Clinical conclusion for client review.</strong> The record supports a materially complex critical-care encounter involving hemodynamic shock, respiratory failure, vasopressor management, serial reassessment, and urgent source-control coordination. Those case-specific facts provide a credible clinical basis for distinguishing the service from a routine emergency encounter. The client retains responsibility for deciding how that evidence relates to its offer and for all procedural and legal submissions.</p></div>
+<div class="tag-strip"><span class="tag">Single-item dispute</span><span class="tag">Clinical evidence map</span><span class="tag">Five circumstances</span><span class="tag">QPA separated</span><span class="tag">No portal access</span></div>
+</div>
+
+</div>
+<div class="doc-footer"><div class="doc-footer-brand">Clinovian</div><p>This specimen demonstrates the clinical evidence layer only. A live engagement begins with a de-identified suitability screen, written fixed scope, BAA where required, and secure transfer instructions. Clinovian does not determine IDR eligibility, validate coding, select offers, access the portal, pay process fees, or provide legal representation.</p><p><a href="/nsa-idr.html">NSA/IDR service detail</a> · <a href="/contact.html">Request a de-identified suitability screen</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p></div>
+</div>
+</main>
+</body>
+</html>

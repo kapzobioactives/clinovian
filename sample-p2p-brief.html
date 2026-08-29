@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — Peer-to-Peer Prep Brief — Clinovian</title>
+<meta name="description" content="Specimen P2P Prep Brief: atrial fibrillation catheter ablation prior authorization. Criteria-mapped physician briefing for a payer peer-to-peer call.">
+<link rel="canonical" href="https://clinovian.com/sample-p2p-brief.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--amber-text:#8F6512;--goldl:rgba(154,123,63,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(24px,4vw,36px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+
+/* Objection-response pairs */
+.obj-block{margin:20px 0;border:1px solid var(--rule);overflow:hidden}
+.obj-header{padding:16px 22px;background:var(--redl);border-bottom:1px solid var(--rule)}
+.obj-response{padding:18px 22px;background:var(--forestl)}
+.obj-fallback{padding:16px 22px;background:var(--goldl);border-top:1px solid var(--rule)}
+.obj-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.obj-label.anticipated{color:var(--red)}
+.obj-label.response{color:var(--forest)}
+.obj-label.fallback{color:var(--amber-text)}
+.obj-block p{font-size:16px;color:var(--ink2);line-height:1.75}
+
+/* Talking point */
+.tp{margin:12px 0;padding:14px 18px;background:var(--forestl);border-left:3px solid var(--forest)}
+.tp p{font-size:16.5px;color:var(--ink2);line-height:1.75}
+.tp strong{color:var(--ink)}
+
+/* Call structure */
+.call-phase{margin-bottom:28px}
+.call-phase-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--forest);display:inline-block}
+.call-phase h3{font-family:'Spectral',serif;font-size:20px;font-weight:500;margin-bottom:12px}
+
+/* Checklist */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.checklist li{display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--ink2)}
+.checklist li::before{content:"☐";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:14.5px;margin-top:1px}
+
+.note{margin-top:16px;padding:14px 16px;background:var(--forestl);border-left:2px solid var(--forest);font-size:16px;color:var(--ink2);line-height:1.7}
+.note.warn{background:var(--redl);border-left-color:var(--red)}
+
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media print{.top-bar,.doc-pdf-link{display:none!important}}
+html,body{overflow-x:clip}
+</style>
+<meta property="og:title" content="Specimen — Peer-to-Peer Prep Brief — Clinovian">
+<meta property="og:description" content="Specimen P2P Prep Brief: atrial fibrillation catheter ablation prior authorization. Criteria-mapped physician briefing for a payer peer-to-peer call.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinovian.com/sample-p2p-brief.html">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-p2p-brief.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+
+<div class="doc-wrap">
+
+<div class="top-bar">
+<a href="/" class="top-bar-brand">Clinovian</a>
+<a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
+</div>
+
+<div class="doc-header">
+<div class="doc-header-eyebrow">Peer-to-Peer Prep Brief · Specimen</div>
+<h1>Atrial Fibrillation Catheter Ablation — Prior Authorization P2P</h1>
+<div class="doc-header-sub">Criteria-mapped physician briefing for a scheduled peer-to-peer call with a payer medical director. The treating physician knows the patient — this brief provides the payer's decision logic.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-p2p-brief.pdf">Download this specimen as a PDF →</a></p>
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:8px 16px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Get Started</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:8px 16px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a Case</a>
+</div>
+</div>
+<div class="specimen-banner">
+<strong>Specimen only.</strong> Fictional case. No PHI. Demonstrates the P2P Prep Brief format — the deliverable a treating physician receives before a scheduled peer-to-peer call. Proprietary criteria content generalized. Clinical consulting only.
+</div>
+
+<div class="doc-body">
+
+<!-- Case snapshot -->
+<div class="doc-section">
+<span class="sec-label">Case Snapshot</span>
+<div class="sec-title">Authorization Summary</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens)"><table class="snapshot-table">
+<tr><td>Requested procedure</td><td>Catheter ablation for persistent atrial fibrillation (CPT 93656)</td></tr>
+<tr><td>Plan type</td><td>Commercial HMO</td></tr>
+<tr><td>Denial basis</td><td>"Does not meet medical necessity. Conservative management options have not been exhausted."</td></tr>
+<tr><td>P2P call scheduled</td><td>[Fictional — 2 days from brief delivery]</td></tr>
+<tr><td>Payer reviewer</td><td>Medical director (specialty unknown — assume internal medicine or cardiology)</td></tr>
+<tr><td>Brief turnaround</td><td>24 hours</td></tr>
+</table></div>
+</div>
+
+<!-- What the reviewer is evaluating -->
+<div class="doc-section">
+<span class="sec-label">Know Your Audience</span>
+<div class="sec-title">What the Payer Reviewer Is Evaluating</div>
+<p>The P2P is not only a clinical conversation — it is a criteria-evaluation exercise conducted verbally. The payer medical director is evaluating whether the request satisfies specific elements of the plan's coverage criteria for atrial fibrillation ablation. Understanding what they are looking for determines whether the call succeeds.</p>
+<p><strong>The reviewer is likely checking for:</strong></p>
+<ul class="doc-list">
+<li><strong>Documented failure of rate control and/or rhythm control medications</strong> — names, doses, duration, and reason for failure or intolerance. "Tried medications" is not sufficient. They need specific drugs, specific durations, and specific outcomes.</li>
+<li><strong>Symptom burden despite pharmacologic management</strong> — documented symptoms (palpitations, fatigue, dyspnea, exercise intolerance, syncope) with frequency and severity.</li>
+<li><strong>AFib classification and duration</strong> — paroxysmal vs. persistent vs. long-standing persistent. Some criteria require documented duration thresholds.</li>
+<li><strong>Left atrial size</strong> — some criteria set a maximum LA diameter (typically ≤5.5 cm) as an eligibility condition for ablation.</li>
+<li><strong>LVEF assessment</strong> — to determine if AFib is contributing to heart failure (tachycardia-mediated cardiomyopathy), which strengthens the indication.</li>
+<li><strong>Stroke risk and anticoagulation status</strong> — CHA₂DS₂-VASc score and current anticoagulation management.</li>
+</ul>
+<div class="note">
+<p><strong>Key insight:</strong> The most common reason P2P calls fail for ablation requests is that the treating physician describes the patient's symptoms and clinical course — which the reviewer already has from the chart — instead of mapping the clinical data to the specific criteria elements listed above. The reviewer is not asking "is this patient sick?" They are asking "does this case check the boxes?" This brief is designed to close that gap.</p>
+</div>
+</div>
+
+<!-- Criteria mapping -->
+<div class="doc-section">
+<span class="sec-label">Criteria Mapping</span>
+<div class="sec-title">Evidence Mapped to Likely Criteria Elements</div>
+<p>Below is the patient's clinical data organized by the criteria elements the reviewer is most likely evaluating — not by the chronological clinical story.</p>
+
+<div class="call-phase">
+<div class="call-phase-label">Element 1</div>
+<h2>Pharmacologic Failure — Rate and Rhythm Control</h2>
+<ul class="doc-list">
+<li><strong>Metoprolol succinate 200 mg daily (18 months):</strong> Titrated from 50 mg. Adequate rate control not achieved — resting heart rate remained 90–110 bpm on Holter. Symptomatic exercise intolerance persisted.</li>
+<li><strong>Diltiazem ER 360 mg daily (6 months, added to metoprolol then substituted):</strong> Caused significant peripheral edema and symptomatic hypotension (BP 88/58 documented in office). Discontinued.</li>
+<li><strong>Flecainide 100 mg BID (8 months):</strong> Rhythm-control attempt. Converted to sinus rhythm initially but AFib recurred at 3 months and 6 months (documented on event monitor). Side effects: visual disturbance reported, documented in cardiology note.</li>
+<li><strong>Amiodarone 200 mg daily (4 months):</strong> Rhythm control achieved but thyroid function abnormality developed (TSH 0.08, free T4 elevated). Amiodarone discontinued by endocrinology recommendation. Thyroid function normalizing on follow-up.</li>
+</ul>
+<div class="tp"><p><strong>Talking point:</strong> "This patient has trialed four antiarrhythmic and rate-control agents over approximately 36 months. Two failed on efficacy, one caused symptomatic hypotension requiring discontinuation, and one caused thyroid toxicity requiring discontinuation on specialist recommendation. The pharmacologic pathway has been genuinely exhausted — not abandoned prematurely."</p></div>
+</div>
+
+<div class="call-phase">
+<div class="call-phase-label">Element 2</div>
+<h2>Symptom Burden</h2>
+<ul class="doc-list">
+<li><strong>Palpitations:</strong> Daily, documented across 8 office visits over 36 months.</li>
+<li><strong>Exercise intolerance:</strong> Previously ran 3 miles, now limited to walking one block. Documented on functional assessment.</li>
+<li><strong>Fatigue:</strong> Occupational impact documented — patient reduced work hours from full-time to part-time. Cardiology note: "Symptoms significantly impairing quality of life and functional capacity."</li>
+<li><strong>EHRA Score:</strong> Class III (severe — normal daily activity affected).</li>
+</ul>
+<div class="tp"><p><strong>Talking point:</strong> "The symptom burden is not mild or intermittent. This patient has EHRA Class III symptoms with documented functional decline over three years, including occupational impact. The severity is documented across multiple visits, not a single subjective complaint."</p></div>
+</div>
+
+<div class="call-phase">
+<div class="call-phase-label">Element 3</div>
+<h2>AFib Classification and Cardiac Assessment</h2>
+<ul class="doc-list">
+<li><strong>Classification:</strong> Persistent atrial fibrillation. Duration: 36+ months since initial diagnosis. Multiple documented episodes on event monitor and Holter.</li>
+<li><strong>Left atrial diameter:</strong> 4.4 cm on most recent echocardiogram (within typical eligibility threshold).</li>
+<li><strong>LVEF:</strong> 45% on most recent echo, down from 58% two years prior. Cardiology assessment: "Decline in EF likely tachycardia-mediated. Ablation may allow recovery of ventricular function."</li>
+<li><strong>CHA₂DS₂-VASc:</strong> Score 3. On apixaban 5 mg BID.</li>
+</ul>
+<div class="tp"><p><strong>Talking point:</strong> "The EF decline from 58% to 45% over two years suggests tachycardia-mediated cardiomyopathy — a recognized indication where ablation may be therapeutic, not merely palliative. Current guidelines support ablation in patients with heart failure and AFib. The LA size is within the eligible range."</p></div>
+</div>
+</div>
+
+<!-- Anticipated objections -->
+<div class="doc-section">
+<span class="sec-label">Anticipated Objections</span>
+<div class="sec-title">What the Reviewer May Push Back On — and How to Respond</div>
+
+<div class="obj-block">
+<div class="obj-header"><div class="obj-label anticipated">Likely Objection #1</div><p>"The patient hasn't tried dofetilide or sotalol. Has the full pharmacologic pathway really been exhausted?"</p></div>
+<div class="obj-response"><div class="obj-label response">Prepared Response</div><p>Dofetilide requires inpatient initiation with continuous telemetry monitoring due to QT-prolongation risk — it is not a simple next-step medication. More importantly, the patient has already failed or developed serious adverse effects on four agents: two rate-control medications (one failed efficacy, one caused hypotension) and two rhythm-control medications (one recurred, one caused thyroid toxicity). The criteria require adequate pharmacologic trial, not exhaustion of every conceivable agent regardless of risk profile. The clinical trajectory — 36 months, four agents, two serious adverse effects — represents a genuine and documented pharmacologic pathway failure.</p></div>
+<div class="obj-fallback"><div class="obj-label fallback">Fallback if Pressed</div><p>"If the reviewer insists on an additional agent trial, ask: what specific medication would the reviewer recommend given this patient's documented hypotension on diltiazem, thyroid toxicity on amiodarone, and declining EF? The clinical rationale for <em>not</em> adding another agent in this context is a physician judgment that the risks of further pharmacologic experimentation now exceed the risks of proceeding to ablation — especially with the EF decline suggesting tachycardia-mediated cardiomyopathy."</p></div>
+</div>
+
+<div class="obj-block" style="margin-top:16px">
+<div class="obj-header"><div class="obj-label anticipated">Likely Objection #2</div><p>"The EF is 45% — that's only mildly reduced. Is tachycardia-mediated cardiomyopathy really the diagnosis?"</p></div>
+<div class="obj-response"><div class="obj-label response">Prepared Response</div><p>The relevant clinical finding is not the absolute EF but the trajectory: a decline from 58% to 45% over two years, temporally correlated with persistent AFib and inadequate rate control. The patient has no other identified cause of cardiomyopathy (no coronary artery disease on prior cath, no valvular disease, no hypertensive cardiomyopathy). The cardiologist's documented assessment — "decline likely tachycardia-mediated" — is a clinical judgment supported by the exclusion of alternatives and the temporal relationship. Current guidelines recognize this as a population where ablation has demonstrated EF recovery.</p></div>
+<div class="obj-fallback"><div class="obj-label fallback">Fallback if Pressed</div><p>"If EF continues to decline without intervention, the patient progresses toward symptomatic heart failure. Ablation at this stage — before further deterioration — is a proactive clinical decision, not a premature one. Waiting for worse EF before authorizing is a clinical risk the plan would need to justify."</p></div>
+</div>
+
+<div class="obj-block" style="margin-top:16px">
+<div class="obj-header"><div class="obj-label anticipated">Likely Objection #3</div><p>"Can we try a cardioversion first to see if sinus rhythm is maintainable?"</p></div>
+<div class="obj-response"><div class="obj-label response">Prepared Response</div><p>The patient has persistent AFib of 36+ months duration. Cardioversion without ablation in persistent AFib has a documented recurrence rate exceeding 50–70% within 12 months, even with antiarrhythmic support — and this patient cannot tolerate the antiarrhythmics that would be required to maintain post-cardioversion rhythm. Cardioversion alone is not a durable treatment strategy for this patient. It would delay definitive therapy without changing the clinical trajectory.</p></div>
+</div>
+</div>
+
+<!-- Call structure -->
+<div class="doc-section">
+<span class="sec-label">Call Structure</span>
+<div class="sec-title">Recommended P2P Call Flow</div>
+<p>Structure the call in this sequence — criteria elements first, clinical story second.</p>
+
+<div class="call-phase">
+<div class="call-phase-label">Open — 60 Seconds</div>
+<h2>Frame the case around criteria, not chronology.</h2>
+<p>"I'm calling about a prior authorization for catheter ablation in a patient with persistent atrial fibrillation who has failed four antiarrhythmic and rate-control agents over 36 months, has EHRA Class III symptoms with documented functional and occupational decline, and has an EF that has dropped from 58% to 45% — suggesting tachycardia-mediated cardiomyopathy with no other identified etiology. I'd like to walk through the pharmacologic history, symptom burden, and cardiac assessment."</p>
+</div>
+
+<div class="call-phase">
+<div class="call-phase-label">Middle — 3–5 Minutes</div>
+<h2>Walk through the three criteria elements.</h2>
+<p>Present pharmacologic failure first (the specific drugs, specific durations, specific reasons for failure — not "we tried everything"). Then symptom burden (EHRA Class III, functional decline, occupational impact). Then cardiac assessment (EF trajectory, LA size, CHA₂DS₂-VASc, cardiomyopathy assessment).</p>
+</div>
+
+<div class="call-phase">
+<div class="call-phase-label">Close — If Approved</div>
+<h2>Confirm authorization details.</h2>
+<p>Confirm CPT, facility, timeline, and whether any additional documentation is needed. Do not linger.</p>
+</div>
+
+<div class="call-phase">
+<div class="call-phase-label">Close — If Not Approved</div>
+<h2>Escalation sequence.</h2>
+<p>Ask the reviewer to specify <em>which</em> criteria element was not satisfied and what additional evidence would be required. Document the reviewer's name, the specific unmet element, and the stated requirement. This becomes the foundation for the Level 1 written appeal — now with a documented record of what the reviewer said the criteria required. Request the formal written denial with cited criteria.</p>
+</div>
+</div>
+
+<!-- Pre-call checklist -->
+<div class="doc-section">
+<span class="sec-label">Pre-Call Checklist</span>
+<div class="sec-title">Have These Ready</div>
+<ul class="checklist">
+<li>Patient's medication history with dates, doses, durations, and discontinuation reasons</li>
+<li>Most recent Holter/event monitor report</li>
+<li>Most recent echocardiogram with EF and LA dimensions</li>
+<li>Prior echocardiogram (for EF trajectory comparison)</li>
+<li>EHRA symptom class and functional assessment</li>
+<li>CHA₂DS₂-VASc score and current anticoagulation</li>
+<li>Cardiology office notes documenting symptom severity and ablation recommendation</li>
+<li>Endocrinology note documenting amiodarone thyroid toxicity and discontinuation recommendation</li>
+</ul>
+<div class="note warn"><p><strong>Do not:</strong> Read the entire clinical history during the call. The reviewer has the chart. They need to hear the criteria-relevant evidence organized by the elements they are evaluating — not a retelling of 36 months of visits.</p></div>
+</div>
+
+</div><!-- end .doc-body -->
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
+<p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:12px 24px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Start a 3-Case Evaluation</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a De-identified Case</a>
+<a href="/case-suitability.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Case Suitability</a>
+</div>
+</div>
+<div class="doc-footer">
+<div class="doc-footer-brand">Clinovian</div>
+<p>This specimen demonstrates the P2P Prep Brief — the criteria-mapped physician briefing delivered within 24–48 hours of a scheduled peer-to-peer call. The treating physician knows the patient. Clinovian provides the payer's decision logic, the anticipated objections, and the clinical counterarguments.</p>
+<p><a href="/engagements.html">View pricing →</a> · <a href="/contact.html">Request a P2P brief →</a></p>
+<p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. © 2026 Clinovian · <a href="mailto:contact@clinovian.com" style="color:rgba(255,255,255,.78)">contact@clinovian.com</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
+</div>
+
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Internal working documents — never deploy (see DEPLOYMENT.md)
+CHANGELOG.md
+DEPLOYMENT.md
+IDR_CLAIMS_REGISTER.md
+RELEASE_NOTES.md
+VALIDATION_REPORT.md
+structural_cleanup_quality_report.md
+structural_quality_report.json
+scripts/
+package.json
+node_modules/
+.vercelignore

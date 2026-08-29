@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — AI Appeal Clinical QA — Clinovian</title>
+<meta name="description" content="Specimen AI Appeal Clinical QA: before/after physician review of an AI-drafted appeal. What clinical QA catches before submission.">
+<link rel="canonical" href="https://clinovian.com/sample-ai-appeal-qa.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--amber-text:#8F6512;--gold-text:#7A5F2B;--goldl:rgba(154,123,63,.08);
+--orange:#B85C1E;--orangel:rgba(184,92,30,.08);
+--blue:#2A5C8D;--bluel:rgba(42,92,141,.08);
+--purple:#6B2A8D;--purplel:rgba(107,42,141,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(24px,4vw,36px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+
+/* Snapshot table */
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+
+/* AI draft block */
+.ai-draft{background:#fff;border:1px solid var(--rule);padding:32px;margin:20px 0;font-size:16.5px;color:var(--ink2);line-height:2}
+.ai-draft-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+
+/* Annotation highlight */
+.flag{position:relative;padding:2px 4px;border-radius:3px;cursor:help}
+.flag-red{background:rgba(141,42,34,.12);border-bottom:2px solid var(--red)}
+.flag-orange{background:var(--orangel);border-bottom:2px solid var(--orange)}
+.flag-yellow{background:var(--goldl);border-bottom:2px solid var(--gold)}
+.flag-blue{background:var(--bluel);border-bottom:2px solid var(--blue)}
+.flag-purple{background:var(--purplel);border-bottom:2px solid var(--purple)}
+.flag-grey{background:rgba(0,0,0,.06);border-bottom:2px solid var(--muted)}
+
+/* Annotation callout */
+.annotation{margin:14px 0;padding:14px 18px;font-size:15px;line-height:1.7;display:flex;gap:14px;align-items:flex-start}
+.annotation-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.annotation-text{color:var(--ink2)}
+.annotation-text strong{font-weight:600;color:var(--ink)}
+.ann-red{background:rgba(141,42,34,.06);border-left:3px solid var(--red)}
+.ann-orange{background:var(--orangel);border-left:3px solid var(--orange)}
+.ann-yellow{background:var(--goldl);border-left:3px solid var(--gold)}
+.ann-blue{background:var(--bluel);border-left:3px solid var(--blue)}
+.ann-purple{background:var(--purplel);border-left:3px solid var(--purple)}
+.ann-grey{background:rgba(0,0,0,.04);border-left:3px solid var(--muted)}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0;padding:18px;background:var(--bg2);border:1px solid var(--rule)}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
+.legend-dot{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+/* QA summary table */
+.qa-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.qa-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.qa-table td{padding:13px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.6}
+.qa-table tr:last-child td{border-bottom:none}
+
+/* Verdict */
+.verdict-box{border:2px solid var(--red);padding:24px 28px;margin-bottom:20px;background:var(--redl)}
+.verdict-box.pass{border-color:var(--forest);background:var(--forestl)}
+.verdict-box.conditional{border-color:var(--amber-text);background:var(--goldl)}
+.verdict-level{font-family:'Spectral',serif;font-size:28px;font-weight:600;line-height:1;margin-bottom:10px}
+.verdict-level.fail{color:var(--red)}
+.verdict-level.conditional{color:var(--amber-text)}
+.verdict-level.pass{color:var(--forest)}
+.verdict-explain{font-size:17px;color:var(--ink2);line-height:1.8}
+
+/* Correction block */
+.correction{margin:18px 0;border:1px solid var(--rule);overflow:hidden}
+.correction-before{padding:16px 20px;background:var(--redl);border-bottom:1px solid var(--rule)}
+.correction-after{padding:16px 20px;background:var(--forestl)}
+.correction-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.correction-label.before{color:var(--red)}
+.correction-label.after{color:var(--forest)}
+.correction p{font-size:16px;color:var(--ink2);line-height:1.75}
+
+/* Footer */
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.ai-draft{padding:20px}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+.legend{flex-direction:column}
+}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media print{.top-bar,.doc-pdf-link{display:none!important}}
+html,body{overflow-x:clip}
+</style>
+<meta property="og:title" content="Specimen — AI Appeal Clinical QA — Clinovian">
+<meta property="og:description" content="Before/after physician QA of an AI-drafted appeal. Catches hallucinated claims, weak logic, overstatement before the payer sees it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinovian.com/sample-ai-appeal-qa.html">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-ai-appeal-qa.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+
+<div class="doc-wrap">
+
+<div class="top-bar">
+<a href="/" class="top-bar-brand">Clinovian</a>
+<a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
+</div>
+
+<div class="doc-header">
+<div class="doc-header-eyebrow">AI Appeal Clinical QA · Specimen</div>
+<h1>Before / After: Physician QA of an AI-Drafted Appeal</h1>
+<div class="doc-header-sub">What clinical review catches in an AI-generated medical-necessity appeal before the payer sees it.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-ai-appeal-qa.pdf">Download this specimen as a PDF →</a></p>
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:8px 16px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Get Started</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:8px 16px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a Case</a>
+</div>
+</div>
+<div class="specimen-banner">
+<strong>Specimen only.</strong> Fictional case. No PHI. The AI-drafted text below is fabricated to demonstrate realistic error patterns — hallucinated claims, weak criteria logic, generic language, and missing clinical context. It does not represent any specific AI tool's output. Clinical escalation methodology led by an MBBS physician with payer-side UM experience.
+</div>
+
+<div class="doc-body">
+
+<!-- Case snapshot -->
+<div class="doc-section">
+<span class="sec-label">Case Context</span>
+<div class="sec-title">Case Snapshot</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 2"><table class="snapshot-table">
+<tr><td>Denied service</td><td>Inpatient admission — sepsis secondary to urinary tract infection</td></tr>
+<tr><td>Plan type</td><td>Commercial PPO</td></tr>
+<tr><td>Denial basis</td><td>"Patient could have been managed at observation level. Does not meet inpatient criteria."</td></tr>
+<tr><td>AI tool used</td><td>AI appeal-letter generator (client's existing tool)</td></tr>
+<tr><td>QA request</td><td>Review AI-drafted appeal for clinical accuracy before submission</td></tr>
+</table></div>
+</div>
+
+<!-- Legend -->
+<div class="doc-section">
+<span class="sec-label">Annotation Key</span>
+<div class="sec-title">Finding Categories</div>
+<div class="legend">
+<div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div><strong>Hallucinated claim</strong> — fact not in record</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div><strong>Weak criteria logic</strong> — cites criteria without mapping</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div><strong>Missing comorbidity</strong> — incomplete severity argument</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div><strong>Generic language</strong> — reviewer reads as template</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div><strong>Payer-policy mismatch</strong> — wrong pathway</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--muted)"></div><strong>Overstatement risk</strong> — directionally correct but overstated</div>
+</div>
+</div>
+
+<!-- Part A: Annotated AI draft -->
+<div class="doc-section">
+<span class="sec-label">Part A</span>
+<div class="sec-title">AI-Drafted Appeal — Annotated</div>
+<p>Below is the AI-generated appeal text as submitted to Clinovian for QA, with physician annotations inline.</p>
+
+<div class="ai-draft">
+<div class="ai-draft-label">AI-Generated Appeal Draft — Pre-QA</div>
+
+<p>We are writing to appeal the denial of inpatient admission for the above-referenced patient, who <span class="flag flag-blue">was critically ill and required immediate life-saving intervention</span>. The patient presented to the emergency department with <span class="flag flag-grey">severe sepsis and multi-organ failure</span> secondary to a complicated urinary tract infection.</p>
+
+<p>Upon arrival, <span class="flag flag-red">the patient's lactate level was 6.2 mmol/L</span>, indicating severe tissue hypoperfusion. <span class="flag flag-red">Blood cultures grew E. coli within 4 hours, confirming gram-negative bacteremia</span>. The patient was started on broad-spectrum IV antibiotics and <span class="flag flag-red">required vasopressor support with norepinephrine for 18 hours</span> to maintain adequate blood pressure.</p>
+
+<p><span class="flag flag-orange">Per InterQual inpatient criteria, the patient clearly met the threshold for acute inpatient admission based on the severity of sepsis presentation</span>. The documented hemodynamic instability, need for IV antibiotics, and <span class="flag flag-yellow">underlying medical complexity</span> all support the medical necessity of inpatient-level care.</p>
+
+<p>We note that <span class="flag flag-purple">under CMS Condition Code 44, the treating physician's clinical judgment regarding the appropriate level of care should be given deference</span>. The decision to admit was made by a board-certified internist based on the clinical picture at the time of presentation. <span class="flag flag-blue">The patient was simply too sick to be managed at an observation level, and any suggestion otherwise fails to account for the gravity of the clinical situation</span>.</p>
+
+<p>We respectfully request that the denial be reversed and the claim be reprocessed at the inpatient rate.</p>
+</div>
+
+<!-- Annotations -->
+<div class="annotation ann-red">
+<div class="annotation-icon">🔴</div>
+<div class="annotation-text"><strong>Hallucinated claim — Lactate 6.2 mmol/L.</strong> The record documents an initial lactate of 3.8 mmol/L, which is elevated but not the value the AI stated. A payer reviewer who checks this against the chart will immediately flag the entire appeal as unreliable. This is a critical error — submitting a fabricated lab value undermines the credibility of every other claim in the appeal.</div>
+</div>
+
+<div class="annotation ann-red">
+<div class="annotation-icon">🔴</div>
+<div class="annotation-text"><strong>Hallucinated claim — Blood cultures positive within 4 hours.</strong> The record shows blood cultures were drawn on arrival but final sensitivity results were not available until Day 3. Preliminary Gram stain showed gram-negative rods at ~18 hours. The AI fabricated both the organism identification and the timing. A reviewer familiar with microbiology workflows will recognize this as implausible.</div>
+</div>
+
+<div class="annotation ann-red">
+<div class="annotation-icon">🔴</div>
+<div class="annotation-text"><strong>Hallucinated claim — Vasopressor support for 18 hours.</strong> The record does not document vasopressor use. The patient received aggressive IV fluid resuscitation (3L in the first 6 hours) and blood pressure stabilized without vasopressors. The AI invented a clinical intervention that did not occur. This is the most dangerous type of error — it fabricates a severity marker that would be dispositive if true but is verifiably false.</div>
+</div>
+
+<div class="annotation ann-orange">
+<div class="annotation-icon">🟠</div>
+<div class="annotation-text"><strong>Weak criteria logic — "Per InterQual inpatient criteria, the patient clearly met the threshold."</strong> This is a conclusion without evidence. Stating that the patient "clearly met" inpatient criteria without mapping specific clinical data points to specific criteria thresholds is exactly what payer reviewers are trained to dismiss. The appeal must show <em>which</em> element of the criteria pathway was satisfied by <em>which</em> documented clinical finding — not simply assert that criteria were met.</div>
+</div>
+
+<div class="annotation ann-yellow">
+<div class="annotation-icon">🟡</div>
+<div class="annotation-text"><strong>Missing comorbidity context — "underlying medical complexity."</strong> The patient has documented Type 2 diabetes, CKD Stage III, and atrial fibrillation on anticoagulation. None of these appear anywhere in the appeal. These comorbidities materially affect the severity assessment — they increase the risk of complications from sepsis, complicate medication management, and support the argument that observation-level monitoring was insufficient. The AI treated comorbidity as a throwaway phrase instead of a substantive severity argument.</div>
+</div>
+
+<div class="annotation ann-purple">
+<div class="annotation-icon">🟣</div>
+<div class="annotation-text"><strong>Payer-policy mismatch — Condition Code 44 reference.</strong> Condition Code 44 applies to hospital-initiated status changes from inpatient to outpatient <em>before</em> discharge — it is a billing mechanism, not an appeal argument for a retrospective denial. Citing it here is irrelevant and suggests the AI confused two different regulatory contexts. A payer reviewer will read this as a sign the appeal was generated without understanding the dispute.</div>
+</div>
+
+<div class="annotation ann-blue">
+<div class="annotation-icon">🔵</div>
+<div class="annotation-text"><strong>Generic language — "critically ill," "life-saving intervention," "too sick," "gravity of the clinical situation."</strong> Four instances of non-specific emotional language that a payer reviewer immediately recognizes as template output. These phrases describe the physician's subjective impression but do not map to any criteria threshold. They occupy space where specific clinical evidence should be.</div>
+</div>
+
+<div class="annotation ann-grey">
+<div class="annotation-icon">⚫</div>
+<div class="annotation-text"><strong>Overstatement risk — "severe sepsis and multi-organ failure."</strong> The record documents sepsis (SIRS criteria met, suspected infection, elevated lactate) but does not document organ failure beyond the initial hemodynamic compromise, which resolved with fluids. Characterizing this as "multi-organ failure" overstates the presentation. If the reviewer checks the chart and finds no documented organ-failure criteria, the overstatement discredits the entire clinical narrative.</div>
+</div>
+</div>
+
+<!-- Part B: QA Summary -->
+<div class="doc-section">
+<span class="sec-label">Part B</span>
+<div class="sec-title">QA Summary Report</div>
+
+<div class="verdict-box">
+<div class="verdict-level fail">Do Not Submit As-Is</div>
+<div class="verdict-explain">The AI-drafted appeal contains three hallucinated clinical claims (fabricated lab value, fabricated culture timing, fabricated vasopressor use), one irrelevant regulatory citation, one unsupported criteria assertion, incomplete comorbidity context, and multiple instances of generic language. Submitting this draft would likely result in denial upheld and would damage the credibility of future appeals for this case.</div>
+</div>
+
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="qa-table">
+<thead><tr><th>Finding Category</th><th>Count</th><th>Severity</th></tr></thead>
+<tbody>
+<tr><td>🔴 Hallucinated clinical claims</td><td>3</td><td><strong style="color:var(--red)">Critical — must fix</strong></td></tr>
+<tr><td>🟠 Weak criteria logic</td><td>1</td><td><strong style="color:var(--orange)">High — must fix</strong></td></tr>
+<tr><td>🟡 Missing comorbidity</td><td>1</td><td><strong style="color:var(--amber-text)">High — must fix</strong></td></tr>
+<tr><td>🟣 Payer-policy mismatch</td><td>1</td><td><strong style="color:var(--purple)">High — remove</strong></td></tr>
+<tr><td>🔵 Generic language</td><td>4 instances</td><td><strong style="color:var(--blue)">Medium — replace</strong></td></tr>
+<tr><td>⚫ Overstatement risk</td><td>1</td><td><strong style="color:var(--muted)">Medium — correct</strong></td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Total findings: 11.</strong> Of these, 6 are critical or high severity and must be corrected before submission. The remaining 5 are medium severity and should be corrected for quality.</p>
+</div>
+
+<!-- Part C: Corrected examples -->
+<div class="doc-section">
+<span class="sec-label">Part C</span>
+<div class="sec-title">Critical Corrections</div>
+<p>Below are the three most critical corrections — the hallucinated claims that would immediately discredit the appeal if submitted.</p>
+
+<div class="correction">
+<div class="correction-before"><div class="correction-label before">AI Draft — Hallucinated</div><p>"The patient's lactate level was 6.2 mmol/L, indicating severe tissue hypoperfusion."</p></div>
+<div class="correction-after"><div class="correction-label after">Corrected — Record-Based</div><p>"The patient's initial lactate was 3.8 mmol/L, elevated above the normal threshold and consistent with tissue hypoperfusion in the setting of sepsis. Serial lactate monitoring was initiated, and the level remained elevated at 2.4 mmol/L at 6 hours despite fluid resuscitation, indicating persistent hemodynamic compromise."</p></div>
+</div>
+
+<div class="correction">
+<div class="correction-before"><div class="correction-label before">AI Draft — Hallucinated</div><p>"Blood cultures grew E. coli within 4 hours, confirming gram-negative bacteremia."</p></div>
+<div class="correction-after"><div class="correction-label after">Corrected — Record-Based</div><p>"Blood cultures drawn on arrival showed gram-negative rods on preliminary Gram stain at approximately 18 hours. The clinical team initiated empiric broad-spectrum IV antibiotic coverage at presentation based on the suspected urinary source and systemic inflammatory response, prior to culture confirmation."</p></div>
+</div>
+
+<div class="correction">
+<div class="correction-before"><div class="correction-label before">AI Draft — Hallucinated</div><p>"Required vasopressor support with norepinephrine for 18 hours to maintain adequate blood pressure."</p></div>
+<div class="correction-after"><div class="correction-label after">Corrected — Record-Based</div><p>"The patient required aggressive IV fluid resuscitation (3 liters in the first 6 hours) to maintain hemodynamic stability. Blood pressure responded to volume but remained labile, requiring ongoing monitoring. The need for this level of resuscitation and continued hemodynamic surveillance supports inpatient-level care."</p></div>
+</div>
+
+<p style="margin-top:22px"><strong>Note:</strong> The corrected versions are not weaker — they are <em>more defensible</em>. A lactate of 3.8 with persistent elevation at 6 hours, aggressive fluid resuscitation, and labile blood pressure all support inpatient admission. The AI didn't need to fabricate a more dramatic picture; the real clinical data, properly presented, makes the case. That is the core lesson of clinical QA: the truth, well-argued, is stronger than an invention.</p>
+</div>
+
+<!-- Criteria mapping note -->
+<div class="doc-section">
+<span class="sec-label">Additional Note</span>
+<div class="sec-title">What the AI Missed Entirely</div>
+<p>Beyond the errors in what the AI wrote, there are significant omissions — things the appeal needs but the AI did not generate:</p>
+<ul class="doc-list">
+<li><strong>Comorbidity severity argument:</strong> Type 2 diabetes with A1C 9.2% complicates infection management and increases sepsis mortality risk. CKD Stage III (eGFR 42) limits antibiotic options and requires renal-dose adjustment monitoring. Atrial fibrillation on warfarin requires INR monitoring during acute infection and antibiotic interaction management. None of this appears in the AI draft.</li>
+<li><strong>Criteria pathway mapping:</strong> The AI asserts criteria were met but does not identify the specific pathway (sepsis/infection with hemodynamic compromise) or map the patient's clinical data to the individual elements of that pathway. This is the difference between an assertion and an argument.</li>
+<li><strong>Observation-level rebuttal:</strong> The payer argued observation was sufficient. The AI does not explain <em>why</em> observation-level monitoring was inadequate for this patient — it only asserts the patient was "too sick." A criteria-mapped rebuttal would address monitoring frequency, intervention requirements, and expected length of stay.</li>
+</ul>
+</div>
+
+</div><!-- end .doc-body -->
+
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
+<p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:12px 24px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Discuss QA Pricing</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a De-identified Case</a>
+<a href="/case-suitability.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Case Suitability</a>
+</div>
+</div>
+<div class="doc-footer">
+<div class="doc-footer-brand">Clinovian</div>
+<p>This specimen demonstrates the AI Appeal Clinical QA deliverable — the quality-control layer between your AI tool's output and the payer. Not competing appeal-writing. A checkpoint that prevents hallucinated claims, weak logic, and overstatement from reaching the reviewer.</p>
+<p><strong>Send a sample AI-drafted appeal for a QA demonstration.</strong> <a href="/contact.html">Contact →</a></p>
+<p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. © 2026 Clinovian · <a href="mailto:contact@clinovian.com" style="color:rgba(255,255,255,.78)">contact@clinovian.com</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
+</div>
+
+</div>
+</main>
+</body>
+</html>

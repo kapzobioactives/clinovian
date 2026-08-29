@@ -1,0 +1,8 @@
+{
+  "name": "clinovian-static-site",
+  "private": true,
+  "scripts": {
+    "validate": "python3 scripts/validate_site.py",
+    "sitemap": "python3 scripts/generate_sitemap.py"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$comment": "Canonical public service catalog for clinovian.com. Machine-readable mirror of the published prices and turnarounds on each service page. Verified against those pages by scripts/validate_site.py on every release — update this file and the page together.",
+  "last_updated": "2026-08-29",
+  "services": [
+    {
+      "id": "medical-necessity-escalation",
+      "name": "Medical Necessity Escalation Memo",
+      "url": "/escalation-memo.html",
+      "price": "From $450",
+      "turnaround": "48–72 hours after complete agreed record",
+      "scope": "Physician-authored criteria and record analysis for a client appeal workflow; not a final legal/procedural submission."
+    },
+    {
+      "id": "observation-inpatient",
+      "name": "Observation vs. Inpatient Defense Memo",
+      "url": "/observation-defense.html",
+      "price": "Quoted after scope review",
+      "turnaround": "5–7 business days",
+      "scope": "Plan-specific level-of-care analysis with exact timestamps and applicability checks."
+    },
+    {
+      "id": "drg-clinical-validation",
+      "name": "DRG Downgrade Clinical Validation Memo",
+      "url": "/drg-downgrade.html",
+      "price": "Quoted after scope review",
+      "turnaround": "7–10 business days",
+      "scope": "Clinical validation support for credentialed CDI/coding review; no independent code assignment."
+    },
+    {
+      "id": "post-acute",
+      "name": "Post-Acute Denial Escalation Memo",
+      "url": "/post-acute-denials.html",
+      "price": "Quoted after scope review",
+      "turnaround": "5–7 business days",
+      "scope": "Setting- and plan-specific analysis for SNF, IRF, LTACH or home health; each framework is assessed separately."
+    },
+    {
+      "id": "p2p",
+      "name": "Peer-to-Peer Preparation Brief",
+      "url": "/p2p-brief.html",
+      "price": "From $300",
+      "turnaround": "24–48 hours by prior agreed cutoff",
+      "scope": "Call-preparation brief for the treating/client clinician; Clinovian does not impersonate or replace the treating clinician."
+    },
+    {
+      "id": "pre-denial",
+      "name": "Pre-Denial Medical Necessity Dossier",
+      "url": "/pre-denial-dossier.html",
+      "price": "Quoted after scope review",
+      "turnaround": "3–5 business days",
+      "scope": "Pre-submission evidence-gap analysis designed to improve completeness, not promise approval."
+    },
+    {
+      "id": "ai-qa",
+      "name": "AI Appeal Clinical QA",
+      "url": "/ai-appeal-qa.html",
+      "price": "From $250 per appeal",
+      "turnaround": "24–48 hours for an agreed unit/batch",
+      "scope": "Claim-to-source physician QA of AI-drafted clinical reasoning; model, input and release controls are defined in scope."
+    },
+    {
+      "id": "federal-idr",
+      "name": "Federal IDR Clinical Value Dossier",
+      "url": "/nsa-idr.html",
+      "price": "From $750 per dossier",
+      "turnaround": "3–5 business days after complete agreed record",
+      "scope": "Clinical evidence organization only; client or authorized representative owns eligibility, deadlines, filing, legal analysis and offer selection."
+    },
+    {
+      "id": "ar-triage",
+      "name": "No-PHI Clinical Denial AR Triage",
+      "url": "/ar-audit.html",
+      "price": "Fixed fee after file scope",
+      "turnaround": "72 hours after accepted validated file",
+      "scope": "Inventory prioritization, not case merits, deadline verification or recovery forecasting."
+    }
+  ]
+}

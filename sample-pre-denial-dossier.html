@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specimen — Pre-Denial Medical Necessity Dossier — Clinovian</title>
+<meta name="description" content="Specimen pre-denial dossier: Physician-authored medical-necessity argument submitted before the payer decides on a prior authorization for lumbar spinal fusion.">
+<link rel="canonical" href="https://clinovian.com/sample-pre-denial-dossier.html">
+<meta property="og:title" content="Specimen — Pre-Denial Medical Necessity Dossier — Clinovian"><meta property="og:description" content="Specimen pre-denial dossier: Physician-authored argument submitted before the payer decides."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:url" content="https://clinovian.com/sample-pre-denial-dossier.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root{
+--forest:#183F2D;--forest2:#23553D;--forest3:#3B7A5B;--forestl:rgba(24,63,45,.06);
+--bg:#F8F5EE;--bg2:#F0EBDD;--bg3:#E7E0CF;--paper:#FDFBF6;
+--ink:#10100E;--ink2:#3E392F;--muted:#4A4538;
+--rule:#D6CEBD;--rule2:#E2DACC;
+--red:#8D2A22;--redl:rgba(141,42,34,.06);
+--gold:#9A7B3F;--amber:#B8862C;--goldl:rgba(154,123,63,.08);
+--shadow:0 2px 12px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7}
+.doc-wrap{max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.top-bar-brand{font-family:'Spectral',serif;font-size:20px;color:var(--forest);text-decoration:none}
+.top-bar-back{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top-bar-back:hover{color:var(--forest)}
+.doc-header{background:var(--forest);color:#fff;padding:44px 40px}
+.doc-header-eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:14px}
+.doc-header h1{font-family:'Spectral',serif;font-size:clamp(24px,4vw,36px);font-weight:500;color:#fff;line-height:1.2;margin-bottom:10px}
+.doc-header-sub{font-size:16px;color:rgba(255,255,255,.7);line-height:1.6}
+.specimen-banner{background:var(--goldl);border:1px solid var(--gold);border-top:none;padding:18px 40px;font-size:15px;color:var(--ink2);line-height:1.7}
+.specimen-banner strong{color:var(--ink)}
+.doc-body{background:var(--paper);border:1px solid var(--rule);border-top:none;padding:44px 40px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;display:block}
+.sec-title{font-family:'Spectral',serif;font-size:24px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.25}
+.doc-section{margin-bottom:44px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-body p{font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+.doc-body p:last-child{margin-bottom:0}
+.doc-body strong{color:var(--ink);font-weight:600}
+.doc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.doc-list li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:var(--ink2);line-height:1.7}
+.doc-list li::before{content:"→";font-family:'JetBrains Mono',monospace;color:var(--forest);font-size:13.5px;margin-top:4px;flex-shrink:0;font-weight:600}
+.snapshot-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.snapshot-table td{padding:12px 16px;border-bottom:1px solid var(--rule);font-size:16px;vertical-align:top}
+.snapshot-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:200px;font-weight:500}
+.snapshot-table td:last-child{color:var(--ink);font-weight:500}
+.verdict-box{border:2px solid var(--forest);padding:24px 28px;margin-bottom:20px;background:var(--forestl)}
+.verdict-level{font-family:'Spectral',serif;font-size:28px;font-weight:600;color:var(--forest);line-height:1;margin-bottom:10px}
+.verdict-explain{font-size:17px;color:var(--ink2);line-height:1.8}
+
+/* DRG comparison */
+.drg-compare{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;border:1px solid var(--rule);margin:20px 0;align-items:stretch}
+.drg-box{padding:24px;background:var(--paper)}
+.drg-box.target{background:var(--forestl)}
+.drg-box-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.drg-box-label.paid{color:var(--red)}
+.drg-box-label.target{color:var(--forest)}
+.drg-box-num{font-family:'Spectral',serif;font-size:42px;font-weight:600;line-height:1;margin-bottom:6px}
+.drg-box.target .drg-box-num{color:var(--forest)}
+.drg-box-name{font-size:15.5px;color:var(--ink2);margin-bottom:8px}
+.drg-box-weight{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted)}
+.drg-arrow{display:flex;align-items:center;justify-content:center;background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--forest);border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
+.drg-delta{background:var(--forest);color:#fff;padding:16px 24px;margin:20px 0;display:flex;align-items:center;gap:20px}
+.drg-delta-amount{font-family:'Spectral',serif;font-size:36px;font-weight:600}
+.drg-delta-text{font-size:15.5px;color:rgba(255,255,255,.8)}
+
+/* Evidence table */
+.evidence-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:20px 0}
+.evidence-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600}
+.evidence-table td{padding:14px 16px;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink2);vertical-align:top;line-height:1.65}
+.evidence-table td:first-child{font-weight:600;color:var(--ink);width:200px}
+.evidence-table tr:last-child td{border-bottom:none}
+
+/* Rebuttal block */
+.rebuttal{margin:20px 0;border:1px solid var(--rule);overflow:hidden}
+.rebuttal-payer{padding:18px 22px;background:var(--redl);border-bottom:1px solid var(--rule)}
+.rebuttal-response{padding:18px 22px;background:var(--forestl)}
+.rebuttal-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:600}
+.rebuttal-label.payer{color:var(--red)}
+.rebuttal-label.response{color:var(--forest)}
+.rebuttal p{font-size:16px;color:var(--ink2);line-height:1.75}
+
+.rec-box{border:2px solid var(--forest);padding:24px 28px;background:var(--forestl)}
+.rec-box p{font-size:16px;line-height:1.8;color:var(--ink)}
+
+.tag-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--bg2);border:1px solid var(--rule);padding:5px 12px;color:var(--muted)}
+
+.doc-footer{background:var(--ink);color:#fff;padding:40px;margin-top:0;border:1px solid var(--rule);border-top:none}
+.doc-footer p{font-size:15.5px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:14px}
+.doc-footer a{color:#fff;text-decoration:underline}
+.doc-footer-brand{font-family:'Spectral',serif;font-size:20px;margin-bottom:12px}
+
+@media(max-width:1000px){
+.doc-header,.specimen-banner,.doc-body,.doc-footer{padding-left:22px;padding-right:22px}
+.drg-compare{grid-template-columns:1fr}
+.drg-arrow{padding:8px;border-left:none;border-right:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.snapshot-table td:first-child{width:120px;font-size:13px}
+}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
+.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media print{.top-bar,.doc-pdf-link{display:none!important}}
+html,body{overflow-x:clip}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-pre-denial-dossier.html"}]}</script>
+</head>
+<body>
+<main id="main-content">
+<div class="doc-wrap">
+<div class="top-bar">
+<a href="/" class="top-bar-brand">Clinovian</a>
+<a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
+</div>
+<div class="doc-header">
+<div class="doc-header-eyebrow">Specimen · Pre-Denial Medical Necessity Dossier</div>
+<h1>Pre-Denial Medical Necessity Dossier</h1>
+<div class="doc-header-sub">Lumbar spinal fusion (L4–L5) prior authorization — physician-authored medical-necessity argument submitted before the payer decides, organized around the anticipated criteria pathway.</div>
+</div>
+<p class="doc-pdf-link"><a href="/sample-pre-denial-dossier.pdf">Download this specimen as a PDF →</a></p>
+<div class="specimen-banner">
+<strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. This memo demonstrates Clinovian's clinical escalation format for denial teams. It is not legal advice, not a treating-physician opinion, and not a binding U.S. medical determination. Proprietary criteria content has been generalized; actual deliverables reference the applicable licensed criteria framework as documented in the case record. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.</div>
+<div class="doc-body">
+
+<div class="doc-section">
+<span class="sec-label">Section 01</span>
+<div class="sec-title">Case Snapshot</div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 2"><table class="snapshot-table">
+<tr><td>Requested service</td><td>Lumbar spinal fusion, L4–L5 — posterior interbody fusion with instrumentation</td></tr>
+<tr><td>Plan type</td><td>Commercial EPO</td></tr>
+<tr><td>Current status</td><td>Prior authorization pending — payer has not yet issued a determination</td></tr>
+<tr><td>Dossier purpose</td><td>Proactive physician-authored medical-necessity argument submitted with the prior-auth request to preempt denial</td></tr>
+<tr><td>Clinovian verdict</td><td>Strong — with conservative-therapy documentation adequate</td></tr>
+</table></div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 02</span>
+<div class="sec-title">Why a Pre-Denial Dossier</div>
+<p>Most prior-authorization denials for surgical procedures are issued on the basis of incomplete or generically submitted clinical information. The treating surgeon submits operative notes and chart summaries; the payer's utilization reviewer evaluates against a criteria pathway that requires evidence in a specific structure. When the required evidence exists in the record but is not organized in the way the reviewer evaluates it, the denial is issued not because the case lacks merit — but because the submission did not anticipate the criteria pathway.</p>
+<p>The Pre-Denial Dossier maps the patient's clinical evidence to the anticipated criteria pathway <em>before</em> the payer makes the determination — so the reviewer's first look is at a complete, criteria-organized submission.</p>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 03</span>
+<div class="sec-title">Anticipated Payer Criteria Pathway</div>
+<p>For lumbar spinal fusion, commercial payer criteria frameworks typically require documented evidence across four domains before authorizing the procedure:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="evidence-table">
+<tr><th>Criteria Domain</th><th>What the Reviewer Looks For</th></tr>
+<tr><td>Failed conservative therapy</td><td>Documented trial of conservative measures (physical therapy, pain management, injections) over a specified duration — typically 6–12 weeks minimum — with documented failure to improve.</td></tr>
+<tr><td>Structural pathology correlation</td><td>Imaging findings (MRI, CT) that correlate with the patient's symptoms and physical examination. The imaging must show a structural problem at the level proposed for surgery.</td></tr>
+<tr><td>Functional impairment</td><td>Documented functional limitations — not just pain reports — that affect activities of daily living, work capacity, or mobility, and that have failed to respond to conservative measures.</td></tr>
+<tr><td>Surgical appropriateness</td><td>Evidence that the proposed surgical intervention addresses the documented pathology, that less invasive surgical options have been considered, and that the patient's overall health status supports the procedure.</td></tr>
+</table></div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 04</span>
+<div class="sec-title">Clinical Evidence Mapped to Criteria</div>
+
+<p><strong>Failed conservative therapy — 14 months documented:</strong></p>
+<p>Physical therapy: Two separate courses (8 weeks each) at two different facilities, spanning 14 months total. PT discharge summary from the second course documents: "Patient demonstrates minimal functional improvement. Continues to report radicular symptoms limiting ambulation to less than one block. Recommends surgical consultation." Epidural steroid injections: Three fluoroscopy-guided L4–L5 transforaminal epidural injections over 10 months. Pain diary documents temporary relief (2–3 weeks per injection) with return to baseline radicular pain. Medications: Sequential trial of NSAIDs (naproxen 6 weeks, meloxicam 8 weeks), gabapentin (titrated to 1800mg/day, 12 weeks, discontinued for side effects), duloxetine (60mg/day, 8 weeks, insufficient relief).</p>
+
+<p><strong>Structural pathology correlation:</strong></p>
+<p>MRI lumbar spine (3 months prior): Grade II spondylolisthesis at L4–L5 with bilateral foraminal stenosis. Left L5 nerve root compression documented with foraminal height reduction to 4mm (normal >7mm). Disc desiccation and loss of height at L4–L5 with posterior annular tear. Findings correlate with the patient's left-sided L5 radiculopathy — dermatomal pain distribution matches the level of compression.</p>
+
+<p><strong>Functional impairment:</strong></p>
+<p>Oswestry Disability Index: 58% (severe disability). Ambulation limited to less than one block with assistive device. Unable to sit for more than 20 minutes. Unable to perform job functions (warehouse work requiring lifting, standing, and walking). On modified work duty for 8 months; employer has indicated inability to continue accommodations beyond 60 days.</p>
+
+<p><strong>Surgical appropriateness:</strong></p>
+<p>Spine surgery consultation documents consideration of both decompression alone and decompression with fusion. Given Grade II spondylolisthesis with instability on flexion-extension films (4mm dynamic translation), decompression alone is contraindicated due to risk of progressive instability. Fusion with instrumentation is the appropriate intervention. Patient is 52 years old, BMI 28, non-smoker, no surgical contraindications, medically optimized for procedure.</p>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 05</span>
+<div class="sec-title">Pre-Empting Common Denial Rationales</div>
+<div class="rebuttal">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">Potential payer objection</div><p>"Conservative therapy was not exhausted — additional physical therapy or injection courses should be attempted."</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Pre-emption</div><p>Patient completed 14 months of documented conservative therapy across multiple modalities. Two PT courses with two different providers, three epidural injections, and four medication trials — all documented with specific dates, durations, and outcomes. The criteria threshold is a reasonable trial, not indefinite repetition of failed interventions.</p></div>
+</div>
+<div class="rebuttal">
+<div class="rebuttal-payer"><div class="rebuttal-label payer">Potential payer objection</div><p>"Fusion is not indicated — decompression alone is less invasive."</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Pre-emption</div><p>Decompression alone is contraindicated in the setting of Grade II spondylolisthesis with documented dynamic instability on flexion-extension films. The surgeon's note explicitly addresses this — decompression without fusion risks progressive slip and clinical deterioration. This is a clinical determination, not a preference.</p></div>
+</div>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 06</span>
+<div class="sec-title">Documentation Gaps</div>
+<p><strong>Gap 1 — Flexion-extension films not included in prior-auth packet:</strong> The surgeon references dynamic instability on flexion-extension radiographs in the operative plan, but the images and radiology report were not included in the submitted prior-auth documentation. These must be attached — they are the specific evidence that differentiates fusion from decompression-alone.</p>
+<p><strong>Gap 2 — PT discharge summary from first course:</strong> Only the second PT discharge summary is in the submitted records. The first course documentation should be included to demonstrate the full 14-month conservative-therapy timeline.</p>
+<p><strong>No clinical gaps.</strong> The clinical evidence is strong. The gaps are submission gaps — evidence that exists but was not included in the prior-auth packet.</p>
+</div>
+
+<div class="doc-section">
+<span class="sec-label">Section 07</span>
+<div class="sec-title">Submission Recommendation</div>
+<div class="rec-box">
+<p><strong>Submit the dossier with the prior-authorization request.</strong> Attach: (1) this dossier, (2) lumbar MRI with radiology report, (3) flexion-extension radiographs with radiology report, (4) both PT discharge summaries, (5) injection records with dates and outcomes, (6) medication trial timeline, (7) Oswestry Disability Index scoring sheet, (8) surgeon's operative plan with decompression-vs-fusion rationale.</p>
+<p style="margin-top:14px">By organizing the clinical evidence around the anticipated criteria pathway before the determination, the payer reviewer receives a submission that maps directly to their evaluation framework. The goal is to make approval the path of least resistance — not to create a case the reviewer must work to deny and then defend on appeal.</p>
+</div>
+</div>
+
+<div class="doc-section">
+<div class="doc-section">
+<span class="sec-label">Operational Note</span>
+<div class="sec-title">Prevention Note</div>
+<div style="background:var(--forestl);border-left:3px solid var(--forest);padding:20px 24px">
+<p><strong>For future similar cases:</strong> The two submission gaps identified in this dossier (missing flexion-extension films and incomplete PT documentation in the prior-auth packet) are operational, not clinical. The evidence existed — it wasn't submitted. A prior-authorization checklist for surgical cases that maps required documentation to anticipated criteria domains would prevent this class of denial entirely. The clinical case was never in doubt; only the submission was incomplete.</p>
+<p style="margin-top:10px;font-size:15.5px;color:var(--muted)">Forward-looking operational insight for the client's surgical scheduling and prior-auth teams.</p>
+</div>
+</div>
+
+<span class="sec-label">Section 08</span>
+<div class="sec-title">Internal Pattern Tags</div>
+<div class="tag-strip">
+<span class="tag">Pre-denial dossier</span>
+<span class="tag">Orthopedic: lumbar fusion</span>
+<span class="tag">Failed conservative therapy</span>
+<span class="tag">Payer: commercial EPO</span>
+<span class="tag">Strength: strong</span>
+</div>
+</div>
+
+</div>
+<div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
+<p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/engagements.html" style="background:var(--forest);color:#fff;padding:12px 24px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Start a 3-Case Evaluation</a>
+<a href="/contact.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Send a De-identified Case</a>
+<a href="/case-suitability.html" style="border:1px solid var(--rule);color:var(--ink2);padding:12px 24px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Case Suitability</a>
+</div>
+</div>
+<div class="doc-footer">
+<div class="doc-footer-brand">Clinovian</div>
+<p>This specimen demonstrates the Pre-Denial Medical Necessity Dossier — a physician-authored argument submitted before the payer decides, mapping clinical evidence to the anticipated criteria pathway before the initial determination.</p>
+<p><a href="/engagements.html">Start a 3-case evaluation →</a> · <a href="/contact.html">Send a de-identified case →</a></p>
+<p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. © 2026 Clinovian · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
+</div>
+</div>
+</main>
+</body>
+</html>
