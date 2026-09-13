@@ -125,13 +125,36 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
 .doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media print{.top-bar,.doc-pdf-link{display:none!important}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
 <meta property="og:title" content="Specimen — AI Appeal Clinical QA — Clinovian">
 <meta property="og:description" content="Before/after physician QA of an AI-drafted appeal. Catches hallucinated claims, weak logic, overstatement before the payer sees it.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-ai-appeal-qa.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-ai-appeal-qa.html"}]}</script>
 </head>
@@ -150,7 +173,7 @@ html,body{overflow-x:clip}
 <h1>Before / After: Physician QA of an AI-Drafted Appeal</h1>
 <div class="doc-header-sub">What clinical review catches in an AI-generated medical-necessity appeal before the payer sees it.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-ai-appeal-qa.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -163,6 +186,20 @@ html,body{overflow-x:clip}
 <strong>Specimen only.</strong> Fictional case. No PHI. The AI-drafted text below is fabricated to demonstrate realistic error patterns — hallucinated claims, weak criteria logic, generic language, and missing clinical context. It does not represent any specific AI tool's output. Clinical escalation methodology led by an MBBS physician with payer-side UM experience.
 </div>
 
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-QA-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>Claim-to-source physician QA of an AI-drafted appeal</dd>
+<dt>Applicable framework</dt><dd>Named fictional commercial plan sepsis/inpatient policy plus the sepsis definition framework identified in the body.</dd>
+<dt>Source packet</dt><dd>Complete fictional record bundle (Exhibits R1–R9) published with this specimen; every QA finding cites an exhibit.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <!-- Case snapshot -->
@@ -176,6 +213,29 @@ html,body{overflow-x:clip}
 <tr><td>AI tool used</td><td>AI appeal-letter generator (client's existing tool)</td></tr>
 <tr><td>QA request</td><td>Review AI-drafted appeal for clinical accuracy before submission</td></tr>
 </table></div>
+</div>
+
+<div class="doc-section" id="record-bundle">
+<span class="sec-label">Fictional Record Bundle</span>
+<div class="sec-title">The source packet every correction is checked against</div>
+<p>A QA service is judged on whether its own corrections can be verified. If the corrected text introduces facts the reader cannot trace, it is not distinguishable from the draft it replaced. Every correction in this specimen cites an exhibit below.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Fictional record bundle exhibits"><table class="exhibit-table">
+<caption>Exhibits R1–R9 — fictional record bundle</caption>
+<thead><tr><th scope="col">Exhibit</th><th scope="col">Document</th><th scope="col">Key contents relied on</th></tr></thead>
+<tbody>
+<tr><th scope="row">R1</th><td>ED triage and physician note, day 1, 22:10</td><td>Presentation, vital signs, suspected urinary source.</td></tr>
+<tr><th scope="row">R2</th><td>Laboratory flowsheet, days 1–4</td><td>Lactate 3.8 mmol/L on arrival; 2.4 mmol/L at 6 hours; 1.6 mmol/L at 24 hours. Creatinine, white cell count.</td></tr>
+<tr><th scope="row">R3</th><td>Microbiology report</td><td>Cultures drawn on arrival. Gram stain at 18 hours: gram-negative rods. Organism identification and sensitivities finalised day 3.</td></tr>
+<tr><th scope="row">R4</th><td>Nursing observation chart, days 1–2</td><td>Systolic pressure 84–96 mmHg between 02:00 and 05:00 on day 2, without vasopressor administration.</td></tr>
+<tr><th scope="row">R5</th><td>Fluid balance and medication administration record</td><td>3 L crystalloid in the first 6 hours. <strong>No vasopressor administered at any point.</strong></td></tr>
+<tr><th scope="row">R6</th><td>Problem list and prior outpatient records</td><td>Type 2 diabetes; HbA1c 9.2% recorded 6 weeks before admission. Chronic kidney disease; baseline eGFR 42. Atrial fibrillation on warfarin.</td></tr>
+<tr><th scope="row">R7</th><td>Attending progress notes, days 1–4</td><td>Assessment of sepsis with a urinary source; no documentation of organ failure beyond the initial haemodynamic compromise.</td></tr>
+<tr><th scope="row">R8</th><td>Discharge summary, day 4</td><td>Final diagnoses and course.</td></tr>
+<tr><th scope="row">R9</th><td>Plan denial letter and the medical policy cited in it</td><td>Denial grounds; the plan's inpatient level-of-care policy, edition and effective date.</td></tr>
+</tbody>
+</table></div>
+<div class="cond-box"><span class="cond-label">Rule applied throughout</span>
+<p style="margin-bottom:0">A correction may only assert what an exhibit contains. Where the record is silent, the corrected text says so rather than filling the gap — which is the same failure as the hallucination it is replacing, only quieter.</p></div>
 </div>
 
 <!-- Legend -->
@@ -220,7 +280,7 @@ html,body{overflow-x:clip}
 
 <div class="annotation ann-red">
 <div class="annotation-icon">🔴</div>
-<div class="annotation-text"><strong>Hallucinated claim — Blood cultures positive within 4 hours.</strong> The record shows blood cultures were drawn on arrival but final sensitivity results were not available until Day 3. Preliminary Gram stain showed gram-negative rods at ~18 hours. The AI fabricated both the organism identification and the timing. A reviewer familiar with microbiology workflows will recognize this as implausible.</div>
+<div class="annotation-text"><strong>Unsupported claim — organism identified within 4 hours.</strong> R3 records cultures drawn on arrival, a Gram stain showing gram-negative rods at 18 hours, and organism identification with sensitivities finalised on day 3. The draft asserts both an organism and a timing that the record does not contain. <strong>The finding is the contradiction with R3</strong> — not a general claim that early growth is impossible, which would be wrong: signal times vary with organism and inoculum, and some cultures do flag early. Argue the record, not the biology.</div>
 </div>
 
 <div class="annotation ann-red">
@@ -250,7 +310,7 @@ html,body{overflow-x:clip}
 
 <div class="annotation ann-grey">
 <div class="annotation-icon">⚫</div>
-<div class="annotation-text"><strong>Overstatement risk — "severe sepsis and multi-organ failure."</strong> The record documents sepsis (SIRS criteria met, suspected infection, elevated lactate) but does not document organ failure beyond the initial hemodynamic compromise, which resolved with fluids. Characterizing this as "multi-organ failure" overstates the presentation. If the reviewer checks the chart and finds no documented organ-failure criteria, the overstatement discredits the entire clinical narrative.</div>
+<div class="annotation-text"><strong>Unsupported characterisation — "severe sepsis and multi-organ failure."</strong> R7 documents sepsis with a urinary source and records no organ failure beyond the initial haemodynamic compromise. The draft's characterisation is not in the record and must be struck.<br><br><strong>Name the framework, and do not let it settle the coverage question.</strong> The draft relies on SIRS language. State which definition is being applied — the Sepsis-3 consensus definition and its organ-dysfunction criteria, or an earlier SIRS-based framework — because they classify this presentation differently, and the appeal should not switch between them. Separately, the applicable clinical definition does not determine coverage: the plan's inpatient criteria at R9 do. Cite both, for their own purposes.</div>
 </div>
 </div>
 
@@ -276,7 +336,28 @@ html,body{overflow-x:clip}
 </tbody>
 </table></div>
 
-<p><strong>Total findings: 11.</strong> Of these, 6 are critical or high severity and must be corrected before submission. The remaining 5 are medium severity and should be corrected for quality.</p>
+<p>All eleven findings, each traced to an exhibit and each carrying a disposition. A finding without a disposition is not closed, and an unclosed finding is a reason not to file.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Complete QA findings register"><table class="exhibit-table">
+<caption>Findings register — 11 findings, 6 critical or high, 5 medium; all dispositioned</caption>
+<thead><tr><th scope="col">#</th><th scope="col">Claim in the AI draft</th><th scope="col">Source evidence</th><th scope="col">Finding</th><th scope="col">Severity</th><th scope="col">Corrected wording</th><th scope="col">Disposition</th></tr></thead>
+<tbody>
+<tr><th scope="row">1</th><td>Lactate 6.2 mmol/L</td><td>R2</td><td>Contradicted — record shows 3.8 mmol/L on arrival</td><td><strong style="color:var(--red)">Critical</strong></td><td>Replaced with the recorded series and its trend</td><td>Corrected and verified against R2</td></tr>
+<tr><th scope="row">2</th><td>Blood cultures grew E. coli within 4 hours</td><td>R3</td><td>Contradicted — Gram stain at 18 h; identification finalised day 3</td><td><strong style="color:var(--red)">Critical</strong></td><td>Replaced with the documented microbiology timeline</td><td>Corrected and verified against R3</td></tr>
+<tr><th scope="row">3</th><td>Vasopressor support with norepinephrine for 18 hours</td><td>R5</td><td>Contradicted — no vasopressor administered at any point</td><td><strong style="color:var(--red)">Critical</strong></td><td>Claim struck; replaced with the fluid volume actually given</td><td>Struck. Not softened — the record excludes it</td></tr>
+<tr><th scope="row">4</th><td>"Severe sepsis and multi-organ failure"</td><td>R7</td><td>Unsupported — no organ failure documented beyond initial compromise</td><td><strong style="color:var(--red)">High</strong></td><td>Characterisation struck; sepsis framework named explicitly</td><td>Corrected; framework identified in the submission</td></tr>
+<tr><th scope="row">5</th><td>Condition Code 44 cited as an appeal ground</td><td>R9</td><td>Wrong instrument — applies to a pre-discharge hospital-initiated status change, not a retrospective denial</td><td><strong style="color:var(--red)">High</strong></td><td>Reference removed; argument rebuilt on the policy at R9</td><td>Removed and replaced</td></tr>
+<tr><th scope="row">6</th><td>Implied continuing haemodynamic compromise from a 6-hour lactate</td><td>R2, R4</td><td>Inference the record does not support; conflicts with the falling trend</td><td><strong style="color:var(--red)">High</strong></td><td>Rewritten around the recorded pressures at R4 with their times</td><td>Corrected; time course reconciled</td></tr>
+<tr><th scope="row">7</th><td>"Underlying medical complexity" with no detail</td><td>R6</td><td>Omission — three documented comorbidities absent from the draft</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Each stated with its exhibit, value and date</td><td>Supplied from R6</td></tr>
+<tr><th scope="row">8</th><td>"Critically ill", "life-saving intervention", "too sick"</td><td>—</td><td>Generic language mapping to no criterion</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Replaced with recorded observations and their times</td><td>Rewritten</td></tr>
+<tr><th scope="row">9</th><td>"Gravity of the clinical situation"</td><td>—</td><td>Generic language; occupies space needed for evidence</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Removed</td><td>Removed</td></tr>
+<tr><th scope="row">10</th><td>No citation to the plan's own criteria anywhere in the draft</td><td>R9</td><td>Omission — the appeal argues clinical severity without engaging the coverage standard</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Criteria section added, quoting the policy edition</td><td>Added; edition and effective date stated</td></tr>
+<tr><th scope="row">11</th><td>No exhibit or page references for any assertion</td><td>R1–R9</td><td>Omission — nothing in the draft is checkable by a reviewer</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Every retained assertion carries an exhibit reference</td><td>Applied throughout</td></tr>
+</tbody>
+</table></div>
+<p><strong>Count check:</strong> 11 findings — 3 critical, 3 high, 5 medium. Six are critical or high and block submission until closed. All eleven carry a disposition above; none is left open.</p>
+<div class="cond-box"><span class="cond-label">What remains uncertain after QA</span>
+<p style="margin-bottom:0">QA establishes that the appeal asserts only what exhibits R1–R9 support. It does not establish that the corrected appeal meets the plan's inpatient criteria at R9, and it does not predict the outcome. Two questions remain open for the client: which sepsis framework the plan applies, and whether the recorded pressures at R4 satisfy its level-of-care standard.</p></div>
+
 </div>
 
 <!-- Part C: Corrected examples -->
@@ -287,7 +368,7 @@ html,body{overflow-x:clip}
 
 <div class="correction">
 <div class="correction-before"><div class="correction-label before">AI Draft — Hallucinated</div><p>"The patient's lactate level was 6.2 mmol/L, indicating severe tissue hypoperfusion."</p></div>
-<div class="correction-after"><div class="correction-label after">Corrected — Record-Based</div><p>"The patient's initial lactate was 3.8 mmol/L, elevated above the normal threshold and consistent with tissue hypoperfusion in the setting of sepsis. Serial lactate monitoring was initiated, and the level remained elevated at 2.4 mmol/L at 6 hours despite fluid resuscitation, indicating persistent hemodynamic compromise."</p></div>
+<div class="correction-after"><div class="correction-label after">Corrected — traceable to R2</div><p>"The initial lactate was 3.8 mmol/L (R2), elevated above the reference range in the setting of suspected sepsis. Serial monitoring showed 2.4 mmol/L at 6 hours and 1.6 mmol/L at 24 hours (R2), a falling trend following fluid resuscitation."</p><p style="margin-top:10px;font-size:14.5px;color:var(--muted)"><strong>What was removed and why:</strong> the phrase "indicating persistent hemodynamic compromise". A lactate of 2.4 mmol/L on a falling trend does not establish continuing compromise, and stating it invites the plan to answer with the same flowsheet. Where haemodynamic instability is argued, it must rest on the recorded blood pressures at R4 and be tied to the times they occurred.</p></div>
 </div>
 
 <div class="correction">
@@ -297,10 +378,10 @@ html,body{overflow-x:clip}
 
 <div class="correction">
 <div class="correction-before"><div class="correction-label before">AI Draft — Hallucinated</div><p>"Required vasopressor support with norepinephrine for 18 hours to maintain adequate blood pressure."</p></div>
-<div class="correction-after"><div class="correction-label after">Corrected — Record-Based</div><p>"The patient required aggressive IV fluid resuscitation (3 liters in the first 6 hours) to maintain hemodynamic stability. Blood pressure responded to volume but remained labile, requiring ongoing monitoring. The need for this level of resuscitation and continued hemodynamic surveillance supports inpatient-level care."</p></div>
+<div class="correction-after"><div class="correction-label after">Corrected — traceable to R4, R5</div><p>"The patient received 3 litres of crystalloid in the first 6 hours (R5). <strong>No vasopressor was administered at any point during the admission (R5).</strong> Systolic pressures between 84 and 96 mmHg were recorded from 02:00 to 05:00 on day 2 (R4), after the initial resuscitation. Whether that recorded course meets the plan's inpatient level-of-care standard is to be assessed against the policy at R9."</p><p style="margin-top:10px;font-size:14.5px;color:var(--muted)"><strong>Resolving the apparent conflict:</strong> the draft asserted early improvement and later instability without reconciling them. The record supports both — resuscitation on day 1, then the pressures at R4 on day 2 — but only if the time course is stated. Note also that the draft's vasopressor claim is not an overstatement to be softened; it is contradicted by R5 and must be struck.</p></div>
 </div>
 
-<p style="margin-top:22px"><strong>Note:</strong> The corrected versions are not weaker — they are <em>more defensible</em>. A lactate of 3.8 with persistent elevation at 6 hours, aggressive fluid resuscitation, and labile blood pressure all support inpatient admission. The AI didn't need to fabricate a more dramatic picture; the real clinical data, properly presented, makes the case. That is the core lesson of clinical QA: the truth, well-argued, is stronger than an invention.</p>
+<p style="margin-top:22px"><strong>Note.</strong> The corrected versions are narrower, and that is the point: each sentence can be checked against an exhibit. Whether the corrected record supports inpatient status is a question for the policy at R9, and this QA does not answer it — QA establishes that the appeal says only what the record supports, not that the appeal will succeed. An appeal built on verifiable claims survives a reviewer who checks the chart. One built on invention does not, however favourable it reads.</p>
 </div>
 
 <!-- Criteria mapping note -->
@@ -309,10 +390,29 @@ html,body{overflow-x:clip}
 <div class="sec-title">What the AI Missed Entirely</div>
 <p>Beyond the errors in what the AI wrote, there are significant omissions — things the appeal needs but the AI did not generate:</p>
 <ul class="doc-list">
-<li><strong>Comorbidity severity argument:</strong> Type 2 diabetes with A1C 9.2% complicates infection management and increases sepsis mortality risk. CKD Stage III (eGFR 42) limits antibiotic options and requires renal-dose adjustment monitoring. Atrial fibrillation on warfarin requires INR monitoring during acute infection and antibiotic interaction management. None of this appears in the AI draft.</li>
+<li><strong>Comorbidity context the draft omitted (all from R6):</strong> type 2 diabetes with an HbA1c of 9.2% recorded six weeks before admission; chronic kidney disease with a baseline eGFR of 42; atrial fibrillation on warfarin. These are recorded values, not inferences. Present each with its exhibit and its date — an HbA1c predating the admission is context for infection management, not a finding from this encounter — and state the operational consequence (renal dose adjustment, INR monitoring during antibiotic therapy) rather than asserting a mortality effect the record does not measure.</li>
 <li><strong>Criteria pathway mapping:</strong> The AI asserts criteria were met but does not identify the specific pathway (sepsis/infection with hemodynamic compromise) or map the patient's clinical data to the individual elements of that pathway. This is the difference between an assertion and an argument.</li>
 <li><strong>Observation-level rebuttal:</strong> The payer argued observation was sufficient. The AI does not explain <em>why</em> observation-level monitoring was inadequate for this patient — it only asserts the patient was "too sick." A criteria-mapped rebuttal would address monitoring frequency, intervention requirements, and expected length of stay.</li>
 </ul>
+</div>
+
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Open questions and sources</div>
+<ol class="open-q">
+<li>Which sepsis definition does the plan apply, and does its policy at R9 reference one at all?</li>
+<li>Do the recorded pressures at R4 meet the plan's inpatient level-of-care standard in the edition in force?</li>
+<li>Which model and model version produced the draft, and is this error pattern reproducible across a batch or specific to this output?</li>
+<li>What is the client's acceptance threshold — are medium-severity findings blocking, or advisory?</li>
+<li>Who signs off that a corrected appeal is releasable, and is that recorded?</li>
+</ol>
+<p style="margin-top:22px"><strong>Sources relied on.</strong></p>
+<ul class="src-list">
+<li>Sepsis-3 consensus definitions and organ-dysfunction criteria (Singer et al., <em>JAMA</em> 2016), cited as a clinical framework and not as a coverage criterion.</li>
+<li>The plan's inpatient level-of-care policy at Exhibit R9, which governs the coverage question.</li>
+<li>Fictional record bundle R1–R9, published in full in the Fictional Record Bundle section above.</li>
+</ul>
+<p style="margin-top:18px;font-size:15.5px;color:var(--muted)">Specimen SPEC-QA-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. The AI draft is fabricated to demonstrate realistic error patterns and does not represent any specific tool's output. Clinical reasoning support only.</p>
 </div>
 
 </div><!-- end .doc-body -->

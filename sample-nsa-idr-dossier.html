@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — NSA/IDR Clinical Value Dossier — Clinovian</title>
 <meta name="description" content="Specimen physician-authored NSA/IDR clinical value dossier for a single emergency critical-care item with the five additional circumstances.">
-<meta property="og:title" content="Specimen — NSA/IDR Clinical Value Dossier — Clinovian"><meta property="og:description" content="Fictional physician-authored Federal IDR clinical evidence specimen for a single emergency critical-care item."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:title" content="Specimen — NSA/IDR Clinical Value Dossier — Clinovian"><meta property="og:description" content="Fictional physician-authored Federal IDR clinical evidence specimen for a single emergency critical-care item."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta property="og:url" content="https://clinovian.com/sample-nsa-idr-dossier.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -109,6 +109,29 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
 .doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media print{.top-bar,.doc-pdf-link{display:none!important}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
 <link rel="canonical" href="https://clinovian.com/sample-nsa-idr-dossier.html">
@@ -123,8 +146,22 @@ html,body{overflow-x:clip}
 <h1>Clinical Evidence Dossier</h1>
 <div class="doc-header-sub">Single-item Federal IDR dispute · Emergency physician critical care (CPT 99291) · Fictional severe septic-shock encounter.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-nsa-idr-dossier.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 <div class="specimen-banner"><strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, payer, claim, or offer. Clinovian’s scope is clinical analysis and dossier language only; eligibility, coding, offer selection, filing, portal access, fees, deadlines, legal strategy, and certification remain with the client and its designated advisers.</div>
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-IDR-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>Federal IDR clinical value dossier (clinical evidence organisation only)</dd>
+<dt>Applicable framework</dt><dd>No Surprises Act federal IDR process; the applicable and future implementation dates are separated in the body.</dd>
+<dt>Source packet</dt><dd>Fictional source packet with exhibit, page and timestamp references for each factual assertion.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <div class="doc-section">
@@ -144,13 +181,13 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Section 02</span><div class="sec-title">Clinical Evidence Map</div>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="evidence-table">
-<thead><tr><th>Clinical fact</th><th>Record support</th><th>Why it matters</th></tr></thead>
+<thead><tr><th scope="col">Clinical fact</th><th scope="col">Exhibit · page · time</th><th scope="col">Record support</th><th scope="col">Relevance to the disputed service</th></tr></thead>
 <tbody>
-<tr><td>Shock at presentation</td><td>BP 78/46 after initial fluid bolus; lactate 5.2 mmol/L; mottled extremities</td><td>Establishes immediate life-threatening instability and high-risk medical decision-making.</td></tr>
-<tr><td>Vasopressor management</td><td>Norepinephrine initiated and titrated through central access with continuous reassessment</td><td>Supports active critical-care management rather than routine emergency evaluation.</td></tr>
-<tr><td>Respiratory failure</td><td>SpO₂ 84% on room air; escalating oxygen support; arterial blood gas and airway-readiness documentation</td><td>Demonstrates concurrent organ dysfunction and resource intensity.</td></tr>
-<tr><td>Source-control coordination</td><td>Urgent surgical consultation, broad-spectrum antibiotics, serial reassessment, transfer to operating room</td><td>Shows time-sensitive multidisciplinary management with high risk of deterioration.</td></tr>
-<tr><td>Critical-care time</td><td>58 minutes of non-duplicative physician critical-care time documented</td><td>Supports the clinical intensity of the disputed service, subject to client coding validation.</td></tr>
+<tr><td>Shock at presentation</td><td>E1 p.2 · 23:14</td><td>BP 78/46 after initial fluid bolus; lactate 5.2 mmol/L; mottled extremities</td><td>Supports instability at presentation and high-complexity decision-making. Relevance must be stated against the disputed service, not asserted generally.</td></tr>
+<tr><td>Vasopressor management</td><td>E2 p.1 · 23:41–02:10</td><td>Norepinephrine initiated and titrated through central access with continuous reassessment</td><td>Supports active critical-care management. <strong>Compare against the relevant class of critical-care services, not a routine ED visit</strong> — the disputed service is itself a critical-care service, so a routine-visit comparison answers a question no one is asking.</td></tr>
+<tr><td>Respiratory failure</td><td>E1 p.3, E3 p.1 · 23:20–01:05</td><td>SpO₂ 84% on room air; escalating oxygen support; arterial blood gas and airway-readiness documentation</td><td>Supports concurrent organ dysfunction. Explain what is unusual <em>relative to other critical-care encounters</em>, which is the comparator that matters.</td></tr>
+<tr><td>Source-control coordination</td><td>E4 p.1–2 · 00:12–02:35</td><td>Urgent surgical consultation, broad-spectrum antibiotics, serial reassessment, transfer to operating room</td><td>Supports time-sensitive multidisciplinary coordination with documented deterioration risk.</td></tr>
+<tr><td>Critical-care time</td><td>E5 p.1 · attestation</td><td>58 minutes of non-duplicative physician critical-care time documented</td><td>Supports intensity, subject to the client's coding validation. <strong>Check for duplication</strong>: time already reflected in the billed service, or in another item in the same dispute, must not be counted twice.</td></tr>
 </tbody></table></div>
 </div>
 
@@ -158,7 +195,7 @@ html,body{overflow-x:clip}
 <span class="sec-label">Section 03</span><div class="sec-title">Five Enumerated Additional Circumstances</div>
 <p><strong>1 — Training, experience, quality and outcomes.</strong> The treating physician’s emergency-medicine certification, critical-care experience, and client-supplied quality data may be relevant if verified and connected to the disputed service. Generic credential statements are excluded.</p>
 <p><strong>2 — Market share of the parties.</strong> Market-share evidence is outside the medical record. Clinovian flags it for client or counsel validation and does not infer it from the clinical file.</p>
-<p><strong>3 — Patient acuity or complexity of furnishing the service.</strong> Strongly supported. Shock, respiratory failure, vasopressor titration, serial reassessment, and emergent source-control coordination materially distinguish the encounter from a routine high-acuity ED visit.</p>
+<p><strong>3 — Patient acuity or complexity of furnishing the service.</strong> Supported on the record at E1–E5. State the comparison correctly: the question is what distinguishes this encounter <strong>from other encounters in the relevant class of critical-care services</strong> — shock requiring titrated vasopressor support with concurrent respiratory failure and emergent source control — not what distinguishes it from a routine emergency visit. Comparing a critical-care service to a routine visit overstates the case and misidentifies the comparator a certified entity would use.</p>
 <p><strong>4 — Teaching status, case mix and scope of services.</strong> Potentially relevant if the client verifies the facility’s status and explains how its capabilities were material to this encounter. The dossier does not assume that facility status alone changes value.</p>
 <p><strong>5 — Good-faith contracting efforts and prior contracted rates.</strong> Client-supplied contracting evidence may be included where applicable. Clinovian does not convert contracting history into a clinical conclusion.</p>
 </div>
@@ -167,7 +204,7 @@ html,body{overflow-x:clip}
 <span class="sec-label">Section 04</span><div class="sec-title">QPA and Offer Separation</div>
 <div class="rebuttal">
 <div class="rebuttal-payer"><div class="rebuttal-label payer">What the dossier does not say</div><p>The QPA is not labeled as the payer’s offer, and the initial payment is not treated as interchangeable with either figure. The dossier does not claim that the QPA is invalid or incapable of reflecting any complexity.</p></div>
-<div class="rebuttal-response"><div class="rebuttal-label response">What the clinical record supports</div><p>The case-specific severity, risk, and resource intensity documented here may not be fully captured by the QPA or initial payment. The client may use this evidence, together with other credible permissible information, when supporting its independently selected offer.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">What the clinical record supports</div><p>The case-specific severity, risk and resource intensity at E1–E5 are documented facts about this encounter. Whether they are already reflected in the QPA is <strong>not established here</strong>: the QPA is a median contracted rate for the service code, so components of shock management represented in the billed service may already be embedded in it. Do not assume otherwise.</p><p style="margin-bottom:0">The client and its authorised IDR representative should review this evidence for credibility, relevance and potential duplication before using it, together with other permissible information, in support of the offer they independently select. A specimen cannot resolve how a certified entity weighs contested regulatory factors, and this one does not attempt to.</p></div>
 </div>
 </div>
 
@@ -177,7 +214,7 @@ html,body{overflow-x:clip}
 <li>Confirm that the critical-care time is non-duplicative and supports the submitted code.</li>
 <li>Obtain the plan’s complete QPA disclosure and keep the QPA distinct from both party offers.</li>
 <li>Validate any market-share, facility, quality-outcome, and contracting evidence outside the medical record.</li>
-<li>Remove clinical facts already incorporated into the QPA or repeated across multiple circumstances without additional relevance.</li>
+<li>Review every fact for <strong>credibility, relevance and duplication</strong> with the authorised IDR representative — including facts that may already be incorporated into the QPA, and facts repeated across more than one enumerated circumstance without adding anything.</li>
 <li>Exclude billed-charge, usual-and-customary, and public-payer-rate arguments from the clinical dossier.</li>
 </ul>
 </div>
@@ -185,10 +222,45 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Section 06</span><div class="sec-title">Physician Clinical Synthesis</div>
 <div class="rec-box"><p><strong>Clinical conclusion for client review.</strong> The record supports a materially complex critical-care encounter involving hemodynamic shock, respiratory failure, vasopressor management, serial reassessment, and urgent source-control coordination. Those case-specific facts provide a credible clinical basis for distinguishing the service from a routine emergency encounter. The client retains responsibility for deciding how that evidence relates to its offer and for all procedural and legal submissions.</p></div>
+<div class="doc-section" id="implementation-dates">
+<span class="sec-label">Rule Currency</span>
+<div class="sec-title">2026 federal IDR changes — separate dates, separate effects</div>
+<p>The 2026 operational changes do not share one implementation date. Presenting them as a single package causes filing errors. Confirm each against CMS before relying on it: these are time-sensitive and this specimen was last reviewed on 13 September 2026.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Federal IDR 2026 implementation dates"><table class="exhibit-table">
+<caption>Implementation timeline as published by CMS — status as at 13 September 2026</caption>
+<thead><tr><th scope="col">Provision</th><th scope="col">Date</th><th scope="col">Status</th></tr></thead>
+<tbody>
+<tr><th scope="row">$15 administrative fee</th><td>11 June 2026</td><td>In effect</td></tr>
+<tr><th scope="row">General effectiveness of the operations provisions</th><td>3 August 2026</td><td>In effect</td></tr>
+<tr><th scope="row">New batching definition</th><td>Disputes whose open-negotiation period begins <strong>on or after 1 November 2026</strong></td><td><strong>Future.</strong> Determined by the open-negotiation start date, not the filing date — check which regime a dispute falls under before batching anything</td></tr>
+<tr><th scope="row">Portal-dependent provisions</th><td>Separately announced implementation</td><td>Confirm individually; do not assume they follow the 3 August date</td></tr>
+</tbody>
+</table></div>
+<p><strong>Clinovian does not file, does not hold portal access, and does not determine eligibility, batching or deadlines.</strong> These dates are stated so the client's authorised representative can confirm which regime applies. Source: CMS federal IDR implementation timeline — <a href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer">cms.gov/nosurprises<span class="visually-hidden"> (opens in a new tab)</span></a>. Recheck before each filing.</p>
+</div>
+
 <div class="tag-strip"><span class="tag">Single-item dispute</span><span class="tag">Clinical evidence map</span><span class="tag">Five circumstances</span><span class="tag">QPA separated</span><span class="tag">No portal access</span></div>
 </div>
 
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Open questions and sources</div>
+<ol class="open-q">
+<li>Does the representative confirm every exhibit reference, page and timestamp against the certified record?</li>
+<li>Is any fact here already reflected in the QPA, or duplicated across enumerated circumstances?</li>
+<li>Which implementation regime applies, determined by the open-negotiation start date?</li>
+<li>Is the dispute eligible, and is the deadline confirmed? Neither is assessed here.</li>
+<li>Is the comparator used in the submission the relevant class of critical-care services?</li>
+</ol>
+<p style="margin-top:22px"><strong>Sources relied on.</strong></p>
+<ul class="src-list">
+<li>CMS federal IDR implementation timeline and process materials. <a href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer">cms.gov/nosurprises<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+<li>Fictional case exhibits E1–E5. No statistic on IDR volumes, win rates or offer outcomes is asserted in this specimen.</li>
+</ul>
+<p style="margin-top:18px;font-size:15.5px;color:var(--muted)">Specimen SPEC-IDR-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. Clinical evidence organisation only. Eligibility, filing, deadlines, batching, offer selection and legal strategy remain with the client and its authorised IDR representative.</p>
 </div>
+
+</div><!-- end .doc-body -->
 <div class="doc-footer"><div class="doc-footer-brand">Clinovian</div><p>This specimen demonstrates the clinical evidence layer only. A live engagement begins with a de-identified suitability screen, written fixed scope, BAA where required, and secure transfer instructions. Clinovian does not determine IDR eligibility, validate coding, select offers, access the portal, pay process fees, or provide legal representation.</p><p><a href="/nsa-idr.html">NSA/IDR service detail</a> · <a href="/contact.html">Request a de-identified suitability screen</a> · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p></div>
 </div>
 </main>

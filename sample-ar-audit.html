@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — No-PHI Clinical Denial AR Audit — Clinovian</title>
 <meta name="description" content="Fictional specimen: 72-hour physician triage of a 47-account denial inventory — category triage, client-supplied deadline flags, and pursuit order.">
-<meta property="og:title" content="Specimen — No-PHI Clinical Denial AR Audit — Clinovian"><meta property="og:description" content="Specimen AR audit: 72-hour physician triage of aged denial inventory. Category triage, client-supplied deadline flags, payer patterns, pursuit sequence."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:title" content="Specimen — No-PHI Clinical Denial AR Audit — Clinovian"><meta property="og:description" content="Specimen AR audit: 72-hour physician triage of aged denial inventory. Category triage, client-supplied deadline flags, payer patterns, pursuit sequence."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta property="og:url" content="https://clinovian.com/sample-ar-audit.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -112,6 +112,29 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .drg-compare.four{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1000px){.drg-compare.four{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.drg-compare.four{grid-template-columns:1fr 1fr}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
 <link rel="canonical" href="https://clinovian.com/sample-ar-audit.html">
@@ -125,103 +148,127 @@ html,body{overflow-x:clip}
 <a href="/sample-work.html" class="top-bar-back">← Back to Sample Work</a>
 </div>
 <div class="doc-header">
-<div class="doc-header-eyebrow">Specimen · No-PHI Clinical Denial AR Audit</div>
+<div class="doc-header-eyebrow">Specimen · No-PHI Clinical Denial AR Triage</div>
 <h1>Clinical Denial AR Audit Report</h1>
-<div class="doc-header-sub">72-hour physician triage of a 47-case aged denial inventory. What is contestable, what is at deadline risk, and what to pursue first. No PHI required for this deliverable.</div>
+<div class="doc-header-sub">72-hour physician triage of a 47-account aged denial inventory. Sorts accounts by the kind of work each denial rationale calls for. This deliverable does not assess case merits, verify deadlines, or forecast recovery.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-ar-audit.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 <div class="specimen-banner">
 <strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. Proprietary criteria content has been generalized. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.</div>
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-AR-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>No-PHI inventory triage of an aged clinical-denial AR file</dd>
+<dt>Applicable framework</dt><dd>Not applicable — this deliverable does not reach case merits, coverage criteria or deadline validity.</dd>
+<dt>Source packet</dt><dd>Complete fictional 47-row inventory published in this specimen; all category totals reconcile to it.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <div class="doc-section">
 <span class="sec-label">Section 01</span>
-<div class="sec-title">Audit Scope</div>
+<div class="sec-title">Scope — and what this deliverable does not do</div>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
 <tr><td>Cases reviewed</td><td>47 de-identified denial summaries</td></tr>
 <tr><td>Date range</td><td>Denials aged 30–180+ days</td></tr>
-<tr><td>Total value at stake</td><td>$1,274,000 (estimated from claim values provided)</td></tr>
-<tr><td>PHI required</td><td>No — audit conducted on de-identified denial rationale, service line, payer, and claim value</td></tr>
-<tr><td>Turnaround</td><td>72 hours</td></tr>
+<tr><td>Total billed balance</td><td>$1,274,000 — the sum of the client-supplied billed balances in the file. Not an amount at stake, not an exposure figure, and not a recoverable amount.</td></tr>
+<tr><td>Inputs used</td><td>De-identified denial rationale, service line / setting, payer, client-supplied billed balance, and client-reported deadline. Nothing else.</td></tr>
+<tr><td>Turnaround</td><td>72 hours after an accepted validated file</td></tr>
+<tr><td>Out of scope</td><td>Case merits, strength of the underlying clinical record, whether a payer misapplied its criteria, whether an appeal would change an outcome, deadline validation, and any recovery or payment forecast.</td></tr>
 </table></div>
+<div class="cond-box" style="margin-top:20px"><span class="cond-label">Why the boundary is drawn here</span><p style="margin-bottom:0">Denial rationale, service line, payer, balance and a reported deadline are enough to decide <strong>what kind of work an account needs next</strong>. They are not enough to decide whether an appeal should succeed. That judgement needs the clinical record, the applicable plan policy and edition, the procedural history, the contract, and the account's collectability — none of which are in a no-PHI triage file. Every output below is a routing decision. None is a merits determination.</p></div>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 02</span>
-<div class="sec-title">Triage Summary</div>
+<div class="sec-title">Triage summary</div>
+<p>The four categories below are <strong>mutually exclusive</strong>. Every account appears in exactly one, so the four balances sum to the file total and nothing is counted twice: 18 + 12 + 10 + 7 = 47 accounts, and $612,000 + $318,000 + $155,000 + $189,000 = $1,274,000. Client-reported deadline priority is a <strong>separate flag</strong> applied on top of these categories, not a fifth bucket — its accounts are already inside the totals above.</p>
 <div class="drg-compare four">
 <div class="drg-box target" style="text-align:center;border-right:1px solid var(--rule)">
-<div class="drg-box-label target">Pursue now</div>
+<div class="drg-box-label target">Needs clinical record review</div>
 <div class="drg-box-num" style="font-size:36px">18</div>
-<div class="drg-box-name">cases</div>
-<div class="drg-box-weight">$612,000</div>
+<div class="drg-box-name">accounts</div>
+<div class="drg-box-weight">$612,000 billed</div>
 </div>
 <div class="drg-box" style="text-align:center;border-right:1px solid var(--rule)">
-<div class="drg-box-label" style="color:var(--amber-text)">Deadline risk</div>
-<div class="drg-box-num" style="font-size:36px;color:var(--amber-text)">7</div>
-<div class="drg-box-name">cases</div>
-<div class="drg-box-weight">$189,000</div>
+<div class="drg-box-label" style="color:var(--muted)">No clinical review indicated</div>
+<div class="drg-box-num" style="font-size:36px">7</div>
+<div class="drg-box-name">accounts</div>
+<div class="drg-box-weight">$189,000 billed</div>
 </div>
 <div class="drg-box" style="text-align:center;border-right:1px solid var(--rule)">
-<div class="drg-box-label" style="color:var(--muted)">Needs records</div>
+<div class="drg-box-label" style="color:var(--muted)">Missing information</div>
 <div class="drg-box-num" style="font-size:36px">12</div>
-<div class="drg-box-name">cases</div>
-<div class="drg-box-weight">$318,000</div>
+<div class="drg-box-name">accounts</div>
+<div class="drg-box-weight">$318,000 billed</div>
 </div>
 <div class="drg-box" style="text-align:center">
-<div class="drg-box-label paid">Do not pursue</div>
+<div class="drg-box-label paid">Likely administrative routing</div>
 <div class="drg-box-num" style="font-size:36px;color:var(--red)">10</div>
-<div class="drg-box-name">cases</div>
-<div class="drg-box-weight">$155,000</div>
+<div class="drg-box-name">accounts</div>
+<div class="drg-box-weight">$155,000 billed</div>
 </div>
 </div>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 03</span>
-<div class="sec-title">Pursue-Now Cases (Top 5 by Value)</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table">
-<tr><th>Case</th><th>Service Line</th><th>Value</th><th>Physician Assessment</th></tr>
-<tr><td>#14</td><td>Inpatient sepsis, DRG downgrade 872→871</td><td>$18,400</td><td>Clinical severity markers documented but not cited in prior appeal. Criteria-mapped argument constructable from existing record.</td></tr>
-<tr><td>#03</td><td>SNF admission denial (MA)</td><td>$22,600</td><td>Denial conflates acute stability with SNF-level need. Same analytical error seen in 4 other cases in this inventory. Strong appeal basis.</td></tr>
-<tr><td>#27</td><td>Cardiac catheterization PA denial</td><td>$41,200</td><td>Prior appeal used clinical narrative without criteria mapping. Indication documentation is strong. Needs criteria-mapped resubmission.</td></tr>
-<tr><td>#31</td><td>Observation downgrade, chest pain</td><td>$8,900</td><td>Two-Midnight Rule argument not used in prior appeal. Admitting physician documentation supports prospective expectation.</td></tr>
-<tr><td>#09</td><td>IRF admission denial (MA)</td><td>$34,800</td><td>Rehabilitation potential documented. Payer’s denial cites maintenance-level plateau that is contradicted by therapy evaluations. Strong.</td></tr>
-</table></div>
+<div class="sec-title">Largest accounts routed to clinical record review</div>
+<p>Sorted by client-supplied billed balance, largest first. These are genuinely the five largest accounts in the clinical-review category — the remaining thirteen are all at or below the smallest figure shown, and every account in the category is listed in the full inventory below. The final column states why the account was routed here. It does not state whether the denial was correct.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Five largest accounts flagged for clinical record review"><table class="exhibit-table">
+<caption>Five largest accounts in the clinical-review category, sorted by billed balance — $203,600 of the $612,000 in that category</caption>
+<thead><tr><th scope="col">Account</th><th scope="col">Service line / setting</th><th scope="col">Billed balance</th><th scope="col">Denial rationale as supplied</th><th scope="col">Why it is routed to clinical review</th></tr></thead><tbody>
+<tr><th scope="row">C-001</th><td>SNF admission denial</td><td>$41,700</td><td>Acute condition resolved; skilled level not established</td><td>Rationale turns on whether skilled need continued after the acute condition resolved. That is a clinical question and cannot be resolved from the denial text alone.</td></tr>
+<tr><th scope="row">C-002</th><td>IRF admission denial</td><td>$41,300</td><td>Rehabilitation plateau asserted</td><td>Rationale asserts a rehabilitation plateau. Assessing it requires the therapy record, which is not part of a no-PHI triage file.</td></tr>
+<tr><th scope="row">C-003</th><td>Cardiac catheterisation, prior authorisation</td><td>$40,800</td><td>Indication not established under plan policy</td><td>Rationale cites plan policy criteria. Whether the record addresses those criteria requires the record and the named policy version.</td></tr>
+<tr><th scope="row">C-004</th><td>Inpatient sepsis, DRG severity downgrade</td><td>$40,100</td><td>MCC removed on post-payment audit</td><td>Rationale is a severity-classification challenge. Routing to clinical validation also requires the reported diagnosis codes from the client.</td></tr>
+<tr><th scope="row">C-005</th><td>LTACH admission denial</td><td>$39,700</td><td>Hospital-level need not established</td><td>Rationale turns on continuing hospital-level need. Clinical question; record and setting criteria required.</td></tr>
+</tbody></table></div>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 04</span>
-<div class="sec-title">Deadline-Risk Cases</div>
-<p>Seven cases have client-supplied appeal deadlines within the next 30 days (deadlines to be verified with the payer). Of these, five have contestable denial rationales but require immediate action:</p>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table">
-<tr><th>Case</th><th>Deadline</th><th>Value</th><th>Action Required</th></tr>
-<tr><td>#08</td><td>12 days</td><td>$31,400</td><td>Level 2 appeal deadline. Prior Level 1 used generic language. Needs physician escalation memo before submission.</td></tr>
-<tr><td>#22</td><td>18 days</td><td>$14,200</td><td>External review filing deadline. Case is contestable but requires documentation supplement (therapy notes missing from file).</td></tr>
-<tr><td>#41</td><td>21 days</td><td>$28,600</td><td>Level 1 appeal deadline. DRG downgrade case with strong clinical severity evidence. High priority.</td></tr>
-<tr><td>#15</td><td>25 days</td><td>$9,800</td><td>SNF continued-stay denial. Criteria-mapped argument needed. Moderate complexity.</td></tr>
-<tr><td>#36</td><td>28 days</td><td>$16,400</td><td>Observation downgrade. Two-Midnight Rule argument constructable. Needs physician attestation.</td></tr>
-</table></div>
-<p>The remaining 2 deadline-risk cases (#19, #44) have denial rationales that are clinically correct. Filing an appeal would not change the outcome and would consume resources better spent on the 5 contestable cases above.</p>
+<div class="sec-title">Client-reported deadline priority</div>
+<p>Seven accounts carry a deadline reported by the client. <strong>Clinovian has not verified any of them.</strong> Deadline validity depends on the notice date, the appeal level, the applicable plan or regulatory process, and any tolling — none of which is in the triage file. These seven accounts sit inside the four categories above; their balances are not added again here.</p>
+<p>Five of the seven were routed to clinical record review or missing information, and total <strong>$100,400</strong> in billed balances. Those are listed below with their category, so the client can sequence them against its own verified deadlines.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="exhibit-table">
+<caption>Deadline-flagged accounts routed to clinical review or missing information — $100,400 in billed balances, already counted in the category totals</caption>
+<thead><tr><th scope="col">Account</th><th scope="col">Client-reported deadline</th><th scope="col">Billed balance</th><th scope="col">Triage category</th><th scope="col">Next step for the client</th></tr></thead><tbody>
+<tr><th scope="row">C-014</th><td>12 days</td><td>$31,400</td><td>Needs clinical record review</td><td>Verify the deadline and the applicable appeal level, then decide whether to commission a review.</td></tr>
+<tr><th scope="row">C-015</th><td>21 days</td><td>$28,600</td><td>Needs clinical record review</td><td>Verify the deadline. Reported diagnosis codes are also required before a severity dispute can be assessed.</td></tr>
+<tr><th scope="row">C-030</th><td>18 days</td><td>$14,200</td><td>Missing information</td><td>Verify the deadline and supply the therapy evaluations that are absent from the file.</td></tr>
+<tr><th scope="row">C-017</th><td>28 days</td><td>$16,400</td><td>Needs clinical record review</td><td>Verify the deadline and supply the admission-decision timestamps.</td></tr>
+<tr><th scope="row">C-018</th><td>25 days</td><td>$9,800</td><td>Needs clinical record review</td><td>Verify the deadline and the applicable continued-stay criteria.</td></tr>
+</tbody></table></div>
+<p style="margin-top:16px">The remaining two flagged accounts (C-031, C-041) were routed to administrative handling and to no-clinical-review-indicated respectively, on the denial rationale as supplied. <strong>That is a routing output, not advice to abandon an appeal.</strong> Whether to pursue, write off or escalate any account remains the client's decision, and a routing category changes as soon as further information is supplied.</p>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 05</span>
-<div class="sec-title">Payer Patterns</div>
-<p>Three patterns emerge across the 47-case inventory:</p>
-<p><strong>Pattern 1 — Post-acute stability conflation (11 cases, 3 payers):</strong> Multiple MA plans are applying the same analytical error across SNF and IRF denials — equating resolution of the acute condition with absence of post-acute skilled-care need. This is a systematic payer-side criteria misapplication, not a case-by-case clinical judgment. A template rebuttal addressing this specific logical error could be adapted across all 11 cases.</p>
-<p><strong>Pattern 2 — Observation downgrades on cardiac admissions (6 cases, 2 payers):</strong> Retrospective observation reclassification of chest pain and arrhythmia admissions. All six cases have admitting physician documentation supporting a Two-Midnight expectation. None of the prior appeals cited the Two-Midnight Rule framework. This is a systematic gap in your appeal team’s argumentation, not a clinical documentation gap.</p>
-<p><strong>Pattern 3 — DRG downgrades without CDI challenge (5 cases, 1 payer):</strong> Five sepsis and heart-failure DRG downgrades where the paid DRG was accepted without clinical severity challenge. Combined revenue delta: approximately $67,000. These are recoverable if the clinical severity evidence supports the higher-weighted DRG.</p>
+<div class="sec-title">Observed groupings in the rationale text</div>
+<p>Three groupings are visible in the denial rationale text across the 47 accounts. These are observations about how the rationales are worded in this file. They are <strong>not</strong> findings that a payer misapplied its criteria, and they are not a basis for concluding that any account is appealable — that requires the record and the applicable policy.</p>
+<p><strong>Grouping 1 — post-acute rationales that reference acute resolution (11 accounts, 3 payers).</strong> Across SNF, IRF, LTACH and home-health accounts, the supplied rationale text repeatedly frames the decision around resolution or stability of the acute condition. Whether each account also addressed the separate question of continuing skilled need cannot be determined from the rationale text alone. If the client wants that assessed, these eleven accounts are efficient to review together because the same framework applies — but each still turns on its own record and its own plan policy.</p>
+<p><strong>Grouping 2 — retrospective status reclassification on cardiac and neurological presentations (6 accounts, 2 payers).</strong> The rationale text describes a reclassification made after the encounter. Assessing any of these requires the admission-decision timestamps, the documentation available at the decision point, and the applicable plan policy — none of which is in the triage file. No statement is made here about the strength of the prior submissions, which Clinovian has not seen.</p>
+<p><strong>Grouping 3 — post-payment severity adjustments (5 accounts, 1 payer).</strong> The rationale text describes removal or challenge of a secondary diagnosis after payment. These accounts cannot be assessed at all without the reported diagnosis codes and the grouper inputs, which the client holds. No payment differential is stated here: the difference between two DRGs is a contract calculation, not a property of the denial rationale, and the client's contracting team owns it.</p>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 06</span>
-<div class="sec-title">Recommended Pursuit Sequence</div>
+<div class="sec-title">Suggested working sequence</div>
 <div class="rec-box">
-<p><strong>Week 1:</strong> File the 5 deadline-risk contestable cases. Cases #08 and #41 are highest priority by deadline and value.</p>
-<p style="margin-top:10px"><strong>Week 2–3:</strong> Begin physician escalation on the 18 pursue-now cases, prioritized by value. Cases #27, #09, and #03 represent $98,600 in combined client-supplied balances and have strong clinical basis.</p>
-<p style="margin-top:10px"><strong>Week 3–4:</strong> Request supplemental records for the 12 needs-records cases. Begin clinical review as records arrive.</p>
-<p style="margin-top:10px"><strong>Estimated recoverable:</strong> $612,000 (pursue-now) + $100,400 (deadline-risk contestable) + portion of $318,000 (needs-records). These figures are client-supplied billed balances at issue in the flagged categories from a $1.27M inventory — not a recovery estimate or a prediction of payment.</p>
+<p>A sequence the client may find efficient. Clinovian is not directing the client's appeal programme, and none of this overrides the client's own verified deadlines or its decisions about which accounts to pursue.</p>
+<p style="margin-top:10px"><strong>First:</strong> verify the seven client-reported deadlines against the notice dates and the applicable appeal process. Everything else is downstream of that.</p>
+<p style="margin-top:10px"><strong>Then:</strong> supply the missing items for the twelve accounts in the missing-information category. Several of these may reclassify once the information arrives, so resolving them early avoids re-work.</p>
+<p style="margin-top:10px"><strong>Then:</strong> decide which of the eighteen clinical-review accounts to commission, working down from the largest billed balance and taking the deadline-flagged accounts first within that order.</p>
+<p style="margin-top:10px"><strong>Alongside:</strong> route the ten administrative accounts to billing, coding or eligibility as appropriate. They do not need a physician.</p>
+<h3 style="font-family:'Spectral',serif;font-size:19px;font-weight:600;color:var(--ink);margin:22px 0 8px">Billed balances flagged for further review</h3>
+<p style="margin-top:0"><strong>$612,000</strong> in the clinical-review category and <strong>$318,000</strong> in the missing-information category, from a total file of $1,274,000. These are <strong>client-supplied billed balances</strong> — the amounts currently on the accounts. They are not a recovery estimate, not an expected value, and not an amount at stake. What any account would actually recover depends on the merits, the contract, the procedural posture and collectability, none of which this deliverable assesses.</p>
 </div>
 </div>
 
@@ -231,14 +278,89 @@ html,body{overflow-x:clip}
 <div class="tag-strip">
 <span class="tag">AR audit</span>
 <span class="tag">No-PHI triage</span>
-<span class="tag">47 cases / $1.27M</span>
-<span class="tag">Payer pattern: post-acute conflation</span>
-<span class="tag">Payer pattern: observation cardiac</span>
-<span class="tag">Payer pattern: DRG no-challenge</span>
+<span class="tag">47 accounts / $1,274,000 billed</span>
+<span class="tag">Grouping: post-acute rationales</span>
+<span class="tag">Grouping: status reclassification</span>
+<span class="tag">Grouping: severity adjustment</span>
 </div>
 </div>
 
+<div class="doc-section" id="inventory">
+<span class="sec-label">Complete Inventory</span>
+<div class="sec-title">All 47 fictional accounts</div>
+<p>The full dataset every figure in this specimen is derived from. Publishing it is the point: a reader can check that the category counts and balances reconcile, that the five largest clinical-review accounts really are the five largest, and that no balance is counted twice. A real deliverable returns the same table against the client's own file.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Complete fictional 47-row denial inventory"><table class="exhibit-table">
+<caption>Complete fictional inventory — 47 accounts, $1,274,000 in client-supplied billed balances. Categories are mutually exclusive; the deadline column is an independent client-reported flag and does not create a second balance total.</caption>
+<thead><tr><th scope="col">Account</th><th scope="col">Service line / setting</th><th scope="col">Payer</th><th scope="col">Denial rationale as supplied</th><th scope="col">Billed balance</th><th scope="col">Triage disposition</th><th scope="col">Client-reported deadline</th></tr></thead><tbody>
+<tr><th scope="row">C-001</th><td>SNF admission denial</td><td>Payer A (MA)</td><td>Acute condition resolved; skilled level not established</td><td>$41,700</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-002</th><td>IRF admission denial</td><td>Payer A (MA)</td><td>Rehabilitation plateau asserted</td><td>$41,300</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-003</th><td>Cardiac catheterisation, prior authorisation</td><td>Payer C (commercial PPO)</td><td>Indication not established under plan policy</td><td>$40,800</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-004</th><td>Inpatient sepsis, DRG severity downgrade</td><td>Payer C (commercial PPO)</td><td>MCC removed on post-payment audit</td><td>$40,100</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-005</th><td>LTACH admission denial</td><td>Payer B (MA)</td><td>Hospital-level need not established</td><td>$39,700</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-006</th><td>Inpatient status, chest pain</td><td>Payer C (commercial PPO)</td><td>Retrospective observation reclassification</td><td>$39,200</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-007</th><td>SNF continued stay</td><td>Payer A (MA)</td><td>Continued skilled need not established</td><td>$38,400</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-008</th><td>Spinal fusion, prior authorisation</td><td>Payer D (commercial EPO)</td><td>Conservative therapy not exhausted</td><td>$37,100</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-009</th><td>Inpatient heart failure, DRG severity downgrade</td><td>Payer C (commercial PPO)</td><td>MCC removed on post-payment audit</td><td>$36,900</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-010</th><td>IRF continued stay</td><td>Payer B (MA)</td><td>Interdisciplinary intensity not established</td><td>$36,600</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-011</th><td>Home health, skilled nursing episode</td><td>Payer A (MA)</td><td>Skilled need not established</td><td>$35,700</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-012</th><td>Inpatient status, arrhythmia</td><td>Payer C (commercial PPO)</td><td>Retrospective observation reclassification</td><td>$35,400</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-013</th><td>Oncology infusion regimen, prior authorisation</td><td>Payer D (commercial EPO)</td><td>Regimen not supported under plan policy</td><td>$34,400</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-014</th><td>Inpatient pneumonia, DRG severity downgrade</td><td>Payer C (commercial PPO)</td><td>Secondary diagnosis validity challenged</td><td>$31,400</td><td>Needs clinical record review</td><td>12 days</td></tr>
+<tr><th scope="row">C-015</th><td>SNF admission denial</td><td>Payer B (MA)</td><td>Acute condition resolved; skilled level not established</td><td>$28,600</td><td>Needs clinical record review</td><td>21 days</td></tr>
+<tr><th scope="row">C-016</th><td>Inpatient behavioural health, continued stay</td><td>Payer D (commercial EPO)</td><td>Acute psychiatric criteria not met</td><td>$28,500</td><td>Needs clinical record review</td><td>—</td></tr>
+<tr><th scope="row">C-017</th><td>Neurology, inpatient diagnostic admission</td><td>Payer C (commercial PPO)</td><td>Workup deemed outpatient-appropriate</td><td>$16,400</td><td>Needs clinical record review</td><td>28 days</td></tr>
+<tr><th scope="row">C-018</th><td>Inpatient status, syncope</td><td>Payer C (commercial PPO)</td><td>Retrospective observation reclassification</td><td>$9,800</td><td>Needs clinical record review</td><td>25 days</td></tr>
+<tr><th scope="row">C-019</th><td>IRF admission denial</td><td>Payer B (MA)</td><td>Therapy evaluations not present in supplied file</td><td>$31,800</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-020</th><td>SNF admission denial</td><td>Payer A (MA)</td><td>Denial letter not supplied; rationale reported by phone only</td><td>$30,900</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-021</th><td>Inpatient status, abdominal pain</td><td>Payer C (commercial PPO)</td><td>Rationale text truncated in supplied file</td><td>$30,200</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-022</th><td>Home health episode</td><td>Payer A (MA)</td><td>Episode dates and discipline mix not supplied</td><td>$29,800</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-023</th><td>Orthopaedic implant, prior authorisation</td><td>Payer D (commercial EPO)</td><td>Requested procedure code not supplied</td><td>$29,300</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-024</th><td>Inpatient sepsis, DRG severity downgrade</td><td>Payer C (commercial PPO)</td><td>Reported diagnosis codes not supplied</td><td>$28,500</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-025</th><td>LTACH continued stay</td><td>Payer B (MA)</td><td>Prior appeal correspondence not supplied</td><td>$27,200</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-026</th><td>Oncology, prior authorisation</td><td>Payer D (commercial EPO)</td><td>Plan policy version not identified</td><td>$26,700</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-027</th><td>SNF continued stay</td><td>Payer A (MA)</td><td>Denial date and level not supplied</td><td>$25,500</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-028</th><td>Cardiology diagnostic study</td><td>Payer C (commercial PPO)</td><td>Rationale recorded as “medical necessity” with no detail</td><td>$24,500</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-029</th><td>Inpatient status, cellulitis</td><td>Payer C (commercial PPO)</td><td>Admission and discharge timestamps not supplied</td><td>$19,400</td><td>Missing information</td><td>—</td></tr>
+<tr><th scope="row">C-030</th><td>Behavioural health, partial hospitalisation</td><td>Payer D (commercial EPO)</td><td>Level-of-care requested not identified</td><td>$14,200</td><td>Missing information</td><td>18 days</td></tr>
+<tr><th scope="row">C-031</th><td>Outpatient imaging</td><td>Payer C (commercial PPO)</td><td>No prior authorisation on file</td><td>$19,700</td><td>Likely administrative routing</td><td>9 days</td></tr>
+<tr><th scope="row">C-032</th><td>Inpatient claim</td><td>Payer A (MA)</td><td>Timely filing</td><td>$18,800</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-033</th><td>Outpatient procedure</td><td>Payer D (commercial EPO)</td><td>Non-covered benefit under plan</td><td>$18,100</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-034</th><td>Outpatient laboratory</td><td>Payer C (commercial PPO)</td><td>Duplicate claim</td><td>$17,200</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-035</th><td>SNF claim</td><td>Payer B (MA)</td><td>Eligibility not active on date of service</td><td>$16,400</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-036</th><td>Outpatient therapy</td><td>Payer A (MA)</td><td>Benefit maximum reached</td><td>$15,100</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-037</th><td>Inpatient claim</td><td>Payer C (commercial PPO)</td><td>Coordination of benefits — other payer primary</td><td>$14,600</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-038</th><td>Outpatient procedure</td><td>Payer D (commercial EPO)</td><td>Modifier / coding edit</td><td>$13,400</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-039</th><td>Home health claim</td><td>Payer A (MA)</td><td>Provider not in network on date of service</td><td>$12,400</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-040</th><td>Outpatient imaging</td><td>Payer B (MA)</td><td>Authorisation on file does not match billed code</td><td>$9,300</td><td>Likely administrative routing</td><td>—</td></tr>
+<tr><th scope="row">C-041</th><td>Outpatient procedure</td><td>Payer D (commercial EPO)</td><td>Service excluded by plan document supplied with the file</td><td>$30,300</td><td>No clinical review indicated on the information supplied</td><td>16 days</td></tr>
+<tr><th scope="row">C-042</th><td>Inpatient claim</td><td>Payer C (commercial PPO)</td><td>Client has recorded the balance as adjusted under contract terms</td><td>$29,600</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+<tr><th scope="row">C-043</th><td>SNF claim</td><td>Payer A (MA)</td><td>Client records show the appeal already concluded at final level</td><td>$28,700</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+<tr><th scope="row">C-044</th><td>Outpatient imaging</td><td>Payer C (commercial PPO)</td><td>Client has recorded the balance as patient responsibility</td><td>$26,600</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+<tr><th scope="row">C-045</th><td>Inpatient claim</td><td>Payer B (MA)</td><td>Client records show the account already resolved by payment</td><td>$26,100</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+<tr><th scope="row">C-046</th><td>Outpatient therapy</td><td>Payer A (MA)</td><td>Client has withdrawn the account from follow-up</td><td>$24,900</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+<tr><th scope="row">C-047</th><td>Behavioural health, outpatient</td><td>Payer D (commercial EPO)</td><td>Denial rationale is administrative and already routed by the client</td><td>$22,800</td><td>No clinical review indicated on the information supplied</td><td>—</td></tr>
+</tbody></table></div>
+<div class="cond-box" style="margin-top:22px"><span class="cond-label">Reconciliation</span>
+<p style="margin-bottom:0">18 + 12 + 10 + 7 = 47 accounts. $612,000 + $318,000 + $155,000 + $189,000 = $1,274,000. The seven deadline-flagged accounts hold $150,400 in billed balances, all of it already inside the four category totals — the flag adds urgency, not a balance. The five flagged accounts routed to clinical review or missing information hold $100,400.</p></div>
 </div>
+
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Limits, open questions and method</div>
+<p><strong>What a reader should not take from this document.</strong> No account here has been assessed for merit. No denial has been characterised as correct or incorrect. No deadline has been verified. No payment has been forecast. Routing a denial rationale to a category is a statement about the rationale text and the information supplied, not about the underlying care.</p>
+<p><strong>Questions the client must answer before acting.</strong></p>
+<ol class="open-q">
+<li>Is each client-reported deadline correct against the notice date and the applicable appeal level and process?</li>
+<li>For the severity-adjustment accounts, what diagnosis codes were reported and what does the grouper return for the applicable version?</li>
+<li>For the missing-information accounts, can the absent items be produced, and does their arrival change the routing?</li>
+<li>Which accounts are worth the cost of review, given the client's own contract terms and collectability data?</li>
+<li>Are any accounts already resolved, adjusted or closed in the client's system but still open in the extract supplied?</li>
+</ol>
+<p style="margin-top:22px"><strong>Method.</strong> Each account was read on five supplied fields only: denial rationale text, service line or setting, payer, billed balance, and any client-reported deadline. Each was assigned to exactly one category on the face of that rationale. Deadline priority was recorded as a flag. Balances were summed once, by category. No record, policy document, contract or payer correspondence was requested, received or used.</p>
+<p style="margin-top:14px;font-size:15.5px;color:var(--muted)">Specimen SPEC-AR-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. Fictional data throughout. Inventory triage only; not a case-merit assessment, not a deadline verification, and not a recovery estimate.</p>
+</div>
+
+</div><!-- end .doc-body -->
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
 <p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">

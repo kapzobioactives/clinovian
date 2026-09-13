@@ -3,11 +3,14 @@
 
 Rules:
 - Excludes 404.html, redirect stubs, and any page whose robots meta contains noindex.
-- lastmod comes from the page file's modification time (override via DATES below).
+- lastmod comes from data/content-dates.json, which records meaningful content
+  changes. Filesystem modification times are deliberately NOT used: unpacking or
+  rebuilding the archive rewrites them, which would publish false update dates.
+  A page missing from that file is a hard error, so new pages cannot ship undated.
 - Homepage is emitted as https://clinovian.com/ with priority 1.0.
 Run from the repository root: python3 scripts/generate_sitemap.py
 """
-import datetime
+import json
 import pathlib
 import re
 import sys
@@ -39,8 +42,12 @@ PRIORITY = {
 DEFAULT = ("monthly", "0.7")
 
 
+CONTENT_DATES = json.loads((ROOT / "data" / "content-dates.json").read_text(encoding="utf-8"))["dates"]
+
+
 def main() -> int:
     pages = []
+    missing = []
     for p in sorted(ROOT.glob("*.html")):
         if p.name in EXCLUDE:
             continue
@@ -48,10 +55,18 @@ def main() -> int:
         robots = re.search(r'<meta name="robots" content="([^"]*)"', src)
         if robots and "noindex" in robots.group(1):
             continue
-        lastmod = datetime.date.fromtimestamp(p.stat().st_mtime).isoformat()
+        lastmod = CONTENT_DATES.get(p.name)
+        if not lastmod:
+            missing.append(p.name)
+            continue
         loc = BASE if p.name == "index.html" else BASE + p.name
         changefreq, priority = PRIORITY.get(p.name, DEFAULT)
         pages.append((loc, lastmod, changefreq, priority))
+
+    if missing:
+        print("ERROR: no content date recorded for: " + ", ".join(missing), file=sys.stderr)
+        print("Add them to data/content-dates.json in the same commit as the content change.", file=sys.stderr)
+        return 1
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

@@ -1,0 +1,157 @@
+{
+  "$comment": "Claim register. Every checkable claim published on the site that depends on an external source, a statistic, or a statement about Clinovian's own experience. Review interval is SHORT for fees, deadlines and rule implementation dates, and EVENT for claims that should be rechecked when a named source changes, whether or not the scheduled date has arrived. Do not publish a fresh review date on a page unless a substantive review actually occurred.",
+  "register_version": "2026.09.13-r1",
+  "owner": "Arun Kasturi, MBBS",
+  "claims": [
+    {
+      "id": "C-001",
+      "claim": "Medicare Advantage enrollee reconsideration window is 65 calendar days from the notice date",
+      "pages": [
+        "insight-six-failure-modes.html"
+      ],
+      "source": "CMS Medicare Managed Care Manual ch.13",
+      "population": "MA enrollee reconsideration only; not provider disputes, contractual procedures or external review",
+      "last_checked": "2026-09-13",
+      "interval": "SHORT",
+      "next_review": "2026-12-13"
+    },
+    {
+      "id": "C-002",
+      "claim": "OIG: 12% of SNF admission requests denied; 18% of denials appealed; 95% of appealed denials overturned",
+      "pages": [
+        "insight-post-acute-denials.html"
+      ],
+      "source": "HHS OIG review of MA prior authorisation for SNF admissions",
+      "population": "Defined sample of MA organisations over a defined period. 95% applies to appealed denials only and is self-selected.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-003",
+      "claim": "OIG: 36% overturn for appealed LTCH denials, 43% for appealed IRF denials",
+      "pages": [
+        "insight-post-acute-denials.html"
+      ],
+      "source": "HHS OIG companion post-acute review",
+      "population": "Appealed denials in those settings only. Not interchangeable with the SNF figure.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-004",
+      "claim": "CMS-0057-F: 72-hour expedited and 7-calendar-day standard decision timeframes",
+      "pages": [
+        "pre-denial-dossier.html"
+      ],
+      "source": "CMS-0057-F fact sheet",
+      "population": "Impacted payers only. QHP issuers on the Federally-facilitated Exchanges are expressly excluded from the decision-timeframe provision. Non-API provisions generally 2026; API provisions generally 2027.",
+      "last_checked": "2026-09-13",
+      "interval": "SHORT",
+      "next_review": "2026-12-13"
+    },
+    {
+      "id": "C-005",
+      "claim": "Federal IDR 2026 implementation dates: $15 fee 11 June; general effectiveness 3 August; batching for open negotiations from 1 November",
+      "pages": [
+        "insight-idr-strategy.html",
+        "sample-nsa-idr-dossier.html",
+        "nsa-idr.html"
+      ],
+      "source": "CMS federal IDR implementation timeline",
+      "population": "Each provision has its own date. Portal-dependent provisions separately announced.",
+      "last_checked": "2026-09-13",
+      "interval": "SHORT",
+      "next_review": "2026-12-13"
+    },
+    {
+      "id": "C-006",
+      "claim": "N17.9 is a CC and N17.0 an MCC on the FY2026 MS-DRG v43 list",
+      "pages": [
+        "sample-drg-downgrade.html",
+        "insight-drg-downgrades.html"
+      ],
+      "source": "CMS FY2026 MS-DRG Definitions Manual v43, Appendix C",
+      "population": "FY2026 v43 only; subject to CC/MCC exclusion logic. Recheck every fiscal year.",
+      "last_checked": "2026-09-13",
+      "interval": "SHORT",
+      "next_review": "2026-10-01"
+    },
+    {
+      "id": "C-007",
+      "claim": "Skilled coverage does not turn on potential for improvement (Jimmo)",
+      "pages": [
+        "sample-escalation-memo.html",
+        "insight-post-acute-denials.html"
+      ],
+      "source": "CMS Jimmo settlement clarification",
+      "population": "Medicare skilled benefit",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-008",
+      "claim": "MA organisations are required to apply Medicare inpatient admission criteria; the FFS medical review presumption does not transfer",
+      "pages": [
+        "insight-two-midnight.html",
+        "sample-observation-defense.html"
+      ],
+      "source": "CMS-4201-F; CMS Two-Midnight materials",
+      "population": "Medicare FFS and MA. Not commercial or self-funded plans.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-009",
+      "claim": "3,000+ payer-side reviews",
+      "pages": [
+        "site-wide trust strip"
+      ],
+      "source": "Reviewer's own work history",
+      "population": "Founder experience across prior payer-side roles. NOT Clinovian outcomes and not successful appeals. Supporting records maintained by the reviewer.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-010",
+      "claim": "Behavioural health denial and appeal rate ranking",
+      "pages": [
+        "insight-behavioral-health.html"
+      ],
+      "source": "NONE IDENTIFIED",
+      "population": "Ranking REMOVED 13 Sep 2026. Do not reinstate without a defined comparative dataset.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-011",
+      "claim": "Comparative evaluation of AI appeal tools",
+      "pages": [
+        "insight-ai-appeal-errors.html",
+        "for-ai-vendors.html"
+      ],
+      "source": "NONE \u2014 no benchmark conducted",
+      "population": "Comparative claim REMOVED 13 Sep 2026. Examples are hypothetical. Do not reinstate without publishing methodology, sample and scoring criteria.",
+      "last_checked": "2026-09-13",
+      "interval": "EVENT",
+      "next_review": "2027-03-13"
+    },
+    {
+      "id": "C-012",
+      "claim": "Federal IDR volume, win-rate and offer statistics",
+      "pages": [
+        "insight-idr-strategy.html"
+      ],
+      "source": "CMS IDR public use files \u2014 denominators NOT independently verified",
+      "population": "Figures REMOVED 13 Sep 2026. Any figure added later must cite the specific report and table and reproduce its denominator.",
+      "last_checked": "2026-09-13",
+      "interval": "SHORT",
+      "next_review": "2026-12-13"
+    }
+  ]
+}

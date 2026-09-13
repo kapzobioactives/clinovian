@@ -22,7 +22,153 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
+import urllib.parse
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# ---------------------------------------------------------------------------
+# Release 2026.09.13-r2 regression checks.
+# Each of these tests a defect that was actually found in a shipped build. They
+# are deliberately narrow and mechanical. None of them validates clinical,
+# coding or regulatory accuracy — that requires a qualified reviewer and is
+# recorded in the clinical review log in VALIDATION_REPORT.md.
+# ---------------------------------------------------------------------------
+
+def regression_checks(root):
+    import json as _json
+    errors = []
+    contact = (root / "contact.html").read_text(encoding="utf-8")
+
+    # F07 — every service CTA resolves to an intake option (by stable ID or exact label)
+    ids = set(re.findall(r'<option data-service-id="([^"]+)"', contact))
+    labels = set(re.findall(r'<option[^>]*\svalue="([^"]*)"', contact))
+    for p in sorted(root.glob("*.html")):
+        src = p.read_text(encoding="utf-8")
+        for raw in re.findall(r'contact\.html\?service=([^"\'>\s&#]+)', src):
+            val = urllib.parse.unquote(raw)
+            if val not in ids and val not in labels:
+                errors.append(f"F07 {p.name}: service CTA '{val}' matches no intake option")
+
+    # F03 — the confirmation region must not be inside the form it hides
+    form_start = contact.find('<form id="intake-form"')
+    form_end = contact.find("</form>", form_start)
+    status = contact.find('id="intake-status"')
+    if form_start != -1 and form_start < status < form_end:
+        errors.append("F03 contact.html: #intake-status is nested inside #intake-form")
+
+    # F11 — conditional groups must be fieldsets so they can be disabled, not just hidden
+    for gid in ("case-fit-fields", "denial-intake-fields", "idr-intake-fields"):
+        if not re.search(r'<fieldset[^>]*id="%s"' % gid, contact):
+            errors.append(f"F11 contact.html: #{gid} is not a <fieldset> and cannot be disabled")
+
+    # F08 — no CSS rule may display a dropdown independently of .nav-item.open
+    css = (root / "style.css").read_text(encoding="utf-8")
+    for m in re.finditer(r'([^\n{}]*(?:dropdown)[^\n{}]*)\{([^}]*)\}', css):
+        sel, body = m.group(1), m.group(2)
+        if "display:block" in body.replace(" ", "") and (":hover" in sel or ":focus-within" in sel):
+            errors.append(f"F08 style.css: '{sel.strip()[:70]}' can show a dropdown outside the .open state")
+
+    # F02 — the AR specimen's published arithmetic must reconcile
+    ar_full = (root / "sample-ar-audit.html").read_text(encoding="utf-8")
+    # scope strictly to the published inventory table, not the summary tables that
+    # legitimately restate a subset of the same accounts
+    _i = ar_full.find("<caption>Complete fictional inventory")
+    ar = ar_full[_i:ar_full.find("</table>", _i)] if _i != -1 else ""
+    rows = re.findall(r'<td>\$([\d,]+)</td><td>(Needs clinical record review|Missing information|'
+                      r'Likely administrative routing|No clinical review indicated on the information supplied)</td>', ar)
+    if len(rows) != 47:
+        errors.append(f"F02 sample-ar-audit.html: inventory has {len(rows)} rows, expected 47")
+    else:
+        total = sum(int(v.replace(",", "")) for v, _ in rows)
+        if total != 1274000:
+            errors.append(f"F02 sample-ar-audit.html: inventory totals ${total:,}, expected $1,274,000")
+        from collections import Counter
+        counts = Counter(c for _, c in rows)
+        expect = {"Needs clinical record review": 18, "Missing information": 12,
+                  "Likely administrative routing": 10,
+                  "No clinical review indicated on the information supplied": 7}
+        for cat, n in expect.items():
+            if counts.get(cat) != n:
+                errors.append(f"F02 sample-ar-audit.html: '{cat}' has {counts.get(cat)} rows, expected {n}")
+        review = sorted((int(v.replace(",", "")) for v, c in rows if c == "Needs clinical record review"), reverse=True)
+        if review[:5] and min(review[:5]) < max(review[5:] or [0]):
+            errors.append("F02 sample-ar-audit.html: the five listed top accounts are not the five largest")
+
+    # F01 — the corrected clinical assertion must not come back
+    banned_clinical = ["AKI is classified as an MCC", "AKI as an MCC",
+                       "meets KDIGO Stage 2 AKI criteria", "Estimated recoverable"]
+    for p in sorted(root.glob("*.html")):
+        src = p.read_text(encoding="utf-8")
+        for phrase in banned_clinical:
+            if phrase in src:
+                errors.append(f"F01/F02 {p.name}: retired assertion present — '{phrase}'")
+
+    # F05 — every specimen carries a document-control block with a version and review date
+    for p in sorted(root.glob("sample-*.html")):
+        if p.name == "sample-work.html":
+            continue
+        src = p.read_text(encoding="utf-8")
+        if 'class="doc-control"' not in src:
+            errors.append(f"F05 {p.name}: no document-control block")
+        if not re.search(r'SPEC-[A-Z0-9]+-\d{4}\.\d{2}-r\d', src):
+            errors.append(f"F05 {p.name}: no specimen version identifier")
+
+    # F14 — no page may link to a PDF that is not in the repository
+    for p in sorted(root.glob("*.html")):
+        src = p.read_text(encoding="utf-8")
+        for href in re.findall(r'href="(/[^"]+\.pdf)"', src):
+            if not (root / href.lstrip("/")).exists():
+                errors.append(f"F14 {p.name}: links to missing PDF {href}")
+
+    # F20 — shared page furniture and service data must come from one source.
+    # Run the generator in check mode: if regenerating any shared region would change
+    # a page, or if service names/prices have diverged between data/site.json, the
+    # published catalog and the intake form, the release is stale.
+    import subprocess
+    r = subprocess.run([sys.executable, str(root / "scripts" / "build_shared.py"), "--check"],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        for line in (r.stderr or "").strip().splitlines():
+            errors.append("F20 " + line.replace("ERROR: ", ""))
+
+    # F15 — every article carries a reviewer byline, a review date, and at least one
+    # external source link inside the article body (not nav or footer)
+    for p in sorted(root.glob("insight-*.html")):
+        src = p.read_text(encoding="utf-8")
+        i, j = src.find('<div class="article-body">'), src.find('<div class="article-cta">')
+        body = src[i:j] if i != -1 and j > i else ""
+        if 'class="article-byline"' not in src:
+            errors.append(f"F15 {p.name}: no reviewer byline block")
+        if "Last substantive review" not in src:
+            errors.append(f"F15 {p.name}: no last-review date")
+        if '"@type": "Person"' not in src:
+            errors.append(f"F15 {p.name}: structured data does not name a person as author")
+        if 'class="article-sources"' not in src:
+            errors.append(f"F15 {p.name}: no Sources and limits section")
+        if 'href="http' not in src[src.find('class="article-sources"'):] and 'href="http' not in body:
+            errors.append(f"F15 {p.name}: no external primary source link in the article")
+
+    # F15 — claims withdrawn for want of a source must not reappear
+    withdrawn = ["highest denial-rate categories", "lowest appeal-filing rates",
+                 "never appears in a denial dashboard", "95% of all denials"]
+    for p in sorted(root.glob("*.html")):
+        src = p.read_text(encoding="utf-8")
+        for phrase in withdrawn:
+            if phrase in src:
+                errors.append(f"F15 {p.name}: withdrawn unsourced claim reappeared — '{phrase}'")
+
+    # F18 — every indexable page has a recorded content date
+    cd = root / "data" / "content-dates.json"
+    if cd.exists():
+        known = set(_json.loads(cd.read_text(encoding="utf-8"))["dates"])
+        for p in sorted(root.glob("*.html")):
+            if p.name not in known:
+                errors.append(f"F18 {p.name}: no content date in data/content-dates.json")
+    else:
+        errors.append("F18 data/content-dates.json is missing")
+
+    return errors
+
 BASE = "https://clinovian.com/"
 
 STUBS = {"clinovian_sample_appeal.html", "clinovian_sample_dossier.html"}

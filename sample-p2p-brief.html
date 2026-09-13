@@ -91,13 +91,36 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
 .doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media print{.top-bar,.doc-pdf-link{display:none!important}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
 <meta property="og:title" content="Specimen — Peer-to-Peer Prep Brief — Clinovian">
 <meta property="og:description" content="Specimen P2P Prep Brief: atrial fibrillation catheter ablation prior authorization. Criteria-mapped physician briefing for a payer peer-to-peer call.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-p2p-brief.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-p2p-brief.html"}]}</script>
 </head>
@@ -116,7 +139,7 @@ html,body{overflow-x:clip}
 <h1>Atrial Fibrillation Catheter Ablation — Prior Authorization P2P</h1>
 <div class="doc-header-sub">Criteria-mapped physician briefing for a scheduled peer-to-peer call with a payer medical director. The treating physician knows the patient — this brief provides the payer's decision logic.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-p2p-brief.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -129,6 +152,20 @@ html,body{overflow-x:clip}
 <strong>Specimen only.</strong> Fictional case. No PHI. Demonstrates the P2P Prep Brief format — the deliverable a treating physician receives before a scheduled peer-to-peer call. Proprietary criteria content generalized. Clinical consulting only.
 </div>
 
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-P2P-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>Peer-to-peer call preparation brief (one-page call sheet plus evidence appendix)</dd>
+<dt>Applicable framework</dt><dd>Named fictional commercial plan ablation policy, version and effective date stated in the body.</dd>
+<dt>Source packet</dt><dd>Fictional source packet summarised in the appendix exhibit table.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <!-- Case snapshot -->
@@ -152,16 +189,35 @@ html,body{overflow-x:clip}
 <p>The P2P is not only a clinical conversation — it is a criteria-evaluation exercise conducted verbally. The payer medical director is evaluating whether the request satisfies specific elements of the plan's coverage criteria for atrial fibrillation ablation. Understanding what they are looking for determines whether the call succeeds.</p>
 <p><strong>The reviewer is likely checking for:</strong></p>
 <ul class="doc-list">
-<li><strong>Documented failure of rate control and/or rhythm control medications</strong> — names, doses, duration, and reason for failure or intolerance. "Tried medications" is not sufficient. They need specific drugs, specific durations, and specific outcomes.</li>
+<li><strong>Documented failure of rate-control and/or rhythm-control medication</strong> — names, doses, duration and reason for failure or intolerance. "Tried medications" is not sufficient. <strong>Check what the policy actually requires:</strong> policies differ on how many agents, of which class, and for how long, and some require a specific sequence while others require a reasonable trial. Do not assume every ablation policy demands the same drug sequence.</li>
 <li><strong>Symptom burden despite pharmacologic management</strong> — documented symptoms (palpitations, fatigue, dyspnea, exercise intolerance, syncope) with frequency and severity.</li>
 <li><strong>AFib classification and duration</strong> — paroxysmal vs. persistent vs. long-standing persistent. Some criteria require documented duration thresholds.</li>
-<li><strong>Left atrial size</strong> — some criteria set a maximum LA diameter (typically ≤5.5 cm) as an eligibility condition for ablation.</li>
+<li><strong>Left atrial size</strong> — some policies set a maximum LA dimension as an eligibility condition. <strong>Do not state a number until you have read it in the applicable policy.</strong> Thresholds differ between policies and editions, and quoting a "typical" figure that the plan does not use will be corrected on the call and will cost credibility for everything said afterwards.</li>
 <li><strong>LVEF assessment</strong> — to determine if AFib is contributing to heart failure (tachycardia-mediated cardiomyopathy), which strengthens the indication.</li>
-<li><strong>Stroke risk and anticoagulation status</strong> — CHA₂DS₂-VASc score and current anticoagulation management.</li>
+<li><strong>Stroke risk and anticoagulation status</strong> — the CHA₂DS₂-VASc score <strong>with its components shown</strong> (congestive heart failure, hypertension, age band, diabetes, prior stroke or TIA, vascular disease, sex category), each tied to the record entry supporting it, plus current anticoagulation and adherence. A bare total is not checkable, and a total that does not reconcile to its components is worse than omitting it.</li>
 </ul>
 <div class="note">
 <p><strong>Key insight:</strong> The most common reason P2P calls fail for ablation requests is that the treating physician describes the patient's symptoms and clinical course — which the reviewer already has from the chart — instead of mapping the clinical data to the specific criteria elements listed above. The reviewer is not asking "is this patient sick?" They are asking "does this case check the boxes?" This brief is designed to close that gap.</p>
 </div>
+</div>
+
+<div class="doc-section" id="call-sheet" style="border:2px solid var(--forest);background:var(--forestl)">
+<span class="sec-label">Page 1 — The Call Sheet</span>
+<div class="sec-title">Everything needed during the call, on one page</div>
+<p style="margin-bottom:18px">Everything after this section is an <strong>appendix</strong>, for preparation beforehand and reference afterwards. It is not intended to be read during a call. A brief that cannot be used inside five minutes is not a peer-to-peer brief.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="One-page call sheet"><table class="exhibit-table">
+<tbody>
+<tr><th scope="row" style="width:200px">Objective</th><td>Authorisation of catheter ablation for persistent atrial fibrillation.</td></tr>
+<tr><th scope="row">Decision requested</th><td>Approve as submitted. If not, ask what specific evidence would change the determination, and record the answer verbatim.</td></tr>
+<tr><th scope="row">Policy being discussed</th><td><strong>Confirm at the start of the call:</strong> policy name, version and effective date. Do not argue against criteria you have not confirmed. Everything below is mapped to the policy at Exhibit P.</td></tr>
+<tr><th scope="row">Strongest point 1</th><td><strong>Four agents, documented failures.</strong> Two rate-control (one inadequate control, one symptomatic hypotension), two rhythm-control (one recurrence at 3 and 6 months, one thyroid toxicity requiring specialist-directed discontinuation). Names, doses, durations and reasons are in the appendix.</td></tr>
+<tr><th scope="row">Strongest point 2</th><td><strong>EF decline 58% to 45%</strong> over two years, with coronary, valvular and hypertensive causes excluded, and a cardiologist's documented assessment of a tachycardia-mediated contribution.</td></tr>
+<tr><th scope="row">Strongest point 3</th><td><strong>Documented functional and occupational impact</strong> — symptom class, the specific limitations recorded, and the dates they were recorded.</td></tr>
+<tr><th scope="row">Objection most likely</th><td>"Another agent has not been tried." Answer: name the two adverse effects that ended prior trials, and ask which agent the policy requires and where it says so.</td></tr>
+<tr><th scope="row">Fallback question</th><td>"If this cannot be approved today, what single piece of evidence would change the determination, and under which criterion?" Write down the answer and the reviewer's name and role.</td></tr>
+<tr><th scope="row">Do not say</th><td>Any threshold you have not read in the policy. Any statistic you cannot source. Any claim that the patient has "failed everything".</td></tr>
+</tbody>
+</table></div>
 </div>
 
 <!-- Criteria mapping -->
@@ -174,12 +230,12 @@ html,body{overflow-x:clip}
 <div class="call-phase-label">Element 1</div>
 <h2>Pharmacologic Failure — Rate and Rhythm Control</h2>
 <ul class="doc-list">
-<li><strong>Metoprolol succinate 200 mg daily (18 months):</strong> Titrated from 50 mg. Adequate rate control not achieved — resting heart rate remained 90–110 bpm on Holter. Symptomatic exercise intolerance persisted.</li>
+<li><strong>Metoprolol succinate 200 mg daily (18 months):</strong> titrated from 50 mg. Resting heart rate 90–110 bpm on Holter, with persistent symptomatic exercise intolerance. <strong>Present the rate alongside the symptoms, not on its own</strong> — a resting rate in that range is not by itself proof of universally inadequate control. What makes the argument is the combination: the rate, the symptoms recorded at that rate, the exercise intolerance, the dose reached, and the decision criterion the policy actually applies.</li>
 <li><strong>Diltiazem ER 360 mg daily (6 months, added to metoprolol then substituted):</strong> Caused significant peripheral edema and symptomatic hypotension (BP 88/58 documented in office). Discontinued.</li>
 <li><strong>Flecainide 100 mg BID (8 months):</strong> Rhythm-control attempt. Converted to sinus rhythm initially but AFib recurred at 3 months and 6 months (documented on event monitor). Side effects: visual disturbance reported, documented in cardiology note.</li>
 <li><strong>Amiodarone 200 mg daily (4 months):</strong> Rhythm control achieved but thyroid function abnormality developed (TSH 0.08, free T4 elevated). Amiodarone discontinued by endocrinology recommendation. Thyroid function normalizing on follow-up.</li>
 </ul>
-<div class="tp"><p><strong>Talking point:</strong> "This patient has trialed four antiarrhythmic and rate-control agents over approximately 36 months. Two failed on efficacy, one caused symptomatic hypotension requiring discontinuation, and one caused thyroid toxicity requiring discontinuation on specialist recommendation. The pharmacologic pathway has been genuinely exhausted — not abandoned prematurely."</p></div>
+<div class="tp"><p><strong>Talking point:</strong> "Four agents over approximately three years of management — two rate-control and two rhythm-control. One gave inadequate rate control, one recurred at three and six months on event monitor, one caused symptomatic hypotension, and one caused thyroid toxicity discontinued on specialist advice. That is a documented trial with two serious adverse effects, not an abbreviated one."</p></div><div class="cond-box"><span class="cond-label">Disambiguate "36 months" before you say it</span><p style="margin-bottom:0">The record describes cardioversion and intervals of sinus rhythm, so 36 months cannot mean 36 months of continuous persistent atrial fibrillation. State which is meant — <strong>time since diagnosis</strong>, or <strong>duration of the current continuous episode</strong> — because policies that reference AF duration usually mean the latter, and the two are materially different. Using the ambiguous figure invites a correction that undermines the rest of the call.</p></div>
 </div>
 
 <div class="call-phase">
@@ -199,7 +255,7 @@ html,body{overflow-x:clip}
 <h2>AFib Classification and Cardiac Assessment</h2>
 <ul class="doc-list">
 <li><strong>Classification:</strong> Persistent atrial fibrillation. Duration: 36+ months since initial diagnosis. Multiple documented episodes on event monitor and Holter.</li>
-<li><strong>Left atrial diameter:</strong> 4.4 cm on most recent echocardiogram (within typical eligibility threshold).</li>
+<li><strong>Left atrial diameter:</strong> 4.4 cm on the most recent echocardiogram, with the study date. State the measurement; state the policy threshold only once you have read it at Exhibit P.</li>
 <li><strong>LVEF:</strong> 45% on most recent echo, down from 58% two years prior. Cardiology assessment: "Decline in EF likely tachycardia-mediated. Ablation may allow recovery of ventricular function."</li>
 <li><strong>CHA₂DS₂-VASc:</strong> Score 3. On apixaban 5 mg BID.</li>
 </ul>
@@ -226,7 +282,7 @@ html,body{overflow-x:clip}
 
 <div class="obj-block" style="margin-top:16px">
 <div class="obj-header"><div class="obj-label anticipated">Likely Objection #3</div><p>"Can we try a cardioversion first to see if sinus rhythm is maintainable?"</p></div>
-<div class="obj-response"><div class="obj-label response">Prepared Response</div><p>The patient has persistent AFib of 36+ months duration. Cardioversion without ablation in persistent AFib has a documented recurrence rate exceeding 50–70% within 12 months, even with antiarrhythmic support — and this patient cannot tolerate the antiarrhythmics that would be required to maintain post-cardioversion rhythm. Cardioversion alone is not a durable treatment strategy for this patient. It would delay definitive therapy without changing the clinical trajectory.</p></div>
+<div class="obj-response"><div class="obj-label response">Prepared Response</div><p>Answer this from the patient's own record rather than from a population statistic. This patient <em>has</em> been cardioverted and <em>has</em> recurred — documented on event monitor at three and six months during flecainide therapy. The agents that would be needed to maintain sinus rhythm after a further cardioversion are the ones already discontinued for visual disturbance and thyroid toxicity.</p><p><strong>The recurrence figure previously quoted here has been removed.</strong> A range attributed to no study, population or follow-up period cannot be defended if the reviewer asks for the source, and a reviewer who is also a cardiologist may well ask. If a published figure is used, cite the study, the population and the follow-up interval, and confirm the population matches this patient. This patient's own documented recurrence is stronger evidence than any population estimate.</p></div>
 </div>
 </div>
 
@@ -276,6 +332,25 @@ html,body{overflow-x:clip}
 <li>Endocrinology note documenting amiodarone thyroid toxicity and discontinuation recommendation</li>
 </ul>
 <div class="note warn"><p><strong>Do not:</strong> Read the entire clinical history during the call. The reviewer has the chart. They need to hear the criteria-relevant evidence organized by the elements they are evaluating — not a retelling of 36 months of visits.</p></div>
+</div>
+
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Open questions and sources</div>
+<ol class="open-q">
+<li>What is the plan's ablation policy name, version and effective date, and what does it require on prior pharmacologic therapy, AF duration and left atrial size?</li>
+<li>Does "36 months" mean time since diagnosis or duration of the current continuous episode, and which does the policy use?</li>
+<li>Do the CHA₂DS₂-VASc components reconcile to the stated total against the record?</li>
+<li>Is a published recurrence figure being used, and does its study population match this patient?</li>
+<li>Who is the reviewer, what is their specialty, and what did they state would change the determination?</li>
+</ol>
+<p style="margin-top:22px"><strong>Sources relied on.</strong></p>
+<ul class="src-list">
+<li>The plan's catheter-ablation medical policy at Exhibit P, in the edition in force at determination. Supplied by the client; governs over any general framework referenced here.</li>
+<li>CHA₂DS₂-VASc — used as a stroke-risk instrument with components shown, not as a coverage criterion.</li>
+<li>Fictional case record. No population statistic is asserted in this specimen without a source, and none is currently asserted.</li>
+</ul>
+<p style="margin-top:18px;font-size:15.5px;color:var(--muted)">Specimen SPEC-P2P-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. Preparation support for the treating clinician, who conducts the call and owns every clinical representation made on it. Clinovian does not participate in peer-to-peer calls.</p>
 </div>
 
 </div><!-- end .doc-body -->

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Specimen — DRG Downgrade Challenge Memo — Clinovian</title>
-<meta name="description" content="Specimen DRG Downgrade Challenge: Sepsis DRG 871 vs 872. Demonstrates Clinovian's clinical-coding crossover reasoning for paid-but-downgraded claims.">
+<title>Specimen — DRG Clinical Validation Memo — Clinovian</title>
+<meta name="description" content="Specimen DRG clinical validation memo: sepsis DRG 871 vs 872. Physician validation of a post-payment MCC removal, with a full fictional source packet.">
 <link rel="canonical" href="https://clinovian.com/sample-drg-downgrade.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -105,13 +105,36 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
 .doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media print{.top-bar,.doc-pdf-link{display:none!important}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
-<meta property="og:title" content="Specimen — DRG Downgrade Challenge Memo — Clinovian">
-<meta property="og:description" content="Sepsis DRG 872 to 871 recovery memo. Clinical severity evidence, auditor rebuttal, CDI handoff for paid-but-downgraded claims.">
+<meta property="og:title" content="Specimen — DRG Clinical Validation Memo — Clinovian">
+<meta property="og:description" content="Sepsis DRG 872 to 871 clinical validation memo. Source-linked severity evidence, auditor rebuttal, and a coding handoff with a conditional conclusion.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-drg-downgrade.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-drg-downgrade.html"}]}</script>
 </head>
@@ -127,10 +150,10 @@ html,body{overflow-x:clip}
 
 <div class="doc-header">
 <div class="doc-header-eyebrow">DRG Downgrade Challenge Memo · Specimen</div>
-<h1>Sepsis DRG 872 → 871: Paid-but-Downgraded Recovery</h1>
-<div class="doc-header-sub">Clinical-coding crossover reasoning for a DRG downgrade dispute. Designed to complement CDI workflows, not replace them.</div>
+<h1>Sepsis DRG 872 → 871: Clinical Validation Review of an MCC Removal</h1>
+<div class="doc-header-sub">Physician clinical-validation reasoning for a post-payment MCC removal. Code selection, severity classification and DRG assignment remain with the client's certified coding and CDI professionals.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-drg-downgrade.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -143,6 +166,20 @@ html,body{overflow-x:clip}
 <strong>Specimen only.</strong> Fictional case. No PHI. Demonstrates the DRG Downgrade Challenge Memo format — the deliverable a denial or CDI team receives for paid-but-downgraded claim disputes. Clinical consulting only; coding decisions remain with the client's certified coding professionals.
 </div>
 
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-DRG-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>Clinical validation review of an MCC removal on a paid claim</dd>
+<dt>Applicable framework</dt><dd>FY2026 ICD-10-CM Official Guidelines; FY2026 MS-DRG v43 CC/MCC assignment; commercial PPO post-payment audit policy.</dd>
+<dt>Source packet</dt><dd>Complete fictional source packet (Exhibits A–G), including the discharge summary.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <!-- Case Snapshot -->
@@ -154,7 +191,9 @@ html,body{overflow-x:clip}
 <tr><td>Paid DRG</td><td>872 — Septicemia or Severe Sepsis without MV >96 hours, without MCC</td></tr>
 <tr><td>Plan type</td><td>Commercial PPO</td></tr>
 <tr><td>Payer action</td><td>Paid at DRG 872; MCC designation removed on post-payment audit (AKI reclassified as not meeting MCC criteria)</td></tr>
-<tr><td>Disputed delta</td><td>Illustrative: $12,000–$18,000 depending on facility rate</td></tr>
+<tr><td>Discharge date</td><td>20 June 2026 (FY2026 — grouper version applicable to the discharge date governs)</td></tr>
+<tr><td>Disputed payment delta</td><td>Not asserted here. See <a href="#payment-effect" style="color:var(--forest)">Payment effect</a> — the delta is a contract calculation, not a clinical finding.</td></tr>
+<tr><td>Clinovian scope</td><td>Clinical validation only. Clinovian does not assign codes, select the principal diagnosis, or run the grouper.</td></tr>
 </table></div>
 
 <div class="drg-compare">
@@ -174,18 +213,48 @@ html,body{overflow-x:clip}
 </div>
 
 <div class="drg-delta">
-<div class="drg-delta-amount">$12K–$18K</div>
-<div class="drg-delta-text">Illustrative payment delta between DRG 872 and DRG 871. These claims never appear in denial dashboards because they were paid — just at the wrong rate.</div>
+<div class="drg-delta-amount">Paid, not denied</div>
+<div class="drg-delta-text">A post-payment downgrade may not surface in denial dashboards that are built from denial transactions, because the claim was paid. Whether that is true of any particular organisation depends on how its reporting is configured. The payment difference between the two DRGs is calculated in the Payment effect section from the fictional contract schedule — it is not stated as a range here.</div>
 </div>
+</div>
+
+<!-- Fictional source packet -->
+<div class="doc-section" id="source-packet">
+<span class="sec-label">Fictional Source Packet</span>
+<div class="sec-title">Exhibits this memo relies on</div>
+<p>Every factual assertion below cites one of these exhibits. All exhibits are fabricated for the specimen. A real engagement reproduces the same table against the client-supplied record, with page and timestamp references.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Fictional source packet exhibit list"><table class="exhibit-table">
+<caption>Exhibits A–G — fictional record bundle</caption>
+<thead><tr><th scope="col">Exhibit</th><th scope="col">Document</th><th scope="col">Date / time</th><th scope="col">Content relied on</th></tr></thead>
+<tbody>
+<tr><th scope="row">A</th><td>Outpatient basic metabolic panel, primary-care visit</td><td>12 Mar 2026</td><td>Creatinine 1.1 mg/dL. Routine visit; no acute illness documented. This is the baseline value used below.</td></tr>
+<tr><th scope="row">B</th><td>ED note and inpatient admission H&amp;P</td><td>14 Jun 2026, 09:40 / 12:15</td><td>Presentation with community-acquired pneumonia and sepsis physiology. Home NSAID and ACE-inhibitor use documented.</td></tr>
+<tr><th scope="row">C</th><td>Laboratory and intake/output flowsheet, days 1–6</td><td>14–20 Jun 2026</td><td>Creatinine series; hourly urine output days 2–4; urine microscopy day 3.</td></tr>
+<tr><th scope="row">D</th><td>Attending progress note</td><td>16 Jun 2026, 15:20 (day 3)</td><td>“AKI — likely ATN in setting of sepsis.” Nephrotoxins held; renal dosing; nephrology consult requested.</td></tr>
+<tr><th scope="row">E</th><td>Nephrology consultation note</td><td>16 Jun 2026, 18:05 (day 3)</td><td>Muddy-brown granular casts and renal tubular epithelial cells on urine microscopy; assessment of ischaemic/toxic ATN.</td></tr>
+<tr><th scope="row">F</th><td><strong>Discharge summary</strong></td><td>20 Jun 2026</td><td>Final diagnoses, signed by the attending: (1) sepsis secondary to community-acquired pneumonia; (2) <strong>acute kidney failure with acute tubular necrosis</strong>, secondary to sepsis and NSAID exposure, improving but not resolved.</td></tr>
+<tr><th scope="row">G</th><td>Payer post-payment audit determination and contract schedule attachment</td><td>28 Aug 2026</td><td>Audit rationale for MCC removal; fictional DRG weight and base-rate schedule used in the Payment effect section.</td></tr>
+</tbody>
+</table></div>
+<p><strong>Why Exhibit F matters.</strong> The uncertain-diagnosis convention in the FY2026 ICD-10-CM Official Guidelines (Sections II.H and III.C) applies to a diagnosis documented as probable, suspected or likely <em>at the time of discharge</em>. A day-3 progress note saying “likely ATN” does not by itself establish the final coding basis. It is the discharge summary at Exhibit F that documents ATN as a final diagnosis. Where a comparable discharge statement is absent from a real record, the analysis below does not hold and the case should be worked as an unspecified-AKI scenario instead.</p>
 </div>
 
 <!-- Appealability -->
 <div class="doc-section">
-<span class="sec-label">Appealability</span>
-<div class="sec-title">Recovery Verdict</div>
-<div class="verdict-box">
-<div class="verdict-level">Strong Appealability</div>
-<div class="verdict-explain">The removal of the MCC designation appears clinically unsupported based on the documented record. The record documents acute kidney injury (AKI) with creatinine rise from baseline 1.1 to peak 3.4 mg/dL during hospitalization, supporting the clinical significance of AKI for CDI/coding review by the client's certified coding professionals. The payer auditor's rationale — that the creatinine elevation was "transient and resolved" — applies a clinical recovery standard rather than the coding standard, which captures the condition as present and treated during the encounter regardless of resolution at discharge.</div>
+<span class="sec-label">Conclusion</span>
+<div class="sec-title">Conditional clinical-validation conclusion</div>
+<div class="cond-box">
+<span class="cond-label">Conditional — supports clinical validation review</span>
+<div class="verdict-explain"><p style="margin-bottom:12px">On the fictional record as supplied, the clinical criteria for acute kidney failure with acute tubular necrosis are met and the condition was evaluated, monitored and treated throughout the stay. The auditor's stated reason for removing the MCC — that the injury was transient and resolved — is a statement about clinical outcome and does not, on its own, answer whether the condition was validly diagnosed, reportable, or correctly classified.</p>
+<p style="margin-bottom:12px"><strong>This conclusion holds only if all of the following are true.</strong> Each is a client-side verification, not a Clinovian finding:</p>
+<ol style="margin:0 0 12px 20px;font-size:16px;color:var(--ink2);line-height:1.75">
+<li>The 12 March creatinine of 1.1 mg/dL is an acceptable pre-morbid baseline and no intercurrent renal event occurred between that date and admission.</li>
+<li>The discharge summary (Exhibit F) is the signed final document and its ATN statement was not subsequently amended.</li>
+<li>The reported code is N17.0 rather than N17.9, and that selection is supported by the documentation the coding team relies on.</li>
+<li>No CC/MCC exclusion applies between the principal diagnosis as sequenced and N17.0 under the grouper version applicable to the 20 June 2026 discharge.</li>
+<li>No other reported secondary diagnosis already supplies an MCC, which would make this dispute immaterial to the DRG.</li>
+</ol>
+<p style="margin:0"><strong>What this is not.</strong> It is not a prediction that the appeal will succeed, not a coding determination, and not a statement that the payer's decision was made in bad faith.</p></div>
 </div>
 </div>
 
@@ -205,39 +274,68 @@ html,body{overflow-x:clip}
 <!-- Clinical Severity Evidence -->
 <div class="doc-section">
 <span class="sec-label">Clinical Evidence</span>
-<div class="sec-title">Severity Markers Supporting MCC</div>
-<p>The following documented clinical findings support the coding of AKI as a major complication/comorbidity during this encounter:</p>
+<div class="sec-title">Clinical severity and diagnostic validity</div>
+<p>The findings below support the clinical validity of the acute kidney failure diagnosis and its evaluation and management during the encounter. They do <strong>not</strong>, by themselves, establish a severity classification — that is a separate question addressed in the next section.</p>
 
 <div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table">
-<thead><tr><th>Severity Marker</th><th>Record Evidence</th><th>Relevance to MCC</th></tr></thead>
+<thead><tr><th scope="col">Severity marker</th><th scope="col">Record evidence (exhibit)</th><th scope="col">What it does and does not establish</th></tr></thead>
 <tbody>
 <tr>
 <td>Creatinine trajectory</td>
-<td>Baseline 1.1 mg/dL (prior labs, 3 months). Admission 1.8. Day 2: 2.6. Day 3: 3.4 (peak). Day 5: 2.1. Discharge: 1.6.</td>
-<td>Greater than 2x baseline rise meets KDIGO Stage 2 AKI criteria. The magnitude of rise, not the resolution, determines whether AKI was present during the encounter.</td>
+<td>Baseline 1.1 mg/dL (Exhibit A, 12 Mar 2026 — 94 days before admission). Admission 1.8. Day 2: 2.6. Day 3: 3.4 (peak). Day 5: 2.1. Discharge: 1.6. (Exhibits A, C.)</td>
+<td>Peak 3.4 against a baseline of 1.1 mg/dL is a <strong>3.09-fold rise</strong>. Under the KDIGO 2012 AKI staging table that reaches the <strong>Stage 3</strong> serum-creatinine threshold (≥3.0 × baseline), provided the baseline is valid and the rise occurred inside the KDIGO acute window. Note the narrow margin: a baseline of 1.2 mg/dL would give 2.83 × and Stage 2. Urine output on day 2 fell to 0.45 mL/kg/h over eight hours (Exhibit C), which independently meets the Stage 1 urine-output criterion; the highest stage reached by any criterion governs. <strong>KDIGO stage is a clinical severity framework. It is not the CC/MCC classification and does not select the ICD-10-CM code.</strong></td>
 </tr>
 <tr>
 <td>Clinical intervention</td>
 <td>IV fluid resuscitation adjusted specifically for renal protection. Nephrotoxic medications held (NSAID, ACE inhibitor). Fluid balance monitored. Urine output tracked hourly on Days 2–4.</td>
-<td>These are active clinical interventions specifically targeting the AKI — not passive observation. The resource utilization pattern supports the MCC classification.</td>
+<td>Establishes that the condition required clinical evaluation and management during the stay — one of the secondary-diagnosis reporting criteria in Guideline III. It does not establish which N17 code applies or how that code is classified.</td>
 </tr>
 <tr>
 <td>Physician documentation</td>
-<td>Attending progress note Day 3: "AKI — likely ATN in setting of sepsis. Holding nephrotoxins. Renal dosing antibiotics. Will trend Cr and urine output. Nephrology consult if no improvement in 24 hours."</td>
-<td>The physician identified, assessed, monitored, and actively managed the AKI as a distinct clinical problem. This meets the standard for a condition that was present and required clinical evaluation and management during the encounter.</td>
+<td>Attending progress note, day 3 (Exhibit D): “AKI — likely ATN in setting of sepsis. Holding nephrotoxins. Renal dosing antibiotics. Will trend Cr and urine output. Nephrology consult if no improvement in 24 hours.” Nephrology consult the same evening (Exhibit E) documents muddy-brown granular casts and renal tubular epithelial cells. <strong>Final diagnosis of acute kidney failure with acute tubular necrosis is documented in the discharge summary (Exhibit F).</strong></td>
+<td>The day-3 note alone would not support a final ATN diagnosis, because the uncertain-diagnosis convention turns on documentation at discharge. Exhibit F supplies that documentation, and Exhibit E supplies corroborating objective findings. Together these support diagnostic validity; the coding team decides code selection.</td>
 </tr>
 <tr>
 <td>Medication adjustments</td>
 <td>Vancomycin renal-dosed (trough-guided). Metformin held. Lisinopril held. Ibuprofen discontinued. Gentamicin considered and rejected due to renal status.</td>
-<td>Multiple medication decisions were made specifically because of the AKI. This represents clinical resource utilization and decision complexity attributable to the complication.</td>
+<td>Supports clinical evaluation and management of the condition (Exhibits C, D). Resource use is evidence of management; it is not itself a severity classification.</td>
 </tr>
 <tr>
 <td>Discharge status</td>
 <td>Creatinine 1.6 at discharge (above baseline of 1.1). Discharge instructions include nephrology follow-up in 2 weeks and repeat renal panel. Medications remain adjusted.</td>
-<td>The AKI had not fully resolved at discharge — creatinine remained elevated above baseline. The ongoing management plan further supports the condition's clinical significance during the encounter.</td>
+<td>Creatinine remained above baseline at discharge with a continuing management plan (Exhibits C, F). Reportability under Guideline III does not require persistence to discharge; this fact simply removes one factual premise of the auditor's rationale.</td>
 </tr>
 </tbody>
 </table></div>
+</div>
+
+<!-- Coding classification -->
+<div class="doc-section" id="classification">
+<span class="sec-label">Coding Classification</span>
+<div class="sec-title">Six separate questions — do not merge them</div>
+<p>The auditor's letter and the prior appeal both move directly from biochemical severity to a payment conclusion. Those are the two ends of a six-step chain, and each step has a different owner and a different standard of proof.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Six separate questions in a DRG validation dispute"><table class="exhibit-table">
+<caption>The chain from diagnosis to payment</caption>
+<thead><tr><th scope="col">Question</th><th scope="col">Standard applied</th><th scope="col">Owner</th><th scope="col">Status in this specimen</th></tr></thead>
+<tbody>
+<tr><th scope="row">1. Diagnostic validity</th><td>Do the clinical facts support the diagnosis the provider documented?</td><td>Physician reviewer (Clinovian)</td><td>Addressed. Supported on Exhibits A–F.</td></tr>
+<tr><th scope="row">2. Reportability</th><td>FY2026 ICD-10-CM Guideline III — did the condition require clinical evaluation, therapeutic treatment, diagnostic procedures, extended stay, or increased nursing care?</td><td>Coding / CDI</td><td>Clinical evidence supplied. Determination is the coding team's.</td></tr>
+<tr><th scope="row">3. Code selection</th><td>Which ICD-10-CM code the documentation supports</td><td>Coding</td><td><strong>Not determined by Clinovian.</strong> See the code note below.</td></tr>
+<tr><th scope="row">4. Severity classification</th><td>Whether the selected code sits on the FY2026 MS-DRG v43 CC or MCC list, and whether a CC/MCC exclusion applies against the principal diagnosis as sequenced</td><td>Coding</td><td>Open. Depends entirely on question 3.</td></tr>
+<tr><th scope="row">5. DRG assignment</th><td>Grouper output from the complete claim: principal diagnosis, all secondary diagnoses, procedures, discharge disposition, and the grouper version applicable to the discharge date</td><td>Coding / billing</td><td>Open. The complete coding scenario was not supplied with this fictional record.</td></tr>
+<tr><th scope="row">6. Payment effect</th><td>Contract terms: relative weights, facility base rate, outlier and stop-loss provisions, any reconciliation already applied</td><td>Contracting / finance</td><td>Calculated below from the fictional schedule only.</td></tr>
+</tbody>
+</table></div>
+
+<div class="note" style="border:2px solid var(--forest);background:var(--forestl);padding:22px 26px;margin:20px 0">
+<p style="margin-bottom:12px"><strong>Code note — the point the prior appeal got wrong.</strong> “AKI is an MCC” is not a correct statement and should not appear in any submission.</p>
+<ul class="doc-list" style="margin-top:0">
+<li><strong>N17.9</strong> — acute kidney failure, unspecified — is a <strong>CC</strong> on the FY2026 MS-DRG v43 CC/MCC list.</li>
+<li><strong>N17.0</strong> — acute kidney failure with tubular necrosis — is an <strong>MCC</strong> on that list, subject to the CC/MCC exclusion logic applied against the principal diagnosis and to the grouper version in force.</li>
+<li>The KDIGO stage does not determine which N17 subtype is reported. Subtype selection follows the provider's documentation of the underlying renal lesion — here, the ATN documented at Exhibit F — not the magnitude of the creatinine rise.</li>
+</ul>
+<p style="margin-bottom:0">The dispute therefore has to be framed around a named code. If the claim reported N17.9, the classification is a CC and the auditor's removal of the MCC may be arithmetically correct even though the clinical picture is severe; the remedy in that situation is a coding review, not an appeal argument about severity. If the claim reported N17.0, the classification question turns on exclusions and grouping, not on whether the injury resolved. <strong>The client's coding team must confirm which code was reported before this memo is used.</strong></p>
+</div>
 </div>
 
 <!-- Point-by-point rebuttal -->
@@ -247,17 +345,17 @@ html,body{overflow-x:clip}
 
 <div class="rebuttal">
 <div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"The AKI was transient and resolved with conservative management."</p></div>
-<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>The coding standard for assigning a complication/comorbidity does not require that the condition persist through discharge or require a specific intervention threshold such as dialysis. The standard requires that the condition was <strong>clinically present</strong> during the encounter and <strong>required clinical evaluation, monitoring, or management</strong>. AKI with creatinine rise to 3.4 (KDIGO Stage 2), active intervention (fluid management, nephrotoxin hold, renal dosing, hourly urine monitoring), and physician-documented assessment and treatment plan satisfies this standard. Resolution with conservative management does not retroactively eliminate the condition from the encounter record.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>Reportability of a secondary diagnosis under Guideline III turns on whether the condition required clinical evaluation, therapeutic treatment, diagnostic procedures, an extended stay, or increased nursing care. It does not require persistence to discharge, and it does not set an intervention threshold such as dialysis. On this record the condition was evaluated (Exhibits C, E), treated (Exhibits C, D) and documented as a final diagnosis (Exhibit F). Resolution during the stay does not remove a condition that met those criteria.</p><p style="margin-bottom:0"><strong>Scope note:</strong> this answers reportability only. It does not answer which code was reported, whether that code is a CC or an MCC, or what the grouper returns.</p></div>
 </div>
 
 <div class="rebuttal" style="margin-top:16px">
 <div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"No dialysis was required."</p></div>
-<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>Dialysis is not a prerequisite for AKI to qualify as an MCC. The MCC classification reflects the clinical severity and resource impact of the condition during the hospitalization — not whether a specific procedural intervention was performed. Many conditions classified as MCCs (e.g., respiratory failure managed with supplemental oxygen rather than mechanical ventilation, coagulopathy managed with factor replacement rather than surgical intervention) qualify on the basis of clinical significance, monitoring, and management rather than a procedural threshold.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>Correct, and not relevant to the classification question. Renal replacement therapy is one of three alternative KDIGO Stage 3 criteria, so its absence does not exclude Stage 3 when the creatinine criterion is met. More importantly, CC/MCC status is a property of the reported ICD-10-CM code on the FY2026 v43 list — it is not conferred or withheld by whether a particular procedure was performed. The auditor has introduced a procedural threshold that exists in neither framework.</p></div>
 </div>
 
 <div class="rebuttal" style="margin-top:16px">
 <div class="rebuttal-payer"><div class="rebuttal-label payer">Payer Auditor</div><p>"The complication did not rise to the level of 'major.'"</p></div>
-<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>The distinction between MCC and CC is a coding classification defined by CMS, not a clinical severity judgment made by the auditor. AKI is classified as an MCC in the MS-DRG system when properly documented and coded. The auditor's rationale applies a clinical-impression standard ("not major enough") rather than the coding standard ("was the condition present, documented, and did it affect management"). The record satisfies the coding standard.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Clinovian Response</div><p>The CC/MCC distinction is a code-level classification published by CMS, not a clinical impression formed case by case. The auditor's “not major enough” reasoning has no place in that framework. But the correction runs in both directions: <strong>acute kidney injury is not uniformly an MCC.</strong> Unspecified acute kidney failure (N17.9) is a CC; acute kidney failure with tubular necrosis (N17.0) is an MCC, subject to exclusions and grouping. The answer depends on the code that was reported against the documentation at Exhibit F, and on the grouper version applicable to the discharge date. This memo supplies the clinical basis for ATN. It does not assert the classification outcome.</p></div>
 </div>
 </div>
 
@@ -267,25 +365,48 @@ html,body{overflow-x:clip}
 <div class="sec-title">Notes for the CDI and Coding Team</div>
 <p>This memo provides the clinical reasoning that supports the MCC classification. The following operational notes are for the CDI specialist and coding professional completing the appeal:</p>
 <ul class="doc-list">
-<li><strong>Verify the principal diagnosis code assignment.</strong> Confirm the sepsis sequencing follows current guidelines — sepsis as principal diagnosis, AKI as secondary diagnosis with appropriate code reflecting the stage/severity.</li>
-<li><strong>Confirm physician query if needed.</strong> If the attending's documentation of AKI is present but does not explicitly link it to sepsis as a complication, a compliant physician query may strengthen the record. The progress note on Day 3 already documents the clinical link ("AKI — likely ATN in setting of sepsis"), which is strong.</li>
+<li><strong>Confirm which N17 code was reported.</strong> This is the first step and it determines whether the dispute is viable at all. N17.9 is a CC; N17.0 is an MCC. Nothing else in this memo can be used until that is established.</li>
+<li><strong>Verify principal-diagnosis sequencing and the full secondary-diagnosis set.</strong> Confirm the sepsis sequencing against the FY2026 guidelines, then check whether any other reported secondary diagnosis already supplies an MCC — if one does, the DRG is unaffected and the dispute is moot.</li>
+<li><strong>Apply the CC/MCC exclusion logic and the correct grouper version.</strong> Exclusions run against the principal diagnosis as sequenced, and the grouper version applicable to the 20 June 2026 discharge governs. Do not rely on a prior-year table.</li>
+<li><strong>Query only where a genuine ambiguity exists, and query compliantly.</strong> On this fictional record the discharge summary (Exhibit F) already documents ATN as a final diagnosis, so no query is indicated. Where a real record documents only unspecified AKI, the ambiguity to resolve is the nature of the renal lesion — not the payment consequence. A compliant query presents the clinical indicators, offers the full range of clinically reasonable options including “unable to determine”, and does not indicate which answer is preferred. <strong>A query must never be described, internally or in a submission, as a way to reach a better financial result.</strong></li>
 <li><strong>Attach the full creatinine trend.</strong> The trajectory from baseline through peak to discharge is the single most persuasive piece of evidence. Present it as a table or timeline, not buried in lab reports.</li>
-<li><strong>Reference coding guidance.</strong> The appeal should cite applicable coding conventions regarding the assignment of conditions that are clinically present and managed during the encounter, regardless of resolution at discharge. Clinovian provides the clinical severity argument; coding-convention citations are the CDI/coding team's domain.</li>
+<li><strong>Cite the guideline sections by number.</strong> Guideline III for secondary-diagnosis reporting; Sections II.H and III.C for the uncertain-diagnosis convention and why the discharge summary rather than the day-3 note carries it. Clinovian supplies the clinical validation; the guideline citation and its application are the coding team's.</li>
 </ul>
-<p><strong>This memo complements your CDI workflow — it does not replace it.</strong> The clinical severity argument (why the AKI is real, significant, and actively managed) is Clinovian's contribution. The coding-rule argument (why the MCC assignment is correct under current guidelines) is yours. The strongest appeals combine both.</p>
+<p><strong>This memo complements your CDI workflow — it does not replace it.</strong> Clinovian's contribution is the clinical validation: whether the documented diagnosis is supported by the record, and where the auditor's clinical reasoning departs from the applicable frameworks. Code selection, CC/MCC classification, exclusion logic, grouping and the final appeal position are the coding and CDI team's, and this memo should not be filed without that review.</p>
+</div>
+
+<!-- Payment effect -->
+<div class="doc-section" id="payment-effect">
+<span class="sec-label">Payment Effect</span>
+<div class="sec-title">Three different quantities — kept separate</div>
+<p>Billed charges, the DRG relative-weight difference, and recoverable payment are not interchangeable. The figure below is arithmetic on the fictional contract schedule at Exhibit G. It is not an estimate of what a real claim would recover.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Fictional contract payment calculation"><table class="exhibit-table">
+<caption>Fictional contract calculation (Exhibit G, Attachment 1)</caption>
+<thead><tr><th scope="col">Input</th><th scope="col">Fictional value</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Relative weight, DRG 872</th><td>1.2000</td><td>Fictional contract schedule</td></tr>
+<tr><th scope="row">Relative weight, DRG 871</th><td>1.9200</td><td>Fictional contract schedule</td></tr>
+<tr><th scope="row">Weight difference</th><td>0.7200</td><td>Calculated</td></tr>
+<tr><th scope="row">Facility-specific base rate</th><td>$9,400</td><td>Fictional contract schedule</td></tr>
+<tr><th scope="row">Gross payment difference</th><td><strong>$6,768</strong></td><td>0.7200 × $9,400</td></tr>
+<tr><th scope="row">Billed charges on the claim</th><td>$71,300</td><td>Exhibit G — <em>not</em> the disputed amount and not related to the calculation above</td></tr>
+</tbody>
+</table></div>
+<p><strong>What is still unknown even in the fictional case:</strong> whether outlier, stop-loss or carve-out provisions apply; whether any reconciliation has already been taken; whether the payer would offset against other claims; and whether the contract's audit-appeal provisions permit recovery at this stage. A real engagement does not publish a payment figure unless the client's contracting team confirms these. Clinovian does not produce recovery forecasts.</p>
 </div>
 
 <!-- Risk assessment -->
 <div class="doc-section">
 <span class="sec-label">Risk Assessment</span>
-<div class="sec-title">Recovery Risk Factors</div>
+<div class="sec-title">Risks to the position</div>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table">
 <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
 <tbody>
 <tr><td>Auditor re-applies "resolved = not major" logic</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Pre-empt by citing the coding standard (condition present and managed) vs. clinical outcome standard in the first paragraph of the appeal. Make the distinction unavoidable.</td></tr>
-<tr><td>Physician documentation lacks explicit "AKI" diagnosis label</td><td><strong style="color:var(--forest)">Low in this case</strong></td><td>The Day 3 note explicitly names "AKI — likely ATN." If this were absent, a compliant physician query would be needed. Not required here.</td></tr>
-<tr><td>Payer argues creatinine rise was pre-existing CKD progression</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Baseline creatinine of 1.1 from 3 months prior establishes a clear pre-illness baseline. The acute rise to 3.4 is distinct from any chronic trajectory. Include the baseline lab in the appeal packet.</td></tr>
-<tr><td>Second-level review upholds downgrade</td><td><strong style="color:var(--forest)">Low</strong></td><td>If Level 1 fails, this case is well-suited for external review — the clinical evidence is strong and the auditor's logic has a clearly identifiable error. Build the Level 1 appeal with external review in mind.</td></tr>
+<tr><td>Reported code is N17.9 rather than N17.0</td><td><strong style="color:var(--red)">High — unresolved</strong></td><td>If N17.9 was reported, the classification is a CC and the auditor's removal of the MCC may be correct. This is the single most material open question and must be checked before anything is filed. Clinovian cannot resolve it from the clinical record alone.</td></tr>
+<tr><td>A CC/MCC exclusion applies, or another secondary diagnosis already supplies an MCC</td><td><strong style="color:var(--amber-text)">Medium — unresolved</strong></td><td>Run the complete coding scenario through the grouper version applicable to the discharge date before assuming any DRG movement. The complete scenario was not supplied with this fictional record.</td></tr>
+<tr><td>Payer disputes the baseline, or argues chronic progression</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>The 12 March value is 94 days old (Exhibit A). That is a defensible reference point but it is an assumption, not a measurement at admission, and the staging conclusion is sensitive to it — 1.2 mg/dL would move the case from Stage 3 to Stage 2. Include Exhibit A, state the interval explicitly, and confirm no intercurrent renal event. Do not present the baseline as certain.</td></tr>
+<tr><td>Second-level review upholds the downgrade</td><td><strong style="color:var(--muted)">Not assessed</strong></td><td>Clinovian does not forecast review outcomes. Practical point only: build the first submission as though it is the complete record, because later stages may be limited to the material already filed. The applicable escalation route, forum and deadline are the client's to determine.</td></tr>
 </tbody>
 </table></div>
 </div>
@@ -293,10 +414,11 @@ html,body{overflow-x:clip}
 <!-- Recommendation -->
 <div class="doc-section">
 <span class="sec-label">Recommendation</span>
-<div class="sec-title">Final Recommendation</div>
+<div class="sec-title">Recommended next step</div>
 <div class="rec-box">
-<p><strong>Pursue recovery.</strong> The clinical evidence strongly supports AKI as an MCC during this encounter. The payer auditor's downgrade applies the wrong standard — clinical resolution rather than coding classification. The creatinine trajectory, active interventions, medication adjustments, and physician documentation collectively establish that the condition was present, managed, and clinically significant. Combined with the CDI/coding team's guideline citations, this case has strong appealability based on the documented clinical record, subject to final coding validation and payer review.</p>
-<p><strong>Illustrative disputed value:</strong> $12,000–$18,000 depending on facility-specific DRG rate differential. Not a recovery guarantee. This is one case. The pattern — payer auditors applying clinical-resolution logic to downgrade MCCs — is systematic and likely affects other sepsis, respiratory failure, and AKI-complicated cases in the same audit batch.</p>
+<p><strong>Refer to coding for validation, then decide.</strong> The clinical record supports a valid diagnosis of acute kidney failure with acute tubular necrosis, documented as a final diagnosis at discharge, and the auditor's stated rationale does not address that question. That is the extent of what this memo establishes.</p>
+<p>Before anything is filed, the coding team should confirm the reported code, the full secondary-diagnosis set, exclusion logic, and the grouper result for the applicable version. If the reported code is N17.9, the correct response is a coding review rather than a severity appeal. If it is N17.0 and the grouper confirms a DRG change, the clinical material in this memo supports the submission the coding team constructs.</p>
+<p style="margin-bottom:0"><strong>Disputed value:</strong> calculated in the Payment effect section from the fictional contract schedule only. Clinovian does not estimate recoverable payment. <strong>Other cases in the same batch:</strong> if the auditor applied the same clinical-resolution reasoning elsewhere, those cases may be worth screening — but each turns on its own documentation and its own reported codes, and nothing here establishes that a pattern exists in a real inventory.</p>
 </div>
 </div>
 
@@ -305,8 +427,9 @@ html,body{overflow-x:clip}
 <span class="sec-label">Operational Note</span>
 <div class="sec-title">Prevention Note</div>
 <div style="background:var(--forestl);border-left:3px solid var(--forest);padding:20px 24px">
-<p><strong>For future similar cases:</strong> DRG downgrades in sepsis cases are frequently driven by documentation that describes the treatment provided without connecting clinical severity markers to the higher-weighted DRG. If the treating physician had documented the specific clinical indicators of organ dysfunction severity — hemodynamic instability, vasopressor requirements, mechanical ventilation parameters — in the discharge summary (not just the progress notes), the coding team would have had the documentation needed to support the higher DRG at initial billing, before payer audit.</p>
-<p style="margin-top:10px;font-size:15.5px;color:var(--muted)">Forward-looking operational insight for the client's physician and CDI teams.</p>
+<p><strong>For future similar cases.</strong> The vulnerability in this fictional record is specific and narrow: the nature of the renal lesion appears only as “likely ATN” in a day-3 progress note, and is carried to a final diagnosis solely by the discharge summary. Where a discharge summary is less explicit, the same clinical picture supports only unspecified acute kidney failure — a different code with a different classification.</p>
+<p style="margin-top:10px">The practical suggestion for the client's physician and CDI teams is that when the underlying renal lesion is clinically determinable, documenting it by name in the discharge summary removes an ambiguity that would otherwise require a query or leave the encounter coded as unspecified. This is a documentation-completeness observation. It is <strong>not</strong> a claim that better documentation would have prevented this audit, and it should not be used to imply that a particular denial or downgrade was avoidable.</p>
+<p style="margin-top:10px;font-size:15.5px;color:var(--muted)">Client-facing operational note. Clinovian's internal pattern tags are kept separate and are not part of the deliverable.</p>
 </div>
 </div>
 
@@ -317,13 +440,35 @@ html,body{overflow-x:clip}
 <div class="tag-strip">
 <span class="tag">DRG downgrade</span>
 <span class="tag">871 → 872</span>
-<span class="tag">AKI as MCC</span>
-<span class="tag">Auditor: resolution ≠ coding standard</span>
+<span class="tag">N17.0 vs N17.9</span>
+<span class="tag">Auditor: resolution ≠ reportability</span>
 <span class="tag">Sepsis complication</span>
 <span class="tag">Clinical-coding crossover</span>
 <span class="tag">CDI complement</span>
-<span class="tag">Recovery: strong</span>
+<span class="tag">Conclusion: conditional</span>
 </div>
+</div>
+
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Open questions and sources</div>
+<p><strong>Questions this memo cannot answer.</strong> Each belongs to the client and each can change the conclusion.</p>
+<ol class="open-q">
+<li>Which ICD-10-CM code was actually reported for the renal condition on the submitted claim?</li>
+<li>What is the complete secondary-diagnosis set, and does any other reported code already supply an MCC?</li>
+<li>Does a CC/MCC exclusion apply against the principal diagnosis as sequenced, under the grouper version applicable to the discharge date?</li>
+<li>Was the discharge summary at Exhibit F signed, and was it later amended or addended?</li>
+<li>Is the 12 March creatinine an acceptable pre-morbid baseline, and was there any intercurrent renal event before admission?</li>
+<li>What do the contract's post-payment audit and appeal provisions permit at this stage, and what is the applicable deadline?</li>
+</ol>
+<p style="margin-top:22px"><strong>Sources relied on.</strong> Cited by name and edition so the reader can check them. Time-sensitive items are rechecked on the review schedule in the document-control block.</p>
+<ul class="src-list">
+<li>KDIGO 2012 Clinical Practice Guideline for Acute Kidney Injury — staging table (serum-creatinine and urine-output criteria). <a href="https://kdigo.org/guidelines/acute-kidney-injury/" target="_blank" rel="noopener noreferrer">kdigo.org<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+<li>FY2026 ICD-10-CM Official Guidelines for Coding and Reporting — Section II.H (uncertain diagnosis, inpatient) and Section III (reporting additional diagnoses, including III.C). <a href="https://www.cms.gov/medicare/coding-billing/icd-10-codes" target="_blank" rel="noopener noreferrer">cms.gov<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+<li>CMS FY2026 MS-DRG Definitions Manual v43 — Appendix C CC/MCC list and CC/MCC exclusion logic; MDC 18 DRGs 870–872. <a href="https://www.cms.gov/medicare/payment/prospective-payment-systems/acute-inpatient-pps/ms-drg-classifications-and-software" target="_blank" rel="noopener noreferrer">cms.gov<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+<li>Fictional case exhibits A–G, reproduced in the Fictional Source Packet section above. No real patient, provider, payer or contract.</li>
+</ul>
+<p style="margin-top:18px;font-size:15.5px;color:var(--muted)">Specimen SPEC-DRG-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. Clinical reasoning support only; not a licensed clinical opinion, not a coding determination, and not legal advice.</p>
 </div>
 
 </div><!-- end .doc-body -->
@@ -338,7 +483,7 @@ html,body{overflow-x:clip}
 </div>
 <div class="doc-footer">
 <div class="doc-footer-brand">Clinovian</div>
-<p>This specimen demonstrates the DRG Downgrade Challenge Memo — the physician-level clinical severity argument that complements your CDI team's coding-rule citations. Paid-but-downgraded claims never appear in denial dashboards. They require someone looking for them.</p>
+<p>This specimen demonstrates the DRG clinical validation memo — the physician-level validation argument that complements your CDI and coding team's code-level analysis. A post-payment downgrade may not surface in reporting built from denial transactions, because the claim was paid; whether that is true of a given organisation depends on how its reporting is configured.</p>
 <p><a href="/engagements.html">Start a 3-case evaluation →</a> · <a href="/contact.html">Send a de-identified case →</a></p>
 <p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. Coding decisions remain with the client's certified coding professionals. © 2026 Clinovian · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
 </div>

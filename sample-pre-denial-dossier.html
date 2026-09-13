@@ -6,7 +6,7 @@
 <title>Specimen — Pre-Denial Medical Necessity Dossier — Clinovian</title>
 <meta name="description" content="Specimen pre-denial dossier: Physician-authored medical-necessity argument submitted before the payer decides on a prior authorization for lumbar spinal fusion.">
 <link rel="canonical" href="https://clinovian.com/sample-pre-denial-dossier.html">
-<meta property="og:title" content="Specimen — Pre-Denial Medical Necessity Dossier — Clinovian"><meta property="og:description" content="Specimen pre-denial dossier: Physician-authored argument submitted before the payer decides."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png">
+<meta property="og:title" content="Specimen — Pre-Denial Medical Necessity Dossier — Clinovian"><meta property="og:description" content="Specimen pre-denial dossier: Physician-authored argument submitted before the payer decides."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
 <meta property="og:url" content="https://clinovian.com/sample-pre-denial-dossier.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -110,6 +110,29 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
 .doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media print{.top-bar,.doc-pdf-link{display:none!important}}
+/* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
+.doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
+.doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
+.doc-control dl{display:grid;grid-template-columns:210px 1fr;gap:7px 20px;margin:0}
+.doc-control dt{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doc-control dd{font-size:15.5px;color:var(--ink2);margin:0;line-height:1.6}
+@media(max-width:760px){.doc-control dl{grid-template-columns:1fr;gap:2px}.doc-control dd{margin-bottom:10px}}
+.exhibit-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin:18px 0}
+.exhibit-table caption{caption-side:top;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:9px}
+.exhibit-table th{background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 14px;text-align:left;border-bottom:1px solid var(--rule);font-weight:600;vertical-align:top}
+.exhibit-table td{padding:12px 14px;border-bottom:1px solid var(--rule);font-size:15.5px;color:var(--ink2);vertical-align:top;line-height:1.62}
+.exhibit-table th[scope="row"]{background:transparent;font-family:'Outfit',sans-serif;font-size:15.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.exhibit-table tr:last-child td{border-bottom:none}
+.cond-box{border:2px solid var(--gold);background:var(--goldl);padding:22px 26px;margin:18px 0}
+.cond-label{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-text);font-weight:600;margin-bottom:9px;display:block}
+.src-list{list-style:none;margin:14px 0 0;padding:0}
+.src-list li{font-size:15.5px;color:var(--ink2);line-height:1.65;padding:8px 0;border-bottom:1px solid var(--rule2)}
+.src-list li:last-child{border-bottom:none}
+.src-list a{color:var(--forest);text-decoration:underline;text-underline-offset:2px}
+.open-q{list-style:none;margin:14px 0 0;padding:0;counter-reset:oq}
+.open-q li{position:relative;padding:9px 0 9px 34px;font-size:16px;color:var(--ink2);line-height:1.65;border-bottom:1px solid var(--rule2)}
+.open-q li:last-child{border-bottom:none}
+.open-q li::before{counter-increment:oq;content:"Q" counter(oq);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--forest);font-weight:600}
 html,body{overflow-x:clip}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-pre-denial-dossier.html"}]}</script>
@@ -126,9 +149,23 @@ html,body{overflow-x:clip}
 <h1>Pre-Denial Medical Necessity Dossier</h1>
 <div class="doc-header-sub">Lumbar spinal fusion (L4–L5) prior authorization — physician-authored medical-necessity argument submitted before the payer decides, organized around the anticipated criteria pathway.</div>
 </div>
-<p class="doc-pdf-link"><a href="/sample-pre-denial-dossier.pdf">Download this specimen as a PDF →</a></p>
+<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 <div class="specimen-banner">
 <strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. This memo demonstrates Clinovian's clinical escalation format for denial teams. It is not legal advice, not a treating-physician opinion, and not a binding U.S. medical determination. Proprietary criteria content has been generalized; actual deliverables reference the applicable licensed criteria framework as documented in the case record. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.</div>
+<div class="doc-control">
+<h2>Document control</h2>
+<dl>
+<dt>Specimen version</dt><dd>SPEC-PRE-2026.09-r2</dd>
+<dt>Prepared / last reviewed</dt><dd>13 September 2026</dd>
+<dt>Next scheduled review</dt><dd>13 March 2027, or earlier on a change to a cited rule, guideline or plan policy</dd>
+<dt>Reviewer</dt><dd>Arun Kasturi, MBBS — physician reviewer with payer-side utilization-management review experience. Not a U.S.-licensed clinician and not a specialty-board diplomate. Clinical reasoning support only.</dd>
+<dt>Deliverable scope</dt><dd>Pre-submission evidence-gap dossier for an elective lumbar procedure</dd>
+<dt>Applicable framework</dt><dd>Named fictional commercial EPO spinal-surgery policy, version and effective date stated in the body.</dd>
+<dt>Source packet</dt><dd>Fictional source packet with identified gaps; imaging report wording is reproduced verbatim in Exhibit C.</dd>
+<dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
+<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+</dl>
+</div>
 <div class="doc-body">
 
 <div class="doc-section">
@@ -171,13 +208,13 @@ html,body{overflow-x:clip}
 <p>Physical therapy: Two separate courses (8 weeks each) at two different facilities, spanning 14 months total. PT discharge summary from the second course documents: "Patient demonstrates minimal functional improvement. Continues to report radicular symptoms limiting ambulation to less than one block. Recommends surgical consultation." Epidural steroid injections: Three fluoroscopy-guided L4–L5 transforaminal epidural injections over 10 months. Pain diary documents temporary relief (2–3 weeks per injection) with return to baseline radicular pain. Medications: Sequential trial of NSAIDs (naproxen 6 weeks, meloxicam 8 weeks), gabapentin (titrated to 1800mg/day, 12 weeks, discontinued for side effects), duloxetine (60mg/day, 8 weeks, insufficient relief).</p>
 
 <p><strong>Structural pathology correlation:</strong></p>
-<p>MRI lumbar spine (3 months prior): Grade II spondylolisthesis at L4–L5 with bilateral foraminal stenosis. Left L5 nerve root compression documented with foraminal height reduction to 4mm (normal >7mm). Disc desiccation and loss of height at L4–L5 with posterior annular tear. Findings correlate with the patient's left-sided L5 radiculopathy — dermatomal pain distribution matches the level of compression.</p>
+<p><strong>MRI lumbar spine, 3 months prior (Exhibit C — radiology report wording reproduced verbatim in the packet):</strong> grade II spondylolisthesis at L4–L5; bilateral foraminal stenosis at L4–L5 with left foraminal height reduced to 4&nbsp;mm; disc desiccation and height loss at L4–L5 with a posterior annular tear.</p><div class="cond-box"><span class="cond-label">Anatomy — reconcile before writing a single sentence of the submission</span><p style="margin-bottom:10px">At the L4–L5 level, the <strong>exiting</strong> root within the foramen is <strong>L4</strong>. The <strong>L5</strong> root is the <strong>traversing</strong> root at that level and is typically affected by lateral-recess or central compression, not by foraminal narrowing. Foraminal and lateral-recess compression are different findings with different root consequences, and the two descriptions are not interchangeable.</p><p style="margin-bottom:10px">The earlier version of this dossier described foraminal pathology at L4–L5 and attributed it to the L5 root. On the imaging as worded, that pairing does not follow. Two possibilities have to be distinguished from the actual record and examination, not assumed:</p><ul class="doc-list" style="margin-top:0"><li>The radicular syndrome is <strong>L4</strong>, consistent with the foraminal finding — in which case the clinical description must be corrected.</li><li>The radicular syndrome is <strong>L5</strong> and is driven by lateral-recess or central stenosis at L4–L5, or by pathology at L5–S1 — in which case the imaging basis cited must be corrected, and the side and level re-checked.</li></ul><p style="margin-bottom:0"><strong>This dossier does not resolve it.</strong> Verify the radiology wording, the side, the level, the examination findings and the planned procedure against each other before submission. A mismatch between the claimed root and the cited imaging is one of the fastest ways to lose reviewer confidence in an otherwise sound case, and a generic anatomy sentence must never be copied into a submission.</p></div>
 
 <p><strong>Functional impairment:</strong></p>
 <p>Oswestry Disability Index: 58% (severe disability). Ambulation limited to less than one block with assistive device. Unable to sit for more than 20 minutes. Unable to perform job functions (warehouse work requiring lifting, standing, and walking). On modified work duty for 8 months; employer has indicated inability to continue accommodations beyond 60 days.</p>
 
 <p><strong>Surgical appropriateness:</strong></p>
-<p>Spine surgery consultation documents consideration of both decompression alone and decompression with fusion. Given Grade II spondylolisthesis with instability on flexion-extension films (4mm dynamic translation), decompression alone is contraindicated due to risk of progressive instability. Fusion with instrumentation is the appropriate intervention. Patient is 52 years old, BMI 28, non-smoker, no surgical contraindications, medically optimized for procedure.</p>
+<p>The spine surgery consultation records consideration of both decompression alone and decompression with fusion, and documents 4&nbsp;mm of dynamic translation on flexion-extension films.</p><p><strong>State the surgeon's reasoning; do not convert a threshold into a rule.</strong> Saying that decompression alone "is contraindicated" is stronger than this record establishes. Decompression without fusion is performed in selected patients with degenerative spondylolisthesis, and practice varies. What the submission should present is: the surgeon's documented rationale for adding fusion in <em>this</em> patient, the measured translation with the radiology report that reports it, the images themselves, and the specific wording of the plan's policy on instability. Let the measurement and the surgeon's reasoning do the work — an absolute claim invites a reviewer to produce the counter-examples.</p><p>Patient is 52, BMI 28, non-smoker, with no documented surgical contraindication.</p>
 </div>
 
 <div class="doc-section">
@@ -189,7 +226,7 @@ html,body{overflow-x:clip}
 </div>
 <div class="rebuttal">
 <div class="rebuttal-payer"><div class="rebuttal-label payer">Potential payer objection</div><p>"Fusion is not indicated — decompression alone is less invasive."</p></div>
-<div class="rebuttal-response"><div class="rebuttal-label response">Pre-emption</div><p>Decompression alone is contraindicated in the setting of Grade II spondylolisthesis with documented dynamic instability on flexion-extension films. The surgeon's note explicitly addresses this — decompression without fusion risks progressive slip and clinical deterioration. This is a clinical determination, not a preference.</p></div>
+<div class="rebuttal-response"><div class="rebuttal-label response">Pre-emption</div><p>The surgeon's note addresses this directly and documents 4&nbsp;mm of dynamic translation on flexion-extension imaging as the basis for adding fusion. Present that measurement, the images, the report and the surgeon's stated rationale, and map them to the instability provision in the plan's policy. Do not assert that decompression alone is contraindicated as a general matter — it is not, and the claim is unnecessary when the measurement is in the record.</p></div>
 </div>
 </div>
 
@@ -198,7 +235,7 @@ html,body{overflow-x:clip}
 <div class="sec-title">Documentation Gaps</div>
 <p><strong>Gap 1 — Flexion-extension films not included in prior-auth packet:</strong> The surgeon references dynamic instability on flexion-extension radiographs in the operative plan, but the images and radiology report were not included in the submitted prior-auth documentation. These must be attached — they are the specific evidence that differentiates fusion from decompression-alone.</p>
 <p><strong>Gap 2 — PT discharge summary from first course:</strong> Only the second PT discharge summary is in the submitted records. The first course documentation should be included to demonstrate the full 14-month conservative-therapy timeline.</p>
-<p><strong>No clinical gaps.</strong> The clinical evidence is strong. The gaps are submission gaps — evidence that exists but was not included in the prior-auth packet.</p>
+<p><strong>Gap 3 — the anatomy question in Section 04 is unresolved.</strong> Until the radiology wording, the examination findings and the planned level are reconciled, it is not established that the imaging cited supports the radicular syndrome claimed.</p><div class="cond-box"><span class="cond-label">Submission gap or clinical question? Not yet distinguishable</span><p style="margin-bottom:10px">Gaps 1 and 2 are submission gaps: the evidence is described as existing and simply was not attached. <strong>Gap 3 is different.</strong> The flexion-extension films have not been reviewed here, and part of the treatment history is described rather than produced. Whether those turn out to be submission gaps or unresolved clinical questions can only be determined <em>after</em> the missing evidence is reviewed.</p><p style="margin-bottom:0">The earlier version of this dossier declared the case free of clinical gaps while the key films were outstanding. That conclusion was premature. This version does not make it.</p></div>
 </div>
 
 <div class="doc-section">
@@ -206,7 +243,7 @@ html,body{overflow-x:clip}
 <div class="sec-title">Submission Recommendation</div>
 <div class="rec-box">
 <p><strong>Submit the dossier with the prior-authorization request.</strong> Attach: (1) this dossier, (2) lumbar MRI with radiology report, (3) flexion-extension radiographs with radiology report, (4) both PT discharge summaries, (5) injection records with dates and outcomes, (6) medication trial timeline, (7) Oswestry Disability Index scoring sheet, (8) surgeon's operative plan with decompression-vs-fusion rationale.</p>
-<p style="margin-top:14px">By organizing the clinical evidence around the anticipated criteria pathway before the determination, the payer reviewer receives a submission that maps directly to their evaluation framework. The goal is to make approval the path of least resistance — not to create a case the reviewer must work to deny and then defend on appeal.</p>
+<p style="margin-top:14px"><strong>Resolve Gap 3 before submitting.</strong> Organising evidence around the anticipated criteria pathway means the reviewer sees a submission structured the way it will be evaluated. It does not make approval more likely in any measurable sense, and this dossier does not claim that it does. A submission containing an unreconciled anatomical inconsistency is worse than a late one.</p>
 </div>
 </div>
 
@@ -215,7 +252,7 @@ html,body{overflow-x:clip}
 <span class="sec-label">Operational Note</span>
 <div class="sec-title">Prevention Note</div>
 <div style="background:var(--forestl);border-left:3px solid var(--forest);padding:20px 24px">
-<p><strong>For future similar cases:</strong> The two submission gaps identified in this dossier (missing flexion-extension films and incomplete PT documentation in the prior-auth packet) are operational, not clinical. The evidence existed — it wasn't submitted. A prior-authorization checklist for surgical cases that maps required documentation to anticipated criteria domains would prevent this class of denial entirely. The clinical case was never in doubt; only the submission was incomplete.</p>
+<p><strong>For future similar cases.</strong> A prior-authorisation checklist that maps required documentation to the criteria domains a reviewer applies would reduce the frequency of submissions that omit evidence already in the record. That is a workflow improvement worth making.</p><p style="margin-top:10px"><strong>It does not prevent this class of denial, and should not be described that way.</strong> Denials also follow from genuine criteria disagreement, policy changes, and clinical questions a checklist cannot answer — including the anatomy question still open in this case. Nor was the clinical case "never in doubt": Gap 3 is unresolved as this dossier stands.</p>
 <p style="margin-top:10px;font-size:15.5px;color:var(--muted)">Forward-looking operational insight for the client's surgical scheduling and prior-auth teams.</p>
 </div>
 </div>
@@ -227,11 +264,31 @@ html,body{overflow-x:clip}
 <span class="tag">Orthopedic: lumbar fusion</span>
 <span class="tag">Failed conservative therapy</span>
 <span class="tag">Payer: commercial EPO</span>
-<span class="tag">Strength: strong</span>
+<span class="tag">Conclusion: conditional</span>
 </div>
 </div>
 
+<div class="doc-section" id="standards">
+<span class="sec-label">Review Standard</span>
+<div class="sec-title">Open questions and sources</div>
+<ol class="open-q">
+<li>What does the radiology report say verbatim about the side, level and location of compression, and does it name a root?</li>
+<li>What do the examination findings show — motor, sensory and reflex — and which root do they localise to?</li>
+<li>At what level and on which side is the procedure planned, and does that match the answers above?</li>
+<li>What do the flexion-extension films and their report actually show, and how does the plan's policy word its instability provision?</li>
+<li>Is the first physical-therapy course documentation obtainable, and does it cover the period claimed?</li>
+<li>Which policy edition will be in force on the date of the determination?</li>
+</ol>
+<p style="margin-top:22px"><strong>Sources relied on.</strong></p>
+<ul class="src-list">
+<li>The plan's spinal-surgery medical policy, in the edition in force at determination. Supplied by the client; governs over any general framework described here.</li>
+<li>Standard lumbar root anatomy: at a given level the exiting root passes through the foramen while the traversing root lies in the lateral recess. Applied here only to identify an inconsistency, not to diagnose.</li>
+<li>Fictional case exhibits. Imaging report wording is reproduced verbatim in Exhibit C precisely because paraphrase is where this class of error is introduced.</li>
+</ul>
+<p style="margin-top:18px;font-size:15.5px;color:var(--muted)">Specimen SPEC-PRE-2026.09-r2 · reviewed 13 September 2026 · Arun Kasturi, MBBS. Clinical reasoning support only; not a licensed clinical opinion, not a surgical recommendation, and not a determination of medical necessity.</p>
 </div>
+
+</div><!-- end .doc-body -->
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:28px 40px;text-align:center">
 <p style="font-family:'Spectral',serif;font-size:22px;color:var(--ink);margin-bottom:14px">Want this level of reasoning on your own cases?</p>
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">

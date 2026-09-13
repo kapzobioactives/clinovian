@@ -1,0 +1,151 @@
+{
+  "$comment": "Single source for shared page furniture and for every service label, price and turnaround shown on the site. Partials live in shared/. Run `python3 scripts/build_shared.py` to propagate changes, and `python3 scripts/build_shared.py --check` in CI to fail on drift. Never hand-edit a region between <!-- shared:* --> markers: the next build overwrites it. Service names, prices and turnarounds are mirrored from service-catalog.json, which is the published machine-readable source; build_shared.py --check fails if they diverge. Concurrent review and recurring capacity sit outside the catalog deliberately, as separate commercial structures, and are marked in_catalog:false.",
+  "version": "2026.09.13-r2",
+  "partials": {
+    "nav": "shared/nav.html",
+    "drawer": "shared/drawer.html",
+    "footer": "shared/footer.html",
+    "trust": "shared/trust.html"
+  },
+  "trust_variants": {
+    "$comment": "Pages may select an alternative trust strip by name. Anything not listed uses 'default'.",
+    "engagements.html": "pricing"
+  },
+  "services": [
+    {
+      "id": "medical-necessity-escalation",
+      "name": "Medical Necessity Escalation Memo",
+      "page": "escalation-memo.html",
+      "price": "From $450",
+      "turnaround": "48\u201372 hours after complete agreed record",
+      "units": 1.0,
+      "sample": "sample-escalation-memo.html"
+    },
+    {
+      "id": "observation-inpatient",
+      "name": "Observation vs. Inpatient Defense Memo",
+      "page": "observation-defense.html",
+      "price": "Quoted after scope review",
+      "turnaround": "5\u20137 business days",
+      "units": 1.5,
+      "sample": "sample-observation-defense.html"
+    },
+    {
+      "id": "drg-clinical-validation",
+      "name": "DRG Downgrade Clinical Validation Memo",
+      "page": "drg-downgrade.html",
+      "price": "Quoted after scope review",
+      "turnaround": "7\u201310 business days",
+      "units": 2.0,
+      "sample": "sample-drg-downgrade.html"
+    },
+    {
+      "id": "p2p",
+      "name": "Peer-to-Peer Preparation Brief",
+      "page": "p2p-brief.html",
+      "price": "From $300",
+      "turnaround": "24\u201348 hours by prior agreed cutoff",
+      "units": 0.75,
+      "sample": "sample-p2p-brief.html"
+    },
+    {
+      "id": "pre-denial",
+      "name": "Pre-Denial Medical Necessity Dossier",
+      "page": "pre-denial-dossier.html",
+      "price": "Quoted after scope review",
+      "turnaround": "3\u20135 business days",
+      "units": 1.0,
+      "sample": "sample-pre-denial-dossier.html"
+    },
+    {
+      "id": "post-acute",
+      "name": "Post-Acute Denial Escalation Memo",
+      "page": "post-acute-denials.html",
+      "price": "Quoted after scope review",
+      "turnaround": "5\u20137 business days",
+      "units": 1.5,
+      "sample": "sample-escalation-memo.html"
+    },
+    {
+      "id": "ai-qa",
+      "name": "AI Appeal Clinical QA",
+      "page": "ai-appeal-qa.html",
+      "price": "From $250 per appeal",
+      "turnaround": "24\u201348 hours for an agreed unit/batch",
+      "units": 0.6,
+      "sample": "sample-ai-appeal-qa.html"
+    },
+    {
+      "id": "ar-triage",
+      "name": "No-PHI Clinical Denial AR Triage",
+      "page": "ar-audit.html",
+      "price": "Fixed fee after file scope",
+      "turnaround": "72 hours after accepted validated file",
+      "units": null,
+      "sample": "sample-ar-audit.html"
+    },
+    {
+      "id": "federal-idr",
+      "name": "Federal IDR Clinical Value Dossier",
+      "page": "nsa-idr.html",
+      "price": "From $750 per dossier",
+      "turnaround": "3\u20135 business days after complete agreed record",
+      "units": 2.0,
+      "sample": "sample-nsa-idr-dossier.html"
+    },
+    {
+      "id": "concurrent-review",
+      "name": "Concurrent Review Support",
+      "page": "concurrent-review.html",
+      "price": "Quoted",
+      "turnaround": "24\u201348 hours",
+      "units": null,
+      "sample": null,
+      "in_catalog": false
+    },
+    {
+      "id": "recurring-capacity",
+      "name": "Recurring Physician Review Capacity",
+      "page": "recurring-clinical-review-capacity.html",
+      "price": "Custom",
+      "turnaround": "Agreed monthly units",
+      "units": null,
+      "sample": null,
+      "in_catalog": false
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "eval-3-case",
+      "name": "3-Case Denial Evaluation",
+      "price": "$1,000",
+      "covers": "three standard units"
+    },
+    {
+      "id": "eval-3-idr",
+      "name": "3-Dossier Federal IDR Evaluation",
+      "price": "$1,800",
+      "covers": "three single-dispute IDR dossiers"
+    }
+  ],
+  "governing_document": "order-specification.html",
+  "nav_sections": {
+    "$comment": "Which pages count as 'inside' each dropdown for the purpose of the active state. Prefix rules, not a per-page list, so a new article or service page picks up the right state without an edit here. '*' is a prefix wildcard.",
+    "Resources": [
+      "insight-*",
+      "insights.html",
+      "why-clinovian.html"
+    ],
+    "What We Handle": [
+      "services.html",
+      "engagements.html",
+      "case-suitability.html",
+      "ai-appeal-qa.html",
+      "nsa-idr.html",
+      "rcm-partners.html",
+      "for-ai-vendors.html",
+      "for-hospitals.html",
+      "for-post-acute.html"
+    ]
+  }
+}
