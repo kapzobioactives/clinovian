@@ -117,10 +117,15 @@ def build(paths, check_only=False):
 
 
 def check_services():
-    """Service labels, prices and turnarounds are shared data too. Verify that the
-    single source in data/site.json agrees with the machine-readable catalog, with
-    the intake form's routing IDs, and with the files it points at. This is the
-    check that catches a price changed on one page and not the others."""
+    """Service labels, prices and turnarounds are shared data too.
+
+    Until 2026.09.14-r11 this compared data/site.json against service-catalog.json
+    and stopped there, while claiming to be "the check that catches a price changed
+    on one page and not the others". It never opened a page. Two files agreeing with
+    each other says nothing about what a buyer reads.
+
+    It now also reads each service's own page and its entry on services.html, and
+    requires the price and turnaround shown there to match the canonical record."""
     errors = []
     cat_raw = json.loads((ROOT / "service-catalog.json").read_text(encoding="utf-8"))
     cat = {s["id"]: s for s in (cat_raw["services"] if isinstance(cat_raw, dict) else cat_raw)}
@@ -141,12 +146,63 @@ def check_services():
                 errors.append(f"service '{sid}' name differs: catalog '{c['name']}' vs site.json '{svc['name']}'")
             if c["price"] != svc["price"]:
                 errors.append(f"service '{sid}' price differs: catalog '{c['price']}' vs site.json '{svc['price']}'")
+            if c.get("turnaround") != svc.get("turnaround"):
+                errors.append(f"service '{sid}' turnaround differs: catalog "
+                              f"'{c.get('turnaround')}' vs site.json '{svc.get('turnaround')}'")
         elif svc.get("in_catalog", True) and sid not in ("concurrent-review", "recurring-capacity"):
             errors.append(f"service '{sid}' is in site.json but not in service-catalog.json")
 
     for ev in SITE["evaluations"]:
         if ev["id"] not in intake_ids:
             errors.append(f"evaluation '{ev['id']}' has no matching intake option in contact.html")
+
+    # The part that actually opens a page. A price or turnaround rendered on a
+    # service page must match the canonical record, not merely match another
+    # data file. Figures are compared after normalising dash and space variants,
+    # because an en dash typed as a hyphen is a typo, not a pricing change.
+    def norm(t):
+        return (t.replace("\u2013", "-").replace("\u2014", "-").replace("\u2019", "'")
+                 .replace("&#8211;", "-").replace("&#8212;", "-")
+                 .replace("\u00a0", " ").lower())
+
+    def money_and_clock(text):
+        """Every dollar figure and every turnaround-shaped phrase in a page."""
+        money = set(re.findall(r"\$[\d,]+", text))
+        clock = set(m.group(0).strip().lower() for m in re.finditer(
+            r"\d+\s*[-\u2013\u2014]\s*\d+\s*(?:hours?|business days?|days?)", text))
+        return money, clock
+
+    services_page = (ROOT / "services.html")
+    services_text = norm(re.sub(r"<[^>]+>", " ", services_page.read_text(encoding="utf-8"))) \
+        if services_page.exists() else ""
+
+    for svc in SITE["services"]:
+        page = ROOT / svc["page"] if svc.get("page") else None
+        if not page or not page.exists():
+            continue
+        text = norm(re.sub(r"<[^>]+>", " ", page.read_text(encoding="utf-8")))
+        want_money, want_clock = money_and_clock(norm(
+            svc.get("price", "") + " " + svc.get("turnaround", "")))
+
+        for amount in want_money:
+            if amount not in text:
+                errors.append(f"service '{svc['id']}': canonical price {amount} does not "
+                              f"appear on {svc['page']}")
+            if services_text and amount not in services_text:
+                errors.append(f"service '{svc['id']}': canonical price {amount} does not "
+                              "appear on services.html")
+        for window in want_clock:
+            if window not in text:
+                errors.append(f"service '{svc['id']}': canonical turnaround "
+                              f"'{window}' does not appear on {svc['page']}")
+
+        # A different dollar figure presented as this service's own starting price
+        # is drift, even when the canonical figure is also present somewhere.
+        for m in re.finditer(r"(?:from|starts at|starting at)\s+(\$[\d,]+)", text):
+            if want_money and m.group(1) not in want_money:
+                errors.append(f"service '{svc['id']}': {svc['page']} advertises a starting "
+                              f"price of {m.group(1)}; the canonical price is "
+                              f"{sorted(want_money)[0]}")
 
     gov = SITE.get("governing_document")
     if gov and not (ROOT / gov).exists():

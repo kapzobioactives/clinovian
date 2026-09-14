@@ -2,12 +2,14 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — DRG Clinical Validation Memo — Clinovian</title>
 <meta name="description" content="Specimen DRG clinical validation memo: sepsis DRG 871 vs 872. Physician validation of a post-payment MCC removal, with a full fictional source packet.">
 <link rel="canonical" href="https://clinovian.com/sample-drg-downgrade.html">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg?v=2026.09.14-r12" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2026.09.14-r12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -103,8 +105,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .snapshot-table td:first-child{width:120px;font-size:13px}
 }
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
-.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-@media print{.top-bar,.doc-pdf-link{display:none!important}}
+
+@media print{.top-bar{display:none!important}}
 /* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
 .doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
 .doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
@@ -134,7 +136,7 @@ html,body{overflow-x:clip}
 <meta property="og:description" content="Sepsis DRG 872 to 871 clinical validation memo. Source-linked severity evidence, auditor rebuttal, and a coding handoff with a conditional conclusion.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-drg-downgrade.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.14-r12">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-drg-downgrade.html"}]}</script>
 </head>
@@ -153,7 +155,6 @@ html,body{overflow-x:clip}
 <h1>Sepsis DRG 872 → 871: Clinical Validation Review of an MCC Removal</h1>
 <div class="doc-header-sub">Physician clinical-validation reasoning for a post-payment MCC removal. Code selection, severity classification and DRG assignment remain with the client's certified coding and CDI professionals.</div>
 </div>
-<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -177,7 +178,7 @@ html,body{overflow-x:clip}
 <dt>Applicable framework</dt><dd>FY2026 ICD-10-CM Official Guidelines; FY2026 MS-DRG v43 CC/MCC assignment; commercial PPO post-payment audit policy.</dd>
 <dt>Source packet</dt><dd>Complete fictional source packet (Exhibits A–G), including the discharge summary.</dd>
 <dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
-<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+<dt>Format of record</dt><dd>This HTML page is the version of record. No separate document export is published.</dd>
 </dl>
 </div>
 <div class="doc-body">
@@ -186,14 +187,14 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Case Snapshot</span>
 <div class="sec-title">Claim Summary</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
-<tr><td>Billed DRG</td><td>871 — Septicemia or Severe Sepsis without MV >96 hours, with MCC</td></tr>
-<tr><td>Paid DRG</td><td>872 — Septicemia or Severe Sepsis without MV >96 hours, without MCC</td></tr>
-<tr><td>Plan type</td><td>Commercial PPO</td></tr>
-<tr><td>Payer action</td><td>Paid at DRG 872; MCC designation removed on post-payment audit (AKI reclassified as not meeting MCC criteria)</td></tr>
-<tr><td>Discharge date</td><td>20 June 2026 (FY2026 — grouper version applicable to the discharge date governs)</td></tr>
-<tr><td>Disputed payment delta</td><td>Not asserted here. See <a href="#payment-effect" style="color:var(--forest)">Payment effect</a> — the delta is a contract calculation, not a clinical finding.</td></tr>
-<tr><td>Clinovian scope</td><td>Clinical validation only. Clinovian does not assign codes, select the principal diagnosis, or run the grouper.</td></tr>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table"><caption>Specimen snapshot: scope, inputs and turnaround for this DRG validation</caption>
+<tr><th scope="row">Billed DRG</th><td>871 — Septicemia or Severe Sepsis without MV >96 hours, with MCC</td></tr>
+<tr><th scope="row">Paid DRG</th><td>872 — Septicemia or Severe Sepsis without MV >96 hours, without MCC</td></tr>
+<tr><th scope="row">Plan type</th><td>Commercial PPO</td></tr>
+<tr><th scope="row">Payer action</th><td>Paid at DRG 872; MCC designation removed on post-payment audit (AKI reclassified as not meeting MCC criteria)</td></tr>
+<tr><th scope="row">Discharge date</th><td>20 June 2026 (FY2026 — grouper version applicable to the discharge date governs)</td></tr>
+<tr><th scope="row">Disputed payment delta</th><td>Not asserted here. See <a href="#payment-effect" style="color:var(--forest)">Payment effect</a> — the delta is a contract calculation, not a clinical finding.</td></tr>
+<tr><th scope="row">Clinovian scope</th><td>Clinical validation only. Clinovian does not assign codes, select the principal diagnosis, or run the grouper.</td></tr>
 </table></div>
 
 <div class="drg-compare">
@@ -277,7 +278,7 @@ html,body{overflow-x:clip}
 <div class="sec-title">Clinical severity and diagnostic validity</div>
 <p>The findings below support the clinical validity of the acute kidney failure diagnosis and its evaluation and management during the encounter. They do <strong>not</strong>, by themselves, establish a severity classification — that is a separate question addressed in the next section.</p>
 
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table"><caption>Severity markers mapped to record evidence, and what each does and does not establish</caption>
 <thead><tr><th scope="col">Severity marker</th><th scope="col">Record evidence (exhibit)</th><th scope="col">What it does and does not establish</th></tr></thead>
 <tbody>
 <tr>
@@ -399,7 +400,7 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Risk Assessment</span>
 <div class="sec-title">Risks to the position</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table"><caption>Risks to the appeal, their severity, and mitigation</caption>
 <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
 <tbody>
 <tr><td>Auditor re-applies "resolved = not major" logic</td><td><strong style="color:var(--amber-text)">Medium</strong></td><td>Pre-empt by citing the coding standard (condition present and managed) vs. clinical outcome standard in the first paragraph of the appeal. Make the distinction unavoidable.</td></tr>

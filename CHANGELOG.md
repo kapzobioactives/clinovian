@@ -1,3 +1,569 @@
+# September 14, 2026 (r12) — Corrections from independent review
+
+An independent review of r11 found six real defects. Five were documentation or tooling;
+one was a security control I got wrong and then built enforcement around.
+
+**`X-Content-Type-Options` does not work as a meta tag.** `http-equiv` accepts a closed
+list of pragma directives — `content-type`, `default-style`, `refresh`, `x-ua-compatible`,
+`content-security-policy` — and this is not among them, so browsers ignore it entirely.
+r8 shipped `<meta http-equiv="X-Content-Type-Options" content="nosniff">` on all 64 pages,
+`validate_site.py` **required** it, `check_preview.py` asserted it on the deployed page,
+and `DEPLOYMENT.md` listed it as "Delivered". A check that passed while protecting nothing,
+which is the exact failure this project has spent eleven releases correcting elsewhere.
+The meta CSP and `<meta name="referrer">` are genuinely valid; I extended that to a third
+tag without verifying it. Tag removed, enforcement inverted into a guard against
+reintroduction, documentation corrected to state the control is **not available**.
+
+Four of the six controls a security questionnaire asks about cannot be delivered on this
+platform. `DEPLOYMENT.md` now says so in one table and adds that moving to a host which
+can send headers is a hosting decision, not a code change.
+
+**`DEPLOYMENT.md` contradicted itself on HSTS** — "Not settable" in the platform table,
+"HSTS is configured without preload" in a leftover Vercel-era section. Stale section removed.
+
+**Release documents had drifted for eight releases.** `VALIDATION_REPORT.md` was headed
+r11 while its captured run said it came from r3; `DEPLOYMENT.md` claimed verification from
+r4 and an acceptance figure from r6; `RELEASE_NOTES.md` listed **F17 in two rows at once**,
+"Cleared in r10" and "Open", because a hand-maintained status table was edited in place
+each release. Every one of those is a symptom of hand-editing.
+
+`VALIDATION_REPORT.md` is now **generated** by `scripts/generate_validation_report.py`,
+which runs the gate, the shared-region check, the acceptance suite and the publish build
+and captures their real output. `RELEASE_NOTES.md` no longer carries a status table at all
+— one source, generated. The gate fails if either names the wrong release, if the captured
+run is attributed to another archive, if a status table reappears in the release notes, or
+if `DEPLOYMENT.md` contradicts itself on HSTS.
+
+**jsdom was unpinned.** CI ran `npm install --no-save jsdom`, so the 39-test acceptance
+suite ran against whatever `latest` was that day. Pinned to exactly `30.0.1`.
+
+The first attempt at this fix was itself incomplete, and running the pipeline from the
+packaged archive caught it: `npm ci` requires a committed `package-lock.json`, and
+`.gitignore` excluded it. CI would have failed `npm ci` and fallen back to `npm install`
+without complaint. An exact version in `package.json` pins jsdom but not its 38
+transitive dependencies; only a lockfile does that. The lockfile is now committed, the
+silent fallback is removed so a stale lockfile stops the build, and the gate requires the
+lockfile to exist. It stays out of the published site.
+
+**The post-deploy check could not fail the run.** `continue-on-error: true` meant a stale
+or misrouted production deploy turned the step red and the workflow green — defeating the
+check entirely. It now retries for five minutes against DNS propagation and then fails.
+The gate rejects `continue-on-error` anywhere in the workflow.
+
+**Accessibility — 26 tables without captions, 8 with no header cells.** Captions are
+written per table, describing what each is for rather than boilerplate. The eight
+label-value snapshot tables in the specimens now use `<th scope="row">`, which is what
+makes a label-value pairing navigable. 43 tables, 0 without captions, 0 without headers.
+
+**"A rational first purchase…"** on `escalation-memo.html` was market-study voice that
+survived the r9 sweep. Replaced.
+
+**What I would not change.** "Procurement fit" stays on ten pages. "Choose it when… do not
+choose it as a substitute for…" is buyer guidance, not market study, and removing it would
+make the pages less useful to the person deciding.
+
+Gate: **0 errors, 0 warnings across 64 pages.** Acceptance: **39/39**. Twelve new checks,
+each adversarially tested, 12/12 caught.
+
+**Not closed by this archive, and stated plainly in `VALIDATION_REPORT.md`:** clinical
+re-approval of all nine specimens, F17's operational PHI evidence, F13's one publish, and
+the accessibility work that needs a real device and a screen reader.
+
+# September 14, 2026 (r11) — F20, F21
+
+**F20 — the drift check now opens a page.**
+
+`check_services()` compared `data/site.json` against `service-catalog.json` and stopped
+there, while its own docstring called it "the check that catches a price changed on one
+page and not the others". It never opened a page. Two data files agreeing with each other
+says nothing about what a buyer reads. It also never compared `turnaround` at all, despite
+turnaround being one of the two figures most likely to drift.
+
+It now reads each service's own page and its entry on `services.html` and requires the
+canonical price and turnaround to appear there, after normalising dash and space variants
+so an en dash typed as a hyphen reads as a typo rather than a pricing change. It separately
+flags a page advertising a *different* starting price, which is drift even when the correct
+figure also appears somewhere on the page. Verified by injecting five kinds of drift —
+catalog/site.json turnaround mismatch, a wrong price on a service page, a missing
+turnaround, a wrong price on `services.html`, and a wrong P2P price — 5/5 caught.
+
+**F21 — measurement that exists, instead of instrumentation that does not.**
+
+`window.clinovianEvents` wrote to a bounded in-page array that nothing read and that died
+with the tab, under a comment calling it "privacy-conscious conversion instrumentation",
+referencing an `ANALYTICS.md` that was not in the repository. Three problems: dead code,
+an overclaiming label, and a dangling reference.
+
+The buffer is kept — the acceptance tests assert on it and it is useful in a console — but
+relabelled **"session-local diagnostics. NOT analytics"**, with the reason stated inline.
+
+**Inquiry attribution without a tracker.** `routed_service_id` already rode along with
+submissions. Two fields join it: `entry_page` (which of *our own* pages the person came
+from) and `inquiry_source` (a campaign tag, else `site` or `direct`). No cookie, no third
+party, and **nothing recorded for a visitor who never submits**. A cross-site referrer is
+discarded entirely rather than reduced to a hostname, so a search query or a private URL on
+another site is never captured. Verified in a DOM against a Google referrer carrying a
+search query: `entry_page` came back empty. Injection and length cases also checked.
+
+`privacy.html` was updated in the same change, because it states that no tracker is
+installed and that claim has to stay true. The gate now fails if the form carries
+attribution fields the notice does not disclose.
+
+**`ANALYTICS.md`** now exists and says what is deliberately *not* installed and why: the
+conversions that matter here — qualified conversation, paid pilot, repeat order, actual
+hours, revision burden — happen off the website, and no page-view tool can see any of them.
+It defines each funnel stage against a real source (Formspree, inbox, invoices, delivery
+log, time record), and sets out what not to conclude: no Clinovian overturn rate, no
+percentages below roughly 30 paid engagements, no clinical text anywhere, and a decline
+rate near zero treated as a warning rather than a win.
+
+**Gate.** Twelve checks added, each adversarially tested, 12/12 caught after two test-side
+corrections — one mutation was case-sensitive and missed a capitalised instance, another
+introduced a syntax error so the check fired for the wrong reason.
+
+Gate: **0 errors, 0 warnings across 64 pages.** Acceptance: **39/39**.
+
+**All 21 audit findings are now cleared or explicitly scoped.** What remains is the
+accessibility work in section 9 of the audit — 29 tables without captions, 8 snapshot
+tables without header cells, mobile hero sizing overridden by `!important`, and the
+contrast, target-size, reduced-motion and screen-reader checks the audit did not measure.
+F13's deployment half also remains: production still serves an older build until this
+release is published.
+
+# September 14, 2026 (r10) — F16, F17, F18
+
+**F16 — homepage 1,916 → 1,308 words, navigation 35 → 22 links.**
+
+The homepage carried the entire service catalogue: 15 service links across three audience
+tracks, duplicating `services.html` in 668 words. It now shows the three services people
+actually order first — escalation memo, P2P brief, AI appeal QA — each with its starting
+price and turnaround, and one link to the full catalogue.
+
+"Four routes in. Pick the one that describes you." presented hospitals, RCM firms, IDR
+teams and AI vendors as four equally mature propositions. The audit's commercial
+recommendation was to test appeals operations with an existing filing workflow as the
+primary hypothesis. The section now leads with that route and groups the other three as
+"also served", with their different onboarding paths stated rather than implied.
+
+The mega menu held 21 service links plus four CTAs. Each column now leads with its
+overview and carries the two services most often bought through it. Menu behaviour was
+re-verified in a DOM after the restructure: open, Escape, ARIA state and focus all still
+correct.
+
+**F17 — privacy 146 → 855 words, terms 210 → 996 words.**
+
+The privacy notice described a service that was not this one. It now covers what the form
+actually collects field by field, the four third parties that see anything (GitHub Pages,
+Formspree, Calendly, Google Fonts) in a table with what each one sees, a retention table
+with actual periods, access/correction/deletion rights with a 30-day response commitment,
+and two limits stated rather than glossed: we cannot guarantee removal from a provider's
+backup cycle, and live-engagement records may be subject to retention obligations. It also
+records that **no analytics, tracking or cookie is installed**, and that a consent
+mechanism will be added before any such tool is enabled rather than after.
+
+The terms covered nature of services, learning rights and a liability cap, and nothing
+about buying. Added: invoicing in USD at 14 days, tax and withholding, when work starts,
+the revision-versus-new-scope boundary (records arriving after delivery are a new scope,
+quoted separately), a five-case cancellation and refund table including what happens when
+Clinovian misses its own window, deliverable ownership and the condition that white-
+labelling may not misrepresent who performed the review, confidentiality, conflict checks
+with an explicit statement that Clinovian does not offer market exclusivity, and governing
+law deliberately left to the signed engagement rather than imposed by a web page.
+
+The liability cap is now framed as **a contractual allocation, not a statement of law**,
+with liability that cannot lawfully be excluded carved out and the enforceability question
+handed to the buyer's counsel. Operational detail is not duplicated — it points to the
+Order Specification, which already covers units, pilots, revisions and the delivery clock.
+
+**F18 — 134 unversioned asset references corrected.**
+
+`og:image` carried the release stamp; the JSON-LD `image` and `logo`, `favicon.svg` and
+`apple-touch-icon.png` did not. A corrected sharing image could therefore be served
+alongside a stale structured-data image or a stale icon. Every cacheable asset reference
+now carries one stamp, verified as still resolving when served statically. The sitemap
+date-override mechanism the audit flagged as described-but-absent is present and in use:
+`data/content-dates.json` is the source, and `generate_sitemap.py` fails if a page is
+missing from it.
+
+**Gate.** Thirteen checks added — homepage word and link budgets, required coverage in both
+policies, the liability-cap framing, and unversioned assets — each adversarially tested,
+13/13 caught. Two privacy tables needed focusable scroll wrappers; the existing
+accessibility check caught that before packaging.
+
+Gate: **0 errors, 0 warnings across 64 pages.** Acceptance: **39/39**.
+
+Still open: F20 (shared-data generation), F21 (conversion measurement), and the
+accessibility items in section 9 — table captions, snapshot-table headers, and mobile hero
+sizing overridden by `!important`.
+
+# September 14, 2026 (r9) — F09, F12, F15
+
+**F09 — 28,236 characters of market research removed from the buying path.** Ten service
+pages carried "Complete market and procurement context" and "Public pricing context"
+sections; ten setting and specialty pages carried "Current alternatives" and a "Pricing
+context" block. Between them they named competitors with outbound links, reported that no
+comparable public per-case rate could be found, and discussed salary and overhead. That is
+research, and it was sitting between a buyer and the purchase decision.
+
+Removed: the two market blocks from all ten service pages, and "Current alternatives" from
+all ten setting/specialty pages — "Why Clinovian is different" already sits immediately
+after it and does that job. "Pricing context" was **split** rather than deleted: the
+market-comparison sentence went, the Clinovian scope, fee and turnaround stayed, and the
+heading is now "Scope, fee and turnaround". Kept throughout: "Minimum usable inputs",
+"Service-specific failure modes" and "Procurement fit" — all three are buyer-facing.
+
+`why-clinovian.html` claimed the $1,000 evaluation was "a smaller fraction still of one
+month of a full-time advisor's salary". Replaced: the entry point is now explained without
+asserting what a recovery is worth or what an alternative costs, since both depend on the
+buyer's case mix and contracts.
+
+**F12 — the public boundary now matches the demonstrated control.** `security.html` said
+"Clinovian uses a BAA-governed secure transfer workflow with minimum-necessary access",
+present tense, as though a standing approved workflow existed. It now states that **no
+standing, pre-approved PHI workflow exists** and that the route, access controls and
+retention are agreed with each client before any records move. "Secure transfer only"
+became "Transfer route agreed before use", which is the commitment that can actually be
+kept.
+
+Added: a card defining what "de-identified" means here — HHS recognises Safe Harbor and
+Expert Determination, deleting a name, DOB and record number is neither, a clinical
+narrative can still identify through rare facts, and Clinovian does not certify that
+material you send is de-identified. `contact.html` already said the identifier check is
+"a prompt, not a security control"; the gate now requires that it keeps saying so.
+
+**`trust-center.html` named Vercel as the hosting subprocessor.** Wrong since r8, and on a
+procurement-facing page. Corrected to GitHub Pages; the gate now fails if any public page
+names the wrong host.
+
+**F15 — 20 unsupported claims replaced, 4 citations bound to documents.**
+
+"Most medical-necessity appeals fail", "systematically under-appealed" and "one of the most
+consistently under-argued" were majority and ranking assertions with no dataset behind them.
+`insight-behavioral-health.html` contradicted itself outright: its sources block said no
+comparative dataset had been identified and no ranking was asserted, while its body and its
+meta description both asserted one. Each is now either attributed to the reviewer's
+payer-side experience or stated without the quantifier, and the six-failure-modes article
+now says in terms that no published dataset apportions appeal outcomes by cause.
+
+Citations, previously pointing at index pages:
+
+- OIG SNF report → **OEI-09-24-00331**, posted 11 June 2026, with the population stated
+  (19 MAO parent companies, 29.3 million enrollees, ~86% of MA enrolment, June 2024 data).
+- OIG LTCH/IRF companion → **OEI-09-24-00330**, same period and MAOs, noting that the 43%
+  IRF figure conceals a 14%–86% range across plans.
+- CMS No Surprises landing → the **Federal IDR Operations implementation timeline** and the
+  final rule (**CMS-9897-F**, Federal Register 4 June 2026), with the staged dates kept
+  separate and portal-dependent provisions explicitly marked as not yet fixed.
+- HHS mental-health landing → the **CMS MHPAEA** page, including the applicability limit
+  that MHPAEA does not apply directly to small group health plans.
+
+The statistical framing around the 95%/18% figures was already correct — denominators,
+selection limitation and an explicit warning that 95% describes roughly one denial in six,
+self-selected. That was left alone.
+
+**Gate.** Nine checks added across the three findings, each adversarially tested, 9/9
+caught. Gate: **0 errors, 0 warnings across 64 pages.**
+
+Still open: F16 (homepage breadth), F17 (privacy/terms), F18, F20, F21, accessibility.
+
+# September 14, 2026 (r8) — The site runs on GitHub Pages, not Vercel
+
+Every release up to r7 configured the wrong platform. `vercel.json` carried 74 redirects
+and 8 header rules; on GitHub Pages **all of it was inert**. Three real consequences.
+
+**1. Internal documents would have been public.** `.vercelignore` excluded
+`VALIDATION_REPORT.md`, `RELEASE_NOTES.md`, `CHANGELOG.md`, `DEPLOYMENT.md`,
+`IDR_CLAIMS_REGISTER.md` and `scripts/` from a *Vercel* deploy. This site does not deploy
+to Vercel, so nothing excluded them. `https://clinovian.com/VALIDATION_REPORT.md` would
+have served the open-defects list and the contested clinical review log to anyone who
+guessed the filename — on a site selling clinical review credibility. `.vercelignore` was
+worse than having no exclusion file, because it read like protection.
+
+`scripts/build_publish.py` now assembles an **allow-listed** publish set: a file ships
+because it was named, not because nobody excluded it. Verified by serving the built output
+and confirming every internal path returns 404.
+
+**2. Sixty-four routes would have 404'd.** GitHub Pages has no redirect support. Each
+route in the new `data/routes.json` is materialised as a static stub — meta refresh,
+canonical at the destination, `noindex`, and a visible link for anyone without JavaScript.
+Extensionless routes become directory indexes (`/services/index.html`). All 64 verified
+against a live server. The two legacy `.html` stubs already existed as real pages and were
+correctly not overwritten.
+
+**3. Security headers cannot be sent, and three cannot be replaced.** CSP,
+`X-Content-Type-Options` and the referrer policy now ship as meta tags on all 64 pages.
+**`frame-ancestors`/`X-Frame-Options`, `Strict-Transport-Security` and
+`Permissions-Policy` are header-only and are therefore absent.** They are documented as
+absent rather than quietly dropped: a buyer's security reviewer runs `curl -I` and finds
+out either way. `check_preview.py` now reports headers as informational and fails only on
+the meta policy, which is the part this platform can actually deliver.
+
+**Removed:** `vercel.json`, `.vercelignore`. The gate fails if they, `netlify.toml`,
+`_headers` or `_redirects` reappear.
+
+**Added:** `data/routes.json` (route and host map), `scripts/build_publish.py`,
+`.github/workflows/deploy.yml`, `.gitignore`, and generated `CNAME` + `.nojekyll`.
+
+**F13 resolved.** The canonical host is now set by `CNAME`, generated from
+`data/routes.json` and checked against the canonical tags. The redirect-loop hazard r7
+warned about no longer exists — it was a property of the Vercel rule that has been deleted.
+Production is still the older build; publishing this release replaces it.
+
+CI runs the gate, the acceptance suite and the publish build on every push to `main`, and
+**refuses to deploy** if an internal document reaches the output or `CNAME` disagrees with
+the route map.
+
+Gate: **0 errors, 0 warnings across 64 pages.** Eleven new platform checks, each
+adversarially tested, 11/11 caught.
+
+Still open: F09, F12, F15, F16, F17, F18, F20, F21 and the accessibility items.
+
+# September 14, 2026 (r7) — Canonical host (F13): archive settled, one dashboard change left
+
+Production was re-checked live on 14 September 2026 rather than relying on the audit's
+12 September observation. It is still the older build, and there is a defect the audit
+did not name.
+
+**Live split host signal.** Every production page is served on `https://www.clinovian.com/`
+while its own canonical tag names `https://clinovian.com/`, and every internal link on the
+page is an absolute `https://www.clinovian.com/...` URL. The page tells a search engine the
+apex is authoritative and then links exclusively to the host it just disowned. Confirmed on
+both `/` and `/sitemap.html`. This is separate from the stale build and persists until the
+host direction is settled.
+
+**Redirect-loop hazard.** Production sends apex → `www`. This archive's `vercel.json` sends
+`www` → apex. Applied together they bounce forever and every page becomes unreachable.
+The Vercel domain setting must be changed **before** this archive is promoted, not after.
+`DEPLOYMENT.md` section 1c gives the ordered procedure. Nothing in this repository can make
+that change; it is a dashboard setting.
+
+**Archive side — enforced, not merely correct.** The archive was already apex-consistent
+(63 canonicals, 62 `og:url`, 61 sitemap entries, feed, JSON-LD, and a `www` → apex rule in
+`vercel.json`). It is now *enforced*: `validate_site.py` fails if canonical and `og:url`
+origins diverge, if `sitemap.xml` or `feed.xml` name a different origin, if structured data
+names a different origin, if `vercel.json` redirects **away** from the canonical host — the
+loop condition — or if its host rule points anywhere other than the canonical origin. Six
+checks, each adversarially tested by injecting the defect, 6/6 caught. Switching to `www`
+as the public host remains a legitimate choice; the gate will simply name everything else
+that has to move with it.
+
+**`check_preview.py` claimed a matrix test it did not have.** Its docstring advertised
+"the canonical host/redirect matrix (apex vs www, http vs https)" while the code accepted a
+single base URL and tested nothing of the sort — the same overclaiming pattern as the
+regression suite that was never called and the `VALIDATION_REPORT` placeholder. It now
+walks all four entry points one hop at a time under `--matrix`, requires each to settle on
+`https://clinovian.com` with a 200, and reports a redirect loop explicitly instead of as an
+opaque error. It also compares each served page's canonical tag against the host that
+served it, which is exactly the defect production has today.
+
+Both detectors were verified against live local servers: two mutually-redirecting servers
+produce `outcome: loop` with the full hop trail, and a server whose canonical names a
+different origin produces three named split-signal failures.
+
+Gate: **0 errors, 0 warnings across 64 pages.**
+
+Still open: F09, F12, F15, F16, F17, F18, F20, F21 and the accessibility items. F13's
+archive half is done; its deployment half is one setting and one promote.
+
+# September 14, 2026 (r6) — Inquiry flow, executed rather than inspected
+
+Phase 3 is the part of the audit the static gate cannot reach. F03, F07, F08 and F11 were
+all implemented in code and all "verified" by reading that code. r6 runs it instead:
+`scripts/acceptance/inquiry-flow.js` loads the real `contact.html` into a DOM, executes
+the real `main.js`, and drives the form. Only `fetch()` is mocked — no request leaves the
+machine, no inbox is touched. **39 assertions, 0 failures.**
+
+**Two real defects surfaced that code review had missed.**
+
+- **Duplicate submission fired two requests.** The handler disables the submit button, so
+  a second *click* is impossible — which is why reading the code looked fine. But Enter
+  pressed in a text field submits the form without touching the button, and the test fired
+  two `fetch` calls for one inquiry. A re-entrancy guard now sits in the handler itself and
+  is released on both the server-rejection and network-failure paths so retry still works.
+- **No `<noscript>` fallback existed anywhere.** With scripts disabled the case-fit section
+  never appears and the mobile drawer cannot open, and nothing told the user either. The
+  audit asked for "a useful fallback or an explicit, accessible explanation"; there was
+  neither. `contact.html` now explains that the form sends a general business inquiry
+  without JavaScript and gives the email route, **carrying the same no-PHI instruction as
+  the network-failure fallback**. `shared/nav.html` offers a route to `/sitemap.html`.
+
+**What the suite confirmed already worked:** the confirmation region is outside the form,
+`aria-live`, `role=status`, becomes visible on a mocked 200, states the response window,
+states nothing is committed, moves focus to a focusable heading, and hides `#intake-form-shell`
+rather than the whole form. Validation failure marks `aria-invalid` and binds
+`aria-describedby`, and the error clears when the field is corrected. Server rejection and
+network failure both leave the fields editable and re-enable the button. All **14** service
+CTAs across the site preselect their intended option, including all ten that the audit found
+broken. Escape sets `aria-expanded=false`, removes `.open`, and leaves focus on the toggle.
+The IDR fieldset is disabled when inactive and its stale value does not reach FormData.
+
+**Gate.** Five checks added — re-entrancy guard, guard release on retry paths, and three
+`<noscript>` checks — each adversarially tested, 5/5 caught. One of them was initially
+wrong in the same way the old checks were: it sliced to the first `</noscript>` in the
+page, which is the shared nav's, and inspected the wrong block. It now scans every block.
+
+Gate: **0 errors, 0 warnings across 64 pages.** Acceptance: **39/39.**
+
+Still open: F09, F12, F15, F16, F18, F20, F21, F17, F13 (production still serves an older
+build) and the accessibility items in section 9.
+
+# September 14, 2026 (r5) — The release gate, adversarially tested
+
+r4 wired up a regression suite that had never been called. r5 asks the harder question:
+do the checks actually fire? Each check was tested by injecting the specific defect it
+claims to catch and confirming the build fails. **29 of 29 caught — after two repairs.**
+
+**Two checks were silently dead.**
+
+- **`F03` (confirmation region).** It tested only whether `#intake-status` sat inside
+  `#intake-form`. Deleting or renaming the region entirely made the test pass, because a
+  missing element is not "inside the form" — the success message would have vanished with
+  the gate reporting clean. It now requires the region to exist, to sit outside the form,
+  to carry `aria-live` and a `role`, and requires `#intake-form-shell` plus a success
+  branch that writes a confirmation.
+- **`F11` (stale field serialisation).** It matched `.disabled = !active` anywhere in
+  `main.js`, so disabling the `<fieldset>` alone satisfied it. Either level alone still
+  lets a value serialise. It now requires both `group.disabled` and `el.disabled`.
+- **`F08`** additionally now requires an Escape handler and `aria-expanded` in `main.js`.
+  Previously it checked only that no CSS hover rule could open a dropdown — a build with
+  no keyboard dismissal at all would have passed.
+
+**`scripts/check_preview.py` was comparing nothing.** It fetched `/RELEASE_ID`, discarded
+the body, and tested only for a 200. Any host serving any build with any `RELEASE_ID` file
+passed — which is precisely the F13 condition in production right now. `fetch()` gained an
+optional body return, and the check now compares the deployed identifier against the
+working copy and fails with both values named. Verified against a local HTTP server:
+passes on a matching build, fails with a named mismatch on a stale one, exit 1.
+
+**`DEPLOYMENT.md`.**
+
+- A malformed code fence had trapped three sentences of prose inside a `bash` block.
+- The validator description claimed coverage it did not have. It now names the regression
+  suite, warns that `regression_checks()` must stay wired into `main()`, and states
+  plainly that **the gate does not validate clinical, coding or regulatory accuracy.**
+- New section 0 records that every documented command was executed from a clean
+  extraction and completed as written, with its actual output.
+
+Gate: **0 errors, 0 warnings across 64 pages.**
+
+Still open: F08 (browser acceptance), F09, F12, F15, F16, F18, F20, F21, F13 (production
+still serves an older build — `check_preview.py` will now catch this), F17, and the
+accessibility items. The clinical review log still predates the r4 specimen edits and
+needs re-confirming by the reviewer.
+
+# September 14, 2026 (r4) — Specimen corrections (F02/F05) and a dead regression suite
+
+The contradictions an independent review found in 2026.09.13-r2 are corrected. The pattern
+behind them is worth recording: corrected text had been **added alongside** the superseded
+text rather than replacing it. `sample-observation-defense.html` published a correct HEART
+component breakdown totalling 8, and a note explaining that the previous draft said 7 — then
+nine lines later still read "HEART score 7 (high-risk)". The same file stated it made no
+claim about prevailing, then closed with "Strong case... should prevail". Every defect below
+is a sweep failure of that kind, not a reasoning failure.
+
+- **`sample-observation-defense.html`** — stale "HEART score 7" in the Two-Midnight table
+  corrected to 8 with a pointer to the component breakdown; closing verdict "Overall: Strong
+  case... should prevail at Level 1 or Level 2" replaced with a conditional verdict that
+  names what it rests on and defers to the open questions at Section 08.
+- **`sample-escalation-memo.html`** — "clinically strong... materially improves the
+  probability of overturn" replaced with a conditional statement that does not forecast.
+- **`sample-p2p-brief.html`** — CHA₂DS₂-VASc published as components (hypertension 1, age
+  68 i.e. 65–74 1, vascular disease/prior PCI 1; four components scoring zero named)
+  reconciling to the stated 3, where it previously printed a bare "Score 3" despite Section
+  01 promising components. The "most common reason P2P calls fail" majority claim became a
+  described pattern with an explicit statement that no dataset ranks these causes.
+- **`sample-ar-audit.html`** — footer and specimen description restored to the triage-only
+  boundary; "showing what is contestable... and what to pursue first" replaced with what the
+  service actually does, and an explicit statement that it does not assess merits, forecast
+  recovery or decide what to abandon. **The 47-row inventory arithmetic was re-verified and
+  is sound**: 18+12+10+7 = 47, $612,000+$318,000+$155,000+$189,000 = $1,274,000, top five
+  = $203,600 sorted descending, containment holds ($39,700 ≥ $39,200), no duplicate IDs.
+- **`sample-declined-case.html`** — carried the AR-audit footer verbatim, an AR-audit
+  breadcrumb target, and a surplus `</div>` that closed `.doc-wrap` early (net −1). All
+  three fixed; the footer now describes the declined-case specimen and its CTAs point at
+  case suitability and fit assessment.
+- **`sample-pre-denial-dossier.html`** — two revision-history notes ("The earlier version of
+  this dossier...") rewritten as client-facing principles. The L4–L5 / L5-root anatomy
+  analysis was already correct and conditional and is unchanged.
+
+**Author-facing copy removed from published specimens.** Three specimens carried notes
+addressed to whoever was editing them rather than to the buyer — an instruction to avoid the
+word "unambiguous", and four separate explanations of what a previous draft got wrong. These
+are the same class of leak as F09 and were sitting in the primary sales proof.
+
+**`scripts/validate_site.py` — `regression_checks()` was never called.** It was defined in
+r2 and `main()` ran only `check_repo()`, so the entire regression suite was dead code while
+`RELEASE_NOTES.md` claimed "nine regression checks added... testing the actual defects". It
+is now invoked from `main()` and passes. Six specimen checks were added: outcome-prediction
+language, revision-history notes, HEART and CHA₂DS₂-VASc component reconciliation, AR scope
+breach, breadcrumb self-reference, and balanced `<div>` nesting. **Each was verified by
+reintroducing the original defect and confirming the build fails — 9/9 caught.**
+
+Gate: **0 errors, 0 warnings across 64 pages**, with the regression suite actually running
+for the first time.
+
+Still open: F06 (release-doc accuracy, improved but ongoing), F08, F09, F12, F15, F16, F18,
+F19, F20, F21, F13 (production still serves an older build), F17, and the accessibility
+items. The clinical review log in `VALIDATION_REPORT.md` predates these edits and should be
+re-confirmed and re-dated by the reviewer.
+
+# September 14, 2026 — PDF specimen editions withdrawn permanently (2026.09.14-r3)
+
+The downloadable PDF editions of the specimens are discontinued. The eight stale exports
+were already removed in 2026.09.13-r2 and replaced with an interim "withdrawn pending
+re-typesetting" notice; that notice implied the PDFs were returning. They are not. HTML is
+now the sole published format for every specimen.
+
+- **All nine specimen pages** — removed the dead `.doc-pdf-link` CSS rule, removed
+  `.doc-pdf-link` from the `@media print` rule (the `.top-bar` suppression is preserved),
+  and removed the interim withdrawal-notice paragraph.
+- **Eight specimen pages** — the document-control row "Matching HTML / PDF", which claimed
+  that the HTML page and "its PDF export" carry the same version, was factually false once
+  the PDFs were deleted. Replaced with "Format of record — This HTML page is the sole
+  version of record. No PDF edition of this specimen is published."
+  (`sample-declined-case.html` never carried that row.)
+- **`vercel.json`** — removed the `/(.*)\.pdf` cache-control and `Content-Disposition`
+  header block; no PDF is served.
+- **`DEPLOYMENT.md`** — removed "PDFs" from the validator coverage sentence, "all eight
+  specimen PDFs" from the preview asset check, "PDF/download links" from the screen-reader
+  workflow list, and "specimen downloads" from the rollback triggers.
+- **`RELEASE_NOTES.md` / `VALIDATION_REPORT.md`** — F14 restated from "regeneration
+  deferred" to "withdrawn permanently".
+- **Release gate hardened against reintroduction.** `scripts/validate_site.py` F14 no
+  longer checks for links to missing PDFs; it now fails the build if any page carries a
+  same-origin `.pdf` link, the `doc-pdf-link` region, a "Matching HTML / PDF" parity claim,
+  or a "download ... as a PDF" affordance. External `.pdf` source links to CMS, OIG and
+  guideline documents remain permitted, since those are legitimate citations.
+- **Release identity** bumped to `2026.09.14-r3` across `RELEASE_ID`, `data/site.json`,
+  `data/content-dates.json`, both release documents and the asset `?v=` query strings.
+  Specimen `lastmod` dates advanced to 2026-09-14.
+
+Also fixed, because the release gate could not otherwise pass:
+
+- **`/apple-touch-icon.png` added.** Every ordinary page referenced it; the file was absent
+  from 2026.09.13-r2, producing **all 62 errors** the gate reported. It is rasterised from
+  the existing `favicon.svg` mark at 180x180 — brand colours unchanged (`#183F2D` ground,
+  `#f3efe4` glyph, `#b18a43` accent), opaque, square corners so iOS applies its own mask.
+  A seven-day cache rule was added in `vercel.json`, matching the policy for the other icon
+  assets. **Replace it if you have a designed icon; it is a faithful rasterisation of your
+  own mark, not a new design.**
+- **`VALIDATION_REPORT.md` result section.** It shipped with the placeholder "Run
+  `python3 scripts/validate_site.py` and paste its summary block here" — meaning the gate
+  had never been run against the delivered archive. It now carries captured output from a
+  clean extraction: **0 errors, 0 warnings across 64 pages.** A "Known open defects"
+  section was added listing what a passing gate does not cover.
+- **`RELEASE_NOTES.md` completion claims.** The table headed "Completed and verifiable in
+  these files" listed findings the independent review found partial or open. The heading is
+  now "Changes attempted in this release", preceded by an independently verified status
+  table. The clinical review log in `VALIDATION_REPORT.md` still records every specimen as
+  "Rewritten"; that log carries the reviewer's name and date and has **not** been altered
+  here, but the report now states plainly that the status is contested and must be
+  re-confirmed before any specimen is used as sales proof.
+
+Not addressed in this release: the specimen content corrections themselves (F02/F05), and
+the open F09/F13/F15/F16/F17/F19/F20/F21 items. The gate passing does not mean the site is
+ready for outreach.
+
 # August 29, 2026 (second pass) — Second-opinion audit reconciliation
 
 An independent second audit reviewed the remediated build and the (not yet redeployed) live site. Its verified findings are implemented below; its www recommendation was checked and reversed on evidence. Live check: both `clinovian.com` and `www.clinovian.com` return 200, and the page served at www already carries the apex canonical — so the defect was a missing host redirect, not a canonical conflict. Rewriting ~60 files to www would have contradicted the site's own canonicals.

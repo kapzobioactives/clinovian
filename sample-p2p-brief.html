@@ -2,12 +2,14 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — Peer-to-Peer Prep Brief — Clinovian</title>
 <meta name="description" content="Specimen P2P Prep Brief: atrial fibrillation catheter ablation prior authorization. Criteria-mapped physician briefing for a payer peer-to-peer call.">
 <link rel="canonical" href="https://clinovian.com/sample-p2p-brief.html">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg?v=2026.09.14-r12" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2026.09.14-r12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -89,8 +91,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .snapshot-table td:first-child{width:120px;font-size:13px}
 }
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
-.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-@media print{.top-bar,.doc-pdf-link{display:none!important}}
+
+@media print{.top-bar{display:none!important}}
 /* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
 .doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
 .doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
@@ -120,7 +122,7 @@ html,body{overflow-x:clip}
 <meta property="og:description" content="Specimen P2P Prep Brief: atrial fibrillation catheter ablation prior authorization. Criteria-mapped physician briefing for a payer peer-to-peer call.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-p2p-brief.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.14-r12">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-p2p-brief.html"}]}</script>
 </head>
@@ -139,7 +141,6 @@ html,body{overflow-x:clip}
 <h1>Atrial Fibrillation Catheter Ablation — Prior Authorization P2P</h1>
 <div class="doc-header-sub">Criteria-mapped physician briefing for a scheduled peer-to-peer call with a payer medical director. The treating physician knows the patient — this brief provides the payer's decision logic.</div>
 </div>
-<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -163,7 +164,7 @@ html,body{overflow-x:clip}
 <dt>Applicable framework</dt><dd>Named fictional commercial plan ablation policy, version and effective date stated in the body.</dd>
 <dt>Source packet</dt><dd>Fictional source packet summarised in the appendix exhibit table.</dd>
 <dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
-<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+<dt>Format of record</dt><dd>This HTML page is the version of record. No separate document export is published.</dd>
 </dl>
 </div>
 <div class="doc-body">
@@ -172,13 +173,13 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Case Snapshot</span>
 <div class="sec-title">Authorization Summary</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens)"><table class="snapshot-table">
-<tr><td>Requested procedure</td><td>Catheter ablation for persistent atrial fibrillation (CPT 93656)</td></tr>
-<tr><td>Plan type</td><td>Commercial HMO</td></tr>
-<tr><td>Denial basis</td><td>"Does not meet medical necessity. Conservative management options have not been exhausted."</td></tr>
-<tr><td>P2P call scheduled</td><td>[Fictional — 2 days from brief delivery]</td></tr>
-<tr><td>Payer reviewer</td><td>Medical director (specialty unknown — assume internal medicine or cardiology)</td></tr>
-<tr><td>Brief turnaround</td><td>24 hours</td></tr>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens)"><table class="snapshot-table"><caption>Specimen snapshot: scope, inputs and turnaround for this peer-to-peer brief</caption>
+<tr><th scope="row">Requested procedure</th><td>Catheter ablation for persistent atrial fibrillation (CPT 93656)</td></tr>
+<tr><th scope="row">Plan type</th><td>Commercial HMO</td></tr>
+<tr><th scope="row">Denial basis</th><td>"Does not meet medical necessity. Conservative management options have not been exhausted."</td></tr>
+<tr><th scope="row">P2P call scheduled</th><td>[Fictional — 2 days from brief delivery]</td></tr>
+<tr><th scope="row">Payer reviewer</th><td>Medical director (specialty unknown — assume internal medicine or cardiology)</td></tr>
+<tr><th scope="row">Brief turnaround</th><td>24 hours</td></tr>
 </table></div>
 </div>
 
@@ -197,7 +198,7 @@ html,body{overflow-x:clip}
 <li><strong>Stroke risk and anticoagulation status</strong> — the CHA₂DS₂-VASc score <strong>with its components shown</strong> (congestive heart failure, hypertension, age band, diabetes, prior stroke or TIA, vascular disease, sex category), each tied to the record entry supporting it, plus current anticoagulation and adherence. A bare total is not checkable, and a total that does not reconcile to its components is worse than omitting it.</li>
 </ul>
 <div class="note">
-<p><strong>Key insight:</strong> The most common reason P2P calls fail for ablation requests is that the treating physician describes the patient's symptoms and clinical course — which the reviewer already has from the chart — instead of mapping the clinical data to the specific criteria elements listed above. The reviewer is not asking "is this patient sick?" They are asking "does this case check the boxes?" This brief is designed to close that gap.</p>
+<p><strong>Why this brief is structured the way it is:</strong> a recurring failure pattern in peer-to-peer calls is that the treating physician describes the patient's symptoms and clinical course — which the reviewer already has from the chart — rather than mapping the clinical data onto the specific criteria elements the reviewer is working from. This brief is built to close that gap. No published dataset ranks the causes of peer-to-peer denial, so this is a described pattern, not a measured frequency.</p>
 </div>
 </div>
 
@@ -205,7 +206,7 @@ html,body{overflow-x:clip}
 <span class="sec-label">Page 1 — The Call Sheet</span>
 <div class="sec-title">Everything needed during the call, on one page</div>
 <p style="margin-bottom:18px">Everything after this section is an <strong>appendix</strong>, for preparation beforehand and reference afterwards. It is not intended to be read during a call. A brief that cannot be used inside five minutes is not a peer-to-peer brief.</p>
-<div class="table-wrap" tabindex="0" role="region" aria-label="One-page call sheet"><table class="exhibit-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="One-page call sheet"><table class="exhibit-table"><caption>Call sheet: objective, decision requested, policy, strongest points and fallback</caption>
 <tbody>
 <tr><th scope="row" style="width:200px">Objective</th><td>Authorisation of catheter ablation for persistent atrial fibrillation.</td></tr>
 <tr><th scope="row">Decision requested</th><td>Approve as submitted. If not, ask what specific evidence would change the determination, and record the answer verbatim.</td></tr>
@@ -257,7 +258,7 @@ html,body{overflow-x:clip}
 <li><strong>Classification:</strong> Persistent atrial fibrillation. Duration: 36+ months since initial diagnosis. Multiple documented episodes on event monitor and Holter.</li>
 <li><strong>Left atrial diameter:</strong> 4.4 cm on the most recent echocardiogram, with the study date. State the measurement; state the policy threshold only once you have read it at Exhibit P.</li>
 <li><strong>LVEF:</strong> 45% on most recent echo, down from 58% two years prior. Cardiology assessment: "Decline in EF likely tachycardia-mediated. Ablation may allow recovery of ventricular function."</li>
-<li><strong>CHA₂DS₂-VASc:</strong> Score 3. On apixaban 5 mg BID.</li>
+<li><strong>CHA₂DS₂-VASc: 3</strong> — hypertension (1); age 68, i.e. 65–74 (1); vascular disease, prior PCI with stent (1). Scoring zero: congestive heart failure / LV dysfunction, diabetes mellitus, prior stroke / TIA / thromboembolism, female sex category. On apixaban 5 mg BID. Verify each component against Exhibit A before the call.</li>
 </ul>
 <div class="tp"><p><strong>Talking point:</strong> "The EF decline from 58% to 45% over two years suggests tachycardia-mediated cardiomyopathy — a recognized indication where ablation may be therapeutic, not merely palliative. Current guidelines support ablation in patients with heart failure and AFib. The LA size is within the eligible range."</p></div>
 </div>

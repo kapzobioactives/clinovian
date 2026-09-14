@@ -1,0 +1,345 @@
+{
+  "_comment": [
+    "Route and host map for clinovian.com. This site is served by GitHub Pages,",
+    "which supports NO server-side redirects and NO custom response headers.",
+    "scripts/build_publish.py consumes this file and materialises each redirect as a",
+    "static stub page (meta refresh + canonical + noindex), which is the only",
+    "redirect mechanism GitHub Pages can honour.",
+    "vercel.json was removed in 2026.09.14-r8: it configured a platform this site",
+    "does not run on, and every rule in it was inert."
+  ],
+  "canonical_origin": "https://clinovian.com",
+  "canonical_host": "clinovian.com",
+  "redirects": [
+    {
+      "from": "/services",
+      "to": "/services.html",
+      "permanent": true
+    },
+    {
+      "from": "/why-clinovian",
+      "to": "/why-clinovian.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-work",
+      "to": "/sample-work.html",
+      "permanent": true
+    },
+    {
+      "from": "/how-it-works",
+      "to": "/how-it-works.html",
+      "permanent": true
+    },
+    {
+      "from": "/case-suitability",
+      "to": "/case-suitability.html",
+      "permanent": true
+    },
+    {
+      "from": "/engagements",
+      "to": "/engagements.html",
+      "permanent": true
+    },
+    {
+      "from": "/ai-appeal-qa",
+      "to": "/ai-appeal-qa.html",
+      "permanent": true
+    },
+    {
+      "from": "/rcm-partners",
+      "to": "/rcm-partners.html",
+      "permanent": true
+    },
+    {
+      "from": "/nsa-idr",
+      "to": "/nsa-idr.html",
+      "permanent": true
+    },
+    {
+      "from": "/specialties",
+      "to": "/specialties.html",
+      "permanent": true
+    },
+    {
+      "from": "/security",
+      "to": "/security.html",
+      "permanent": true
+    },
+    {
+      "from": "/about",
+      "to": "/about.html",
+      "permanent": true
+    },
+    {
+      "from": "/contact",
+      "to": "/contact.html",
+      "permanent": true
+    },
+    {
+      "from": "/insights",
+      "to": "/insights.html",
+      "permanent": true
+    },
+    {
+      "from": "/privacy",
+      "to": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "from": "/terms",
+      "to": "/terms.html",
+      "permanent": true
+    },
+    {
+      "from": "/faq",
+      "to": "/faq.html",
+      "permanent": true
+    },
+    {
+      "from": "/sitemap",
+      "to": "/sitemap.html",
+      "permanent": true
+    },
+    {
+      "from": "/trust-center",
+      "to": "/trust-center.html",
+      "permanent": true
+    },
+    {
+      "from": "/accessibility",
+      "to": "/accessibility.html",
+      "permanent": true
+    },
+    {
+      "from": "/editorial-policy",
+      "to": "/editorial-policy.html",
+      "permanent": true
+    },
+    {
+      "from": "/approach",
+      "to": "/how-it-works.html",
+      "permanent": true
+    },
+    {
+      "from": "/clinical-denial-ar-audit",
+      "to": "/services.html",
+      "permanent": true
+    },
+    {
+      "from": "/security-fact-sheet",
+      "to": "/security.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-ar-audit",
+      "to": "/sample-ar-audit.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-appeal",
+      "to": "/sample-work.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-idr-dossier",
+      "to": "/sample-nsa-idr-dossier.html",
+      "permanent": true
+    },
+    {
+      "from": "/idr",
+      "to": "/nsa-idr.html",
+      "permanent": true
+    },
+    {
+      "from": "/rcm",
+      "to": "/rcm-partners.html",
+      "permanent": true
+    },
+    {
+      "from": "/why",
+      "to": "/why-clinovian.html",
+      "permanent": true
+    },
+    {
+      "from": "/founder",
+      "to": "/about.html",
+      "permanent": true
+    },
+    {
+      "from": "/samplework",
+      "to": "/sample-work.html",
+      "permanent": true
+    },
+    {
+      "from": "/audit",
+      "to": "/sample-work.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-escalation-memo",
+      "to": "/sample-escalation-memo.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-ai-appeal-qa",
+      "to": "/sample-ai-appeal-qa.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-drg-downgrade",
+      "to": "/sample-drg-downgrade.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-p2p-brief",
+      "to": "/sample-p2p-brief.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-observation-defense",
+      "to": "/sample-observation-defense.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-pre-denial-dossier",
+      "to": "/sample-pre-denial-dossier.html",
+      "permanent": true
+    },
+    {
+      "from": "/sample-nsa-idr-dossier",
+      "to": "/sample-nsa-idr-dossier.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-six-failure-modes",
+      "to": "/insight-six-failure-modes.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-post-acute-denials",
+      "to": "/insight-post-acute-denials.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-observation-vs-inpatient",
+      "to": "/insight-observation-vs-inpatient.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-drg-downgrades",
+      "to": "/insight-drg-downgrades.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-ai-appeal-errors",
+      "to": "/insight-ai-appeal-errors.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-two-midnight",
+      "to": "/insight-two-midnight.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-behavioral-health",
+      "to": "/insight-behavioral-health.html",
+      "permanent": true
+    },
+    {
+      "from": "/insight-idr-strategy",
+      "to": "/insight-idr-strategy.html",
+      "permanent": true
+    },
+    {
+      "from": "/for-hospitals",
+      "to": "/for-hospitals.html",
+      "permanent": true
+    },
+    {
+      "from": "/for-post-acute",
+      "to": "/for-post-acute.html",
+      "permanent": true
+    },
+    {
+      "from": "/for-ai-vendors",
+      "to": "/for-ai-vendors.html",
+      "permanent": true
+    },
+    {
+      "from": "/ar-audit",
+      "to": "/ar-audit.html",
+      "permanent": true
+    },
+    {
+      "from": "/concurrent-review",
+      "to": "/concurrent-review.html",
+      "permanent": true
+    },
+    {
+      "from": "/drg-downgrade",
+      "to": "/drg-downgrade.html",
+      "permanent": true
+    },
+    {
+      "from": "/escalation-memo",
+      "to": "/escalation-memo.html",
+      "permanent": true
+    },
+    {
+      "from": "/observation-defense",
+      "to": "/observation-defense.html",
+      "permanent": true
+    },
+    {
+      "from": "/p2p-brief",
+      "to": "/p2p-brief.html",
+      "permanent": true
+    },
+    {
+      "from": "/post-acute-denials",
+      "to": "/post-acute-denials.html",
+      "permanent": true
+    },
+    {
+      "from": "/pre-denial-dossier",
+      "to": "/pre-denial-dossier.html",
+      "permanent": true
+    },
+    {
+      "from": "/snf-denial-escalation",
+      "to": "/snf-denial-escalation.html",
+      "permanent": true
+    },
+    {
+      "from": "/irf-denial-escalation",
+      "to": "/irf-denial-escalation.html",
+      "permanent": true
+    },
+    {
+      "from": "/ltach-denial-escalation",
+      "to": "/ltach-denial-escalation.html",
+      "permanent": true
+    },
+    {
+      "from": "/home-health-denial-escalation",
+      "to": "/home-health-denial-escalation.html",
+      "permanent": true
+    },
+    {
+      "from": "/recurring-clinical-review-capacity",
+      "to": "/recurring-clinical-review-capacity.html",
+      "permanent": true
+    },
+    {
+      "from": "/clinovian_sample_appeal.html",
+      "to": "/sample-work.html",
+      "permanent": true
+    },
+    {
+      "from": "/clinovian_sample_dossier.html",
+      "to": "/sample-nsa-idr-dossier.html",
+      "permanent": true
+    }
+  ]
+}

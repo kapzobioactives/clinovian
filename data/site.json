@@ -1,6 +1,6 @@
 {
   "$comment": "Single source for shared page furniture and for every service label, price and turnaround shown on the site. Partials live in shared/. Run `python3 scripts/build_shared.py` to propagate changes, and `python3 scripts/build_shared.py --check` in CI to fail on drift. Never hand-edit a region between <!-- shared:* --> markers: the next build overwrites it. Service names, prices and turnarounds are mirrored from service-catalog.json, which is the published machine-readable source; build_shared.py --check fails if they diverge. Concurrent review and recurring capacity sit outside the catalog deliberately, as separate commercial structures, and are marked in_catalog:false.",
-  "version": "2026.09.13-r2",
+  "version": "2026.09.14-r12",
   "partials": {
     "nav": "shared/nav.html",
     "drawer": "shared/drawer.html",

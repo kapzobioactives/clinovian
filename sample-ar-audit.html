@@ -2,14 +2,16 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — No-PHI Clinical Denial AR Audit — Clinovian</title>
 <meta name="description" content="Fictional specimen: 72-hour physician triage of a 47-account denial inventory — category triage, client-supplied deadline flags, and pursuit order.">
-<meta property="og:title" content="Specimen — No-PHI Clinical Denial AR Audit — Clinovian"><meta property="og:description" content="Specimen AR audit: 72-hour physician triage of aged denial inventory. Category triage, client-supplied deadline flags, payer patterns, pursuit sequence."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
+<meta property="og:title" content="Specimen — No-PHI Clinical Denial AR Audit — Clinovian"><meta property="og:description" content="Specimen AR audit: 72-hour physician triage of aged denial inventory. Category triage, client-supplied deadline flags, payer patterns, pursuit sequence."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.14-r12">
 <meta property="og:url" content="https://clinovian.com/sample-ar-audit.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg?v=2026.09.14-r12" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2026.09.14-r12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -107,8 +109,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 }
 
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
-.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-@media print{.top-bar,.doc-pdf-link{display:none!important}}
+
+@media print{.top-bar{display:none!important}}
 .drg-compare.four{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1000px){.drg-compare.four{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.drg-compare.four{grid-template-columns:1fr 1fr}}
@@ -152,7 +154,6 @@ html,body{overflow-x:clip}
 <h1>Clinical Denial AR Audit Report</h1>
 <div class="doc-header-sub">72-hour physician triage of a 47-account aged denial inventory. Sorts accounts by the kind of work each denial rationale calls for. This deliverable does not assess case merits, verify deadlines, or forecast recovery.</div>
 </div>
-<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 <div class="specimen-banner">
 <strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. Proprietary criteria content has been generalized. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.</div>
 <div class="doc-control">
@@ -166,7 +167,7 @@ html,body{overflow-x:clip}
 <dt>Applicable framework</dt><dd>Not applicable — this deliverable does not reach case merits, coverage criteria or deadline validity.</dd>
 <dt>Source packet</dt><dd>Complete fictional 47-row inventory published in this specimen; all category totals reconcile to it.</dd>
 <dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
-<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+<dt>Format of record</dt><dd>This HTML page is the version of record. No separate document export is published.</dd>
 </dl>
 </div>
 <div class="doc-body">
@@ -174,13 +175,13 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Section 01</span>
 <div class="sec-title">Scope — and what this deliverable does not do</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
-<tr><td>Cases reviewed</td><td>47 de-identified denial summaries</td></tr>
-<tr><td>Date range</td><td>Denials aged 30–180+ days</td></tr>
-<tr><td>Total billed balance</td><td>$1,274,000 — the sum of the client-supplied billed balances in the file. Not an amount at stake, not an exposure figure, and not a recoverable amount.</td></tr>
-<tr><td>Inputs used</td><td>De-identified denial rationale, service line / setting, payer, client-supplied billed balance, and client-reported deadline. Nothing else.</td></tr>
-<tr><td>Turnaround</td><td>72 hours after an accepted validated file</td></tr>
-<tr><td>Out of scope</td><td>Case merits, strength of the underlying clinical record, whether a payer misapplied its criteria, whether an appeal would change an outcome, deadline validation, and any recovery or payment forecast.</td></tr>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table"><caption>Specimen snapshot: scope, inputs, turnaround and explicit exclusions</caption>
+<tr><th scope="row">Cases reviewed</th><td>47 de-identified denial summaries</td></tr>
+<tr><th scope="row">Date range</th><td>Denials aged 30–180+ days</td></tr>
+<tr><th scope="row">Total billed balance</th><td>$1,274,000 — the sum of the client-supplied billed balances in the file. Not an amount at stake, not an exposure figure, and not a recoverable amount.</td></tr>
+<tr><th scope="row">Inputs used</th><td>De-identified denial rationale, service line / setting, payer, client-supplied billed balance, and client-reported deadline. Nothing else.</td></tr>
+<tr><th scope="row">Turnaround</th><td>72 hours after an accepted validated file</td></tr>
+<tr><th scope="row">Out of scope</th><td>Case merits, strength of the underlying clinical record, whether a payer misapplied its criteria, whether an appeal would change an outcome, deadline validation, and any recovery or payment forecast.</td></tr>
 </table></div>
 <div class="cond-box" style="margin-top:20px"><span class="cond-label">Why the boundary is drawn here</span><p style="margin-bottom:0">Denial rationale, service line, payer, balance and a reported deadline are enough to decide <strong>what kind of work an account needs next</strong>. They are not enough to decide whether an appeal should succeed. That judgement needs the clinical record, the applicable plan policy and edition, the procedural history, the contract, and the account's collectability — none of which are in a no-PHI triage file. Every output below is a routing decision. None is a merits determination.</p></div>
 </div>
@@ -370,7 +371,7 @@ html,body{overflow-x:clip}
 </div>
 <div class="doc-footer">
 <div class="doc-footer-brand">Clinovian</div>
-<p>This specimen demonstrates the No-PHI Clinical Denial AR Audit — a 72-hour physician triage of aged denial inventory showing what is contestable, what is at deadline risk, and what to pursue first. No PHI required. Start by sending your de-identified denial inventory.</p>
+<p>This specimen demonstrates the No-PHI Clinical Denial AR Audit — a 72-hour physician triage of aged denial inventory. It sorts the inventory into categories, carries forward the deadline flags the client supplied, and identifies which accounts warrant clinical record review. It does not assess case merits, forecast recovery, or decide what to abandon — those require the records and remain with the client. No PHI required. Start by sending your de-identified denial inventory.</p>
 <p><a href="/engagements.html">Start a 3-case evaluation →</a> · <a href="/contact.html">Send a de-identified case →</a></p>
 <p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. © 2026 Clinovian · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
 </div>

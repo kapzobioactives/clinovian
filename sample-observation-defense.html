@@ -2,15 +2,17 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — Observation vs. Inpatient Defense — Clinovian</title>
 <meta name="description" content="Specimen observation-to-inpatient defense: retrospective status downgrade of a chest pain admission, with Two-Midnight Rule analysis.">
 <link rel="canonical" href="https://clinovian.com/sample-observation-defense.html">
-<meta property="og:title" content="Specimen — Observation vs. Inpatient Defense — Clinovian"><meta property="og:description" content="Specimen observation-to-inpatient defense: retrospective status downgrade of a chest pain admission, with Two-Midnight Rule analysis."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
+<meta property="og:title" content="Specimen — Observation vs. Inpatient Defense — Clinovian"><meta property="og:description" content="Specimen observation-to-inpatient defense: retrospective status downgrade of a chest pain admission, with Two-Midnight Rule analysis."><meta property="og:type" content="website"><meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.14-r12">
 <meta property="og:url" content="https://clinovian.com/sample-observation-defense.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg?v=2026.09.14-r12" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2026.09.14-r12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -108,8 +110,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 }
 
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
-.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-@media print{.top-bar,.doc-pdf-link{display:none!important}}
+
+@media print{.top-bar{display:none!important}}
 /* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
 .doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
 .doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
@@ -149,7 +151,6 @@ html,body{overflow-x:clip}
 <h1>Level-of-Care Defense Memo</h1>
 <div class="doc-header-sub">Retrospective observation status downgrade — chest pain admission with troponin elevation and hemodynamic monitoring. Two-Midnight Rule prospective analysis.</div>
 </div>
-<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 <div class="specimen-banner">
 <strong>Specimen only.</strong> Fictional case. No PHI. No real patient, provider, or payer. This memo demonstrates Clinovian's clinical escalation format for denial teams. It is not legal advice, not a treating-physician opinion, and not a binding U.S. medical determination. Proprietary criteria content has been generalized; actual deliverables reference the applicable licensed criteria framework as documented in the case record. Clinical escalation methodology led by an MBBS physician with payer-side utilization-management review experience; clinical reasoning support only, not a licensed clinical opinion.</div>
 <div class="doc-control">
@@ -163,7 +164,7 @@ html,body{overflow-x:clip}
 <dt>Applicable framework</dt><dd>Commercial PPO level-of-care policy; Medicare Two-Midnight material is cited only where the fictional plan incorporates it.</dd>
 <dt>Source packet</dt><dd>Complete fictional source packet with an explicit timestamped chronology.</dd>
 <dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
-<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+<dt>Format of record</dt><dd>This HTML page is the version of record. No separate document export is published.</dd>
 </dl>
 </div>
 <div class="doc-body">
@@ -171,13 +172,13 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Section 01</span>
 <div class="sec-title">Case Snapshot</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table">
-<tr><td>Denied service</td><td>Inpatient admission — retrospectively downgraded to observation status</td></tr>
-<tr><td>Plan type</td><td>Commercial PPO</td></tr>
-<tr><td>Admission</td><td>Approximately 42 hours from ED arrival to discharge, crossing two midnights, for chest pain with troponin elevation and ACS rule-out. See the chronology for the timestamps this depends on.</td></tr>
-<tr><td>Denial basis</td><td>"Retrospective review indicates observation status was appropriate. Two-midnight benchmark not met. Clinical presentation did not require inpatient-level care."</td></tr>
-<tr><td>Current level</td><td>Post-discharge retrospective appeal (Level 1)</td></tr>
-<tr><td>Clinovian verdict</td><td>Strong Appealability</td></tr>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 3"><table class="snapshot-table"><caption>Specimen snapshot: scope, inputs and turnaround for this observation defence</caption>
+<tr><th scope="row">Denied service</th><td>Inpatient admission — retrospectively downgraded to observation status</td></tr>
+<tr><th scope="row">Plan type</th><td>Commercial PPO</td></tr>
+<tr><th scope="row">Admission</th><td>Approximately 42 hours from ED arrival to discharge, crossing two midnights, for chest pain with troponin elevation and ACS rule-out. See the chronology for the timestamps this depends on.</td></tr>
+<tr><th scope="row">Denial basis</th><td>"Retrospective review indicates observation status was appropriate. Two-midnight benchmark not met. Clinical presentation did not require inpatient-level care."</td></tr>
+<tr><th scope="row">Current level</th><td>Post-discharge retrospective appeal (Level 1)</td></tr>
+<tr><th scope="row">Clinovian verdict</th><td>Strong Appealability</td></tr>
 </table></div>
 </div>
 
@@ -200,7 +201,7 @@ html,body{overflow-x:clip}
 </table></div>
 <div class="cond-box"><span class="cond-label">What the chronology shows</span>
 <p style="margin-bottom:10px">Elapsed time from ED arrival to discharge is approximately <strong>42 hours</strong>, and the stay crosses <strong>two midnights</strong> (the night of 9–10 June and the night of 10–11 June). Measured instead from the inpatient admission order at 11:52 on 9 June, the stay crosses the same two midnights across roughly 38 hours.</p>
-<p style="margin-bottom:0"><strong>Which period counts is a policy question, not an arithmetic one.</strong> Medicare's benchmark permits time spent receiving hospital care before the inpatient order to be counted toward the expectation. Whether the plan at Exhibit G does the same must be read from its own text. The previous version of this memo described the stay as "one midnight" without publishing any timestamps, which was both unsupported and, on this chronology, wrong.</p></div>
+<p style="margin-bottom:0"><strong>Which period counts is a policy question, not an arithmetic one.</strong> Medicare's benchmark permits time spent receiving hospital care before the inpatient order to be counted toward the expectation. Whether the plan at Exhibit G does the same must be read from its own text. Any midnight count asserted in an appeal should be traceable to published timestamps, as it is at Section 03 here; a bare count a reviewer cannot check is not usable.</p></div>
 </div>
 
 <div class="doc-section">
@@ -236,16 +237,16 @@ html,body{overflow-x:clip}
 <p><strong>Hemodynamic monitoring requirement:</strong> Blood pressure labile in ED: 168/94 → 92/58 after initial nitroglycerin administration. Cardiology consulted in ED. Continuous telemetry monitoring initiated due to dynamic ECG changes and hemodynamic lability. IV heparin drip initiated per ACS protocol.</p>
 <p><strong>Serial troponin trend:</strong> Second troponin at 6 hours: 0.06 ng/mL (trending down). Third troponin at 12 hours: 0.04 ng/mL (normalizing). This downward trend ultimately argued against acute MI but was not available to the admitting physician at the time the admission decision was made.</p>
 <p><strong>Stress testing and catheterization decision:</strong> Pharmacologic stress test performed Day 2 — showed no inducible ischemia. Cardiology determined catheterization not indicated based on stress results. This is the information that supported discharge — and it was available only after the inpatient workup the payer now claims was unnecessary.</p>
-<p><strong>Comorbidities affecting risk stratification (Exhibit A):</strong> prior LAD stent, type 2 diabetes mellitus, hypertension, hyperlipidaemia, chronic kidney disease stage IIIA (eGFR 48 — relevant to contrast exposure if catheterisation were required).</p><p><strong>HEART score at presentation — components shown, not just the total.</strong> History moderately suspicious (1); ECG with significant ST depression (2); Age 68, i.e. 65 or over (2); Risk factors — three or more, plus known atherosclerotic disease (2); initial Troponin above the reference limit but below three times it (1). <strong>Total 8.</strong> Scores of 7 or above fall in the high-risk band in the original derivation. The previous version of this memo stated a total of 7 with no components; a reviewer cannot check a bare total, and a total that does not reconcile to its components damages the whole submission. Verify each component against Exhibits A and B before filing.</p>
+<p><strong>Comorbidities affecting risk stratification (Exhibit A):</strong> prior LAD stent, type 2 diabetes mellitus, hypertension, hyperlipidaemia, chronic kidney disease stage IIIA (eGFR 48 — relevant to contrast exposure if catheterisation were required).</p><p><strong>HEART score at presentation — components shown, not just the total.</strong> History moderately suspicious (1); ECG with significant ST depression (2); Age 68, i.e. 65 or over (2); Risk factors — three or more, plus known atherosclerotic disease (2); initial Troponin above the reference limit but below three times it (1). <strong>Total 8.</strong> Scores of 7 or above fall in the high-risk band in the original derivation. Verify each component against Exhibits A and B before filing.</p>
 </div>
 
 <div class="doc-section">
 <span class="sec-label">Section 05</span>
 <div class="sec-title">Criteria-Style Reasoning — Two-Midnight Rule Analysis</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 3"><table class="evidence-table"><caption>Two-Midnight elements mapped to record evidence and appeal use</caption>
 <tr><th>Two-Midnight Element</th><th>Record Evidence</th><th>Appeal Use</th></tr>
 <tr><td>Physician expectation at admission</td><td>Admitting physician order documents: "Admit inpatient for serial troponins, continuous telemetry, and cardiology evaluation. Anticipate stress test and possible catheterization — expected stay 2+ days."</td><td>The physician's documented expectation at admission — not the retrospective outcome — is the Two-Midnight standard. The expectation of 2+ days was clinically reasonable given the presentation.</td></tr>
-<tr><td>Clinical basis for expectation</td><td>Troponin elevation, dynamic ECG changes, hemodynamic lability, known CAD with prior stent, HEART score 7 (high-risk), planned serial monitoring + stress testing + potential catheterization</td><td>Together these support the reasonableness of the expectation recorded at Exhibit C. Note the limits: telemetry, heparin, serial troponins and planned stress testing describe the resources anticipated — listing them does not by itself establish a status. The argument needs the patient's severity at presentation, the foreseeable risk, the anticipated duration, and why the alternative setting was insufficient <em>under the policy at Exhibit G</em>. Avoid words like "unambiguous": a reviewer who disagrees has been told the question was not arguable, which is rarely persuasive and is not true here.</td></tr>
+<tr><td>Clinical basis for expectation</td><td>Troponin elevation, dynamic ECG changes, hemodynamic lability, known CAD with prior stent, HEART score 8 (high-risk — components at Section 04), planned serial monitoring + stress testing + potential catheterization</td><td>Together these support the reasonableness of the expectation recorded at Exhibit C. Note the limits: telemetry, heparin, serial troponins and planned stress testing describe the resources anticipated — listing them does not by itself establish a status. The argument needs the patient's severity at presentation, the foreseeable risk, the anticipated duration, and why the alternative setting was insufficient <em>under the policy at Exhibit G</em>.</td></tr>
 <tr><td>Intervening factor explaining shorter stay</td><td>Troponin trended down faster than anticipated. Stress test was negative. Catheterization not needed. Patient stabilized and was safely dischargeable at 42 hours.</td><td>A favourable outcome does not establish that the admission decision was wrong when it was made. State it that way. Do not argue the converse — that the outcome proves the inpatient care was what produced it — which the record cannot support.</td></tr>
 </table></div>
 </div>
@@ -287,14 +288,14 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Section 09</span>
 <div class="sec-title">Risk-of-Failure Assessment</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 3 of 3"><table class="evidence-table"><caption>Factors bearing on the admission decision, with assessment</caption>
 <tr><th>Factor</th><th>Assessment</th></tr>
 <tr><td>Applicable-standard risk</td><td><strong>Unresolved.</strong> This is a commercial plan. Medicare's Two-Midnight benchmark, its short-stay case-by-case exception, and the fee-for-service review presumption are three distinct things, and the FFS presumption does not transfer to a commercial or Medicare Advantage plan. Establish from Exhibit G whether and how the plan incorporates any of it. If it does not, rebuild the argument on the plan's own level-of-care standard before filing.</td></tr>
 <tr><td>Clinical evidence strength</td><td>Strong. Troponin elevation, dynamic ECG changes, hemodynamic lability, and risk-score documentation are objective and well-documented.</td></tr>
 <tr><td>Documentation quality</td><td>Moderate. Admission order could be more explicit about two-midnight expectation. Physician attestation supplement recommended.</td></tr>
 <tr><td>Payer precedent</td><td>Moderate risk. Retrospective observation downgrades on chest pain admissions are a systematic payer strategy. Reviewers are experienced at this category. The appeal must be precise, not general.</td></tr>
 </table></div>
-<p><strong>Overall: Strong case.</strong> With the documentation supplement, this case should prevail at Level 1 or Level 2 appeal. Without it, the case is still moderate-to-strong but relies on the reviewer reading across multiple chart sections to assemble the two-midnight argument.</p>
+<p><strong>Overall: conditional.</strong> On the timestamps at Exhibits A and F the stay crossed two midnights, and the admitting physician's documented expectation at Exhibit C is supported by the presentation. Those two facts, if they survive verification against the plan policy at Exhibit G, are what this memo rests on. The open questions at Section 08 must be resolved before submission. This memo does not predict the outcome of an appeal, and the strength of the record is a separate question from how a given reviewer will decide.</p>
 </div>
 
 <div class="doc-section">
@@ -349,7 +350,7 @@ html,body{overflow-x:clip}
 </div>
 <div class="doc-footer">
 <div class="doc-footer-brand">Clinovian</div>
-<p>This specimen demonstrates the Observation vs. Inpatient Defense Memo — the physician-level Two-Midnight Rule analysis that answers the payer's retrospective reclassification with prospective clinical-judgment evidence. Observation downgrades are one of the most common and most consistently under-argued denial categories.</p>
+<p>This specimen demonstrates the Observation vs. Inpatient Defense Memo — the physician-level Two-Midnight Rule analysis that answers the payer's retrospective reclassification with prospective clinical-judgment evidence. Observation downgrades are a common denial category, and one this reviewer has repeatedly seen under-argued.</p>
 <p><a href="/engagements.html">Start a 3-case evaluation →</a> · <a href="/contact.html">Send a de-identified case →</a></p>
 <p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.75)">Clinical consulting only. Not a law firm. © 2026 Clinovian · <a href="/privacy.html" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms.html" style="color:inherit;text-decoration:underline">Terms</a></p>
 </div>

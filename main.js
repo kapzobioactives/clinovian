@@ -8,11 +8,21 @@
   document.body.classList.add('page-' + slug);
 
   /* ------------------------------------------------------------------ *
-   * F21 — privacy-conscious conversion instrumentation.
-   * Emits a DOM CustomEvent and appends to a bounded in-page buffer.
-   * Never carries free text, clinical narrative, identifiers or field
-   * values: the payload is limited to an event name and a small set of
-   * enumerated, non-clinical properties defined in ANALYTICS.md.
+   * F21 — session-local diagnostics. NOT analytics.
+   *
+   * This writes to a bounded in-page array and dispatches a DOM event.
+   * Nothing collects it, nothing transmits it, and it is discarded when
+   * the tab closes. It exists so a developer can watch the inquiry flow
+   * in the console and so the acceptance tests can assert on behaviour.
+   *
+   * Calling it "instrumentation" previously implied measurement that did
+   * not exist. Conversion is measured from submitted inquiries and the
+   * delivery record instead — see ANALYTICS.md. If a real analytics tool
+   * is ever added, privacy.html must be updated BEFORE it is enabled.
+   *
+   * The payload never carries free text, clinical narrative, identifiers
+   * or field values: only an event name and enumerated, non-clinical
+   * properties from SAFE_KEYS.
    * ------------------------------------------------------------------ */
   const EVENT_BUFFER_MAX = 50;
   window.clinovianEvents = window.clinovianEvents || [];
@@ -217,6 +227,7 @@
     const formShell = document.getElementById('intake-form-shell');
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalLabel = submitBtn ? submitBtn.textContent : '';
+    let submitting = false;            // F03: re-entrancy guard for the submit handler
     const summary = form.querySelector('[name="case_summary"]');
     const reason = form.querySelector('[name="escalation_reason"]');
     const serviceSelect = form.querySelector('[name="service_interested_in"]');
@@ -319,6 +330,32 @@
       if (hidSetting) hidSetting.value = clean(setting);
       if (hidSpecialty) hidSpecialty.value = clean(specialty);
       if (hidServiceId) hidServiceId.value = clean(matched);
+
+      /* F21 — inquiry attribution without a tracker.
+         Two extra fields ride along with a submission the person is deliberately
+         making: which of our own pages they came from, and a campaign tag if one
+         was in the URL. No cookie is set, no third party is contacted, and nothing
+         is recorded for a visitor who never submits. A cross-site referrer is
+         reduced to its hostname and an unknown one is discarded entirely, so we
+         never capture a path on someone else's site. */
+      const hidEntry = form.querySelector('[name="entry_page"]');
+      const hidSource = form.querySelector('[name="inquiry_source"]');
+      if (hidEntry) {
+        let entry = '';
+        try {
+          if (document.referrer) {
+            const r = new URL(document.referrer);
+            if (r.origin === window.location.origin) entry = r.pathname;
+          }
+        } catch (e) { /* malformed referrer: record nothing */ }
+        hidEntry.value = entry.replace(/[^a-z0-9._/-]/gi, '').slice(0, 64);
+      }
+      if (hidSource) {
+        const camp = qs.get('utm_campaign') || qs.get('utm_source') || '';
+        hidSource.value = camp
+          ? camp.replace(/[^a-z0-9_-]/gi, '').slice(0, 48)
+          : (hidEntry && hidEntry.value ? 'site' : 'direct');
+      }
 
       if (requested && !matched) {
         track('intake_route_miss', { service_id: requested, source: 'query' });
@@ -467,6 +504,11 @@
         return;
       }
 
+      /* A disabled submit button stops a second click, but Enter pressed in a text
+         field submits the form without touching the button. Guard the handler itself
+         so an in-flight request can never be duplicated. */
+      if (submitting) return;
+      submitting = true;
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending…';
@@ -486,6 +528,7 @@
             const msg = data && data.errors && data.errors.length ? data.errors.map(er => er.message).join(', ') : 'Please try again, or email contact@clinovian.com directly.';
             showStatus('error', msg);
             track('intake_server_error', { outcome: String(res.status) });
+            submitting = false;
             if (submitBtn) {
               submitBtn.disabled = false;
               submitBtn.textContent = originalLabel;
@@ -495,6 +538,7 @@
         .catch(() => {
           showStatus('error', 'Please email contact@clinovian.com with your organisation, the workflow you are asking about, and a de-identified description. Do not include patient names, dates of birth, record or claim numbers, or any other identifier in that email.');
           track('intake_network_error');
+          submitting = false;
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = originalLabel;

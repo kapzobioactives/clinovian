@@ -2,12 +2,14 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; frame-src 'self' https://calendly.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specimen — AI Appeal Clinical QA — Clinovian</title>
 <meta name="description" content="Specimen AI Appeal Clinical QA: before/after physician review of an AI-drafted appeal. What clinical QA catches before submission.">
 <link rel="canonical" href="https://clinovian.com/sample-ai-appeal-qa.html">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg?v=2026.09.14-r12" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2026.09.14-r12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;family=Outfit:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -123,8 +125,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);-webk
 .legend{flex-direction:column}
 }
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}.table-wrap:focus-visible{outline:2px solid #183F2D;outline-offset:2px}.table-wrap table{min-width:640px}
-.doc-pdf-link{max-width:1200px;margin:16px auto 0;padding:0 24px;text-align:right;font-size:14px}.doc-pdf-link a{color:#183F2D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-@media print{.top-bar,.doc-pdf-link{display:none!important}}
+
+@media print{.top-bar{display:none!important}}
 /* Document control, exhibit traceability and conditional-conclusion styling — release 2026-09-13 */
 .doc-control{background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:22px 40px}
 .doc-control h2{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:600;margin:0 0 12px}
@@ -154,7 +156,7 @@ html,body{overflow-x:clip}
 <meta property="og:description" content="Before/after physician QA of an AI-drafted appeal. Catches hallucinated claims, weak logic, overstatement before the payer sees it.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://clinovian.com/sample-ai-appeal-qa.html">
-<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.13-r2">
+<meta property="og:image" content="https://clinovian.com/og-clinovian.png?v=2026.09.14-r12">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clinovian.com/"}, {"@type": "ListItem", "position": 2, "name": "Sample Work", "item": "https://clinovian.com/sample-work.html"}, {"@type": "ListItem", "position": 3, "name": "Specimen", "item": "https://clinovian.com/sample-ai-appeal-qa.html"}]}</script>
 </head>
@@ -173,7 +175,6 @@ html,body{overflow-x:clip}
 <h1>Before / After: Physician QA of an AI-Drafted Appeal</h1>
 <div class="doc-header-sub">What clinical review catches in an AI-generated medical-necessity appeal before the payer sees it.</div>
 </div>
-<p class="doc-pdf-link"><span style="color:#4A4538;font-weight:500">PDF edition withdrawn pending re-typesetting. This HTML page is the current version of record.</span></p>
 
 <div style="background:var(--bg2);border:1px solid var(--rule);border-top:none;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
 <a href="/sample-work.html" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none">← All Specimens</a>
@@ -197,7 +198,7 @@ html,body{overflow-x:clip}
 <dt>Applicable framework</dt><dd>Named fictional commercial plan sepsis/inpatient policy plus the sepsis definition framework identified in the body.</dd>
 <dt>Source packet</dt><dd>Complete fictional record bundle (Exhibits R1–R9) published with this specimen; every QA finding cites an exhibit.</dd>
 <dt>Conclusion type</dt><dd>Conditional. Every conclusion below states the facts it depends on and the questions that remain open. Nothing in this specimen is a prediction of payment or of appeal outcome.</dd>
-<dt>Matching HTML / PDF</dt><dd>This HTML page and its PDF export carry the same specimen version. If they differ, the HTML page governs.</dd>
+<dt>Format of record</dt><dd>This HTML page is the version of record. No separate document export is published.</dd>
 </dl>
 </div>
 <div class="doc-body">
@@ -206,12 +207,12 @@ html,body{overflow-x:clip}
 <div class="doc-section">
 <span class="sec-label">Case Context</span>
 <div class="sec-title">Case Snapshot</div>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 2"><table class="snapshot-table">
-<tr><td>Denied service</td><td>Inpatient admission — sepsis secondary to urinary tract infection</td></tr>
-<tr><td>Plan type</td><td>Commercial PPO</td></tr>
-<tr><td>Denial basis</td><td>"Patient could have been managed at observation level. Does not meet inpatient criteria."</td></tr>
-<tr><td>AI tool used</td><td>AI appeal-letter generator (client's existing tool)</td></tr>
-<tr><td>QA request</td><td>Review AI-drafted appeal for clinical accuracy before submission</td></tr>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 1 of 2"><table class="snapshot-table"><caption>Specimen snapshot: scope, inputs and turnaround for this QA review</caption>
+<tr><th scope="row">Denied service</th><td>Inpatient admission — sepsis secondary to urinary tract infection</td></tr>
+<tr><th scope="row">Plan type</th><td>Commercial PPO</td></tr>
+<tr><th scope="row">Denial basis</th><td>"Patient could have been managed at observation level. Does not meet inpatient criteria."</td></tr>
+<tr><th scope="row">AI tool used</th><td>AI appeal-letter generator (client's existing tool)</td></tr>
+<tr><th scope="row">QA request</th><td>Review AI-drafted appeal for clinical accuracy before submission</td></tr>
 </table></div>
 </div>
 
@@ -324,7 +325,7 @@ html,body{overflow-x:clip}
 <div class="verdict-explain">The AI-drafted appeal contains three hallucinated clinical claims (fabricated lab value, fabricated culture timing, fabricated vasopressor use), one irrelevant regulatory citation, one unsupported criteria assertion, incomplete comorbidity context, and multiple instances of generic language. Submitting this draft would likely result in denial upheld and would damage the credibility of future appeals for this case.</div>
 </div>
 
-<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="qa-table">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table (scrolls horizontally on small screens) — 2 of 2"><table class="qa-table"><caption>Findings by category, count and severity</caption>
 <thead><tr><th>Finding Category</th><th>Count</th><th>Severity</th></tr></thead>
 <tbody>
 <tr><td>🔴 Hallucinated clinical claims</td><td>3</td><td><strong style="color:var(--red)">Critical — must fix</strong></td></tr>

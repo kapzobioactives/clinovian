@@ -3,6 +3,11 @@
   "private": true,
   "scripts": {
     "validate": "python3 scripts/validate_site.py",
-    "sitemap": "python3 scripts/generate_sitemap.py"
+    "sitemap": "python3 scripts/generate_sitemap.py",
+    "test": "node scripts/acceptance/inquiry-flow.js",
+    "build": "python3 scripts/build_publish.py _site"
+  },
+  "devDependencies": {
+    "jsdom": "30.0.1"
   }
 }
